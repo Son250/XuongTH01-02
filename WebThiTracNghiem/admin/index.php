@@ -1,5 +1,6 @@
 <?php
 include "../model/pdo.php";
+include "../model/chuyende.php";
 include "header.php";
 include "menu.php";
 ?>
@@ -18,13 +19,30 @@ include "menu.php";
                 include "trangchu/trangchu.php";
                 break;
             case 'dscd':
+                $listchuyende= loadall_chuyende();
 
                 include "chuyende/list-chuyende.php";
                 break;
             case 'add-chuyende':
-
+                if(isset($_POST['themcd'])&&($_POST['themcd'])){
+                    $tencd=$_POST['tencd'];
+                    insert_chuyende($tencd);
+                    $thongbao='<script>
+                    var thongbao = new Object();
+                    thongbao.name = "bạn đã thêm chuyên đề thành công";
+                   
+                    thongbao.intro = function() {
+                        alert("bạn đã thêm chuyên đề thành công ");
+            
+            
+                    }
+                  
+                    thongbao.intro();
+                </script>';
+                }
                 include "chuyende/add-chuyende.php";
                 break;
+
 
             case 'dstk':
 
