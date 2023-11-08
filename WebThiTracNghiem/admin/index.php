@@ -53,8 +53,15 @@ include "menu.php";
                 include "taikhoan/list-taikhoan.php";
                 break;
             case 'addtk':
-
-                include "taikhoan/add-taikhoan.php";
+                if(isset($_POST['themmoi'])&&($_POST['themmoi'])){
+                    $tentk=$_POST['user'];
+                    $pass=$_POST['password'];
+                    $address=$_POST['address'];
+                    $email=$_POST['email'];   
+                    header("Location:index.php?act=dstk");
+                }
+                $listtaikhoan = insert_taikhoan($user,$password, $email, $address);
+                include "sanpham/add.php";
                 break;
             case 'edittk':
 
