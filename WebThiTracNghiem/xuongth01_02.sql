@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 01, 2023 lúc 09:52 AM
+-- Thời gian đã tạo: Th10 08, 2023 lúc 03:45 PM
 -- Phiên bản máy phục vụ: 10.4.24-MariaDB
 -- Phiên bản PHP: 8.1.6
 
@@ -57,7 +57,9 @@ CREATE TABLE `chuyende` (
 --
 
 INSERT INTO `chuyende` (`id`, `name`) VALUES
-(1, 'Chuyên đề thi kì 2 Toán lớp 3');
+(1, 'Chuyên đề thi kì 2 Toán lớp 3'),
+(2, 'Chuyên đề lập trình web với PHP1'),
+(3, 'sss');
 
 -- --------------------------------------------------------
 
@@ -171,8 +173,9 @@ CREATE TABLE `taikhoan` (
 --
 
 INSERT INTO `taikhoan` (`id`, `username`, `password`, `fullname`, `image`, `email`, `address`, `role`) VALUES
-(1, 'Admin', 'e10adc3949ba59abbe56e057f20f883e', 'Nguyễn Viết Sơn', NULL, 'admin@gmail.com', 'HN', '1'),
-(2, 'hoangnv', '202cb962ac59075b964b07152d234b70', 'Ngô Văn Hoàng', NULL, NULL, 'HN', '2');
+(1, 'admin', 'admin123', 'Nguyễn Viết Sơn', NULL, 'admin@gmail.com', 'HN', '1'),
+(2, 'hoangnv', '123', 'Ngô Văn Hoàng', NULL, NULL, 'HN', '2'),
+(3, 'vietson', '123', 'Nguyễn Viết Sơn 2', NULL, NULL, NULL, '2');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -238,7 +241,7 @@ ALTER TABLE `cauhoi`
 -- AUTO_INCREMENT cho bảng `chuyende`
 --
 ALTER TABLE `chuyende`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `dapan`
@@ -268,7 +271,7 @@ ALTER TABLE `lichthi`
 -- AUTO_INCREMENT cho bảng `taikhoan`
 --
 ALTER TABLE `taikhoan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
