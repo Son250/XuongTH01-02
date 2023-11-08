@@ -16,12 +16,32 @@
                             <td>User</td>
                             <td>Adress</td>
                             <td>Email</td>
-                            <td>Phone Number</td>
+                            <td>ROLE</td>
+
+                          
                             <td>Chức Năng</td>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
+                   
+                   <tbody>
+                    <?php
+                    foreach($listtaikhoan as $key=>$taikhoan){
+                        extract($taikhoan);
+                        echo ' <tr>
+                        <td>'.$key +1 .'</td>
+                       
+                        <td>'.$username.'</td>
+                        <td>'.$address.'</td>
+                        <td>'.$email.'</td>
+                        <td>'.$role.'</td>
+                        <td>
+                            <a href="?act=edittk&id=2">Sửa</a>
+                            <a href="">Xóa</a>
+                        </td>
+                    </tr>';
+                    }
+                     ?>
+                       <!--   <tr>
                             <td>1</td>
                             <td>Ngô Văn Hoàng</td>
                             <td>An thuận 1</td>
@@ -43,7 +63,7 @@
                                 <a href="">Xóa</a>
                             </td>
                         </tr>
-                     
+                      -->
                      
                     </tbody>
                 </table>
