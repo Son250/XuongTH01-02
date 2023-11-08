@@ -1,4 +1,3 @@
-
 <body>
 
     <div class="container">
@@ -15,44 +14,20 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
+                <?php 
+                foreach($listchuyende as $chuyende){
+                    extract($chuyende);
+                    echo' <tr>
                     <td> <input type="checkbox" name="" id=""></td>
-                    <td>001</td>
-                    <td>TOÁN</td>
+                    <td>'.$id.'</td>
+                    <td>'.$name.'</td>
                     <td><input type="button" value="sửa"> <input type="button" value="xóa"></td>
-                </tr>
-                <tr class="success">
-
-                    <td> <input type="checkbox" name="" id=""></td>
-                    <td>002</td>
-                    <td>LÍ </td>
-                    <td><input type="button" value="sửa"> <input type="button" value="xóa"></td>
-                </tr>
-                <tr class="danger">
-
-                    <td> <input type="checkbox" name="" id=""></td>
-                    <td>003</td>
-                    <td>HÓA </td>
-                    <td><input type="button" value="sửa"> <input type="button" value="xóa"></td>
-                </tr>
-                <tr class="info">
-                    <td> <input type="checkbox" name="" id=""></td>
-                    <td>004</td>
-                    <td>TIẾNG ANH</td>
-                    <td><input type="button" value="sửa"> <input type="button" value="xóa"></td>
-                </tr>
-                <tr class="warning">
-                    <td> <input type="checkbox" name="" id=""></td>
-                    <td>005</td>
-                    <td>NGỮ VĂN</td>
-                    <td><input type="button" value="sửa"> <input type="button" value="xóa"></td>
-                </tr>
-                <tr class="active">
-                    <td> <input type="checkbox" name="" id=""></td>
-                    <td>006</td>
-                    <td>LỊCH SỬ</td>
-                    <td><input type="button" value="sửa"> <input type="button" value="xóa"></td>
-                </tr>
+                </tr>';
+                }
+                 ?>
+               
+               
+                
             </tbody>
         </table>
         <div class="row mb10">
