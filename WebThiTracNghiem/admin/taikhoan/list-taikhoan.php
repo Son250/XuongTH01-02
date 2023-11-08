@@ -28,7 +28,7 @@
                             <td>ngovanhoang10@gmail.com</td>
                             <td>0369232838</td>
                             <td>
-                                <a href="?act=edittk">Sửa</a>
+                                <a href="?act=edittk&id=2">Sửa</a>
                                 <a href="">Xóa</a>
                             </td>
                         </tr>
@@ -39,7 +39,7 @@
                             <td>ngovanhoang10@gmail.com</td>
                             <td>0369232838</td>
                             <td>
-                                <a href="?act=edittk">Sửa</a>
+                                <a href="?act=edittk&id=3">Sửa</a>
                                 <a href="">Xóa</a>
                             </td>
                         </tr>
