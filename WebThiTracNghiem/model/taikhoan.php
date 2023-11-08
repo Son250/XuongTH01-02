@@ -22,3 +22,8 @@ function check_email($email) {
     $result = pdo_query_one($sql);
     return $result;
 }
+function loadall_taikhoan(){
+    $sql="select * from taikhoan ";
+    $listtaikhoan=pdo_query($sql);
+    return $listtaikhoan;
+}

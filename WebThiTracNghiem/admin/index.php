@@ -4,9 +4,11 @@ include "../model/pdo.php";
 include "../model/chuyende.php";
 include "header.php";
 include "menu.php";
+include "../model/taikhoan.php";
+
 ?>
 
-
+<!--  -->
 <div>
     <?php
 
@@ -23,15 +25,15 @@ include "menu.php";
                 include "trangchu/trangchu.php";
                 break;
             case 'dscd':
-                $listchuyende= loadall_chuyende();
+                $listchuyende = loadall_chuyende();
 
                 include "chuyende/list-chuyende.php";
                 break;
             case 'add-chuyende':
-                if(isset($_POST['themcd'])&&($_POST['themcd'])){
-                    $tencd=$_POST['tencd'];
+                if (isset($_POST['themcd']) && ($_POST['themcd'])) {
+                    $tencd = $_POST['tencd'];
                     insert_chuyende($tencd);
-                    $thongbao='<script>
+                    $thongbao = '<script>
                     var thongbao = new Object();
                     thongbao.name = "bạn đã thêm chuyên đề thành công";
                    
@@ -49,6 +51,7 @@ include "menu.php";
 
 
             case 'dstk':
+                $listtaikhoan = loadall_taikhoan();
 
                 include "taikhoan/list-taikhoan.php";
                 break;
