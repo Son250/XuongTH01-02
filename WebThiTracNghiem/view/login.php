@@ -1,5 +1,5 @@
 <!-- Outer Row -->
-<div class="col-xl-10 col-lg-12 col-md-9 justify-content-center">
+<div class="col-xl-10 col-lg-12 col-md-9 justify-content-center" >
 
     <div class="card o-hidden border-0 shadow-lg my-5">
         <div class="card-body p-0">
@@ -31,10 +31,8 @@
                                     <label class="custom-control-label" for="customCheck">Ghi nhớ tài khoản</label>
                                 </div>
                             </div>
-                            <!-- <a href="" class="btn btn-primary btn-user btn-block">
-                                    Đăng nhập
-                                </a> -->
-                            <button  name="btnSubmit" type="submit" class="btn btn-primary btn-user btn-block">
+
+                            <button name="btnSubmit" type="submit" class="btn btn-primary btn-user btn-block">
                                 Đăng nhập
                             </button>
                             <hr>

@@ -439,3 +439,7 @@ a.register-btn {
     margin-top: 45px;
     padding-top: 17px;
 }
+
+.col-xl-10.col-lg-12.col-md-9.justify-content-center {
+    padding-left: 220px;
+}

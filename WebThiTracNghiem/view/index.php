@@ -4,6 +4,7 @@ include "../model/pdo.php";
 include "../model/taikhoan.php";
 include "_header.php";
 include "_menu.php";
+include "_banner.php"
 
 ?>
 
@@ -17,8 +18,7 @@ include "_menu.php";
 
         switch ($act) {
             case 'trangchu':
-
-                include "_banner.php";
+               
                 include "home.php";
                 break;
 
@@ -30,7 +30,9 @@ include "_menu.php";
                                 //Tạo ra biến Session để lưu kết quả vừa tìm đc
                                 $_SESSION['user'] = $check_user;
 
-                                header("location:?act=trangchu");
+                                header("Location:?act=trangchu");
+                              
+
                             } else {
                                 $thongbao = "Tài khoản không tồn tại. Vui lòng kiểm tra hoặc đăng ký";
                             }
@@ -53,16 +55,16 @@ include "_menu.php";
                 break;
             case 'admin':
 
-                header("location:../admin/index.php");
+                header("Location:../admin/index.php");
                 break;
 
             default:
-                include "_banner.php";
+              
                 include "home.php";
                 break;
         }
     } else {
-        include "_banner.php";
+   
         include "home.php";
     }
     ?>

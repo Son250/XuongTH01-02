@@ -42,6 +42,17 @@
         + Xem kết quả
 
 
+3.Chia công việc ngày 1/11/2023
+         + Quản lý chuyên đề (môn học)
+            -Hiển thị, Thêm : Thắm
+            -Sửa, xóa : Hoàng
+        + Quản lý câu hỏi (có cả image)
+            - Hiển thị, Thêm: Thanh
+            - Sửa, Xóa: Trang
+         + Validate: Sơn
+
+         
+
 ## Cơ sở dữ liệu
     tai_khoan:
         + id: PK
@@ -88,12 +99,3 @@
         + id_ngdung
         + id_dethi
         + diem
-
-3.Chia công việc ngày 1/11/2023
-         + Quản lý chuyên đề (môn học)
-            -Hiển thị, Thêm : Thắm
-            -Sửa, xóa : Hoàng
-        + Quản lý câu hỏi (có cả image)
-            - Hiển thị, Thêm: Thanh
-            - Sửa, Xóa: Trang
-         + Validate: Sơn
