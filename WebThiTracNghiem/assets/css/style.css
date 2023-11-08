@@ -3,7 +3,9 @@
     padding: 0px;
     /* max-width: 1200px; */
 }
-
+.red {
+    color: red;
+}
 * {
     padding: 0px;
     margin: 0px;
@@ -33,7 +35,8 @@
     background-color: green;
 }
 
-.menu ul li img {
+/* CSS cho menu  */
+.menu ul.main-menu li img {
     width: 100px;
     padding-top: 5px;
 }
@@ -42,7 +45,7 @@
     background-color: #eaeaea;
 }
 
-.menu ul {
+.menu ul.main-menu {
     padding: 0px;
     list-style: none;
     display: flex;
@@ -54,35 +57,61 @@
     position: relative;
 }
 
-.menu ul li {
+.menu ul.main-menu li {
     padding: 10px 10px 10px 0px;
     transition: all 0.5s;
     border-radius: 3px;
 }
 
-.menu ul li a {
+.menu ul.main-menu li a {
     padding: 10px;
     color: black;
     text-decoration: none;
 }
 
-.menu ul li:hover:not(li.logo-cong-ty) {
+.menu ul.main-menu li:hover:not(li.logo-cong-ty, .login) {
     background-color: green;
 }
 
-.menu ul li:hover a {
+.menu ul.main-menu li:hover:not(.login) a {
     color: white;
 }
 
-.menu ul li.login {
+.menu ul.main-menu li.login {
     position: absolute;
-    right: 10px;
+    right: 0px;
+    top: 15px;
+    z-index: 3;
+}
+
+
+.login .setup-user {
+    display: none ;
+    background-color: #eaeaea;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.login .setup-user a {
+    font-size: 14px;
+}
+
+.login .setup-user div {
+    margin: 10px 0px 5px 0px;
+}
+
+.login .setup-user div:hover a {
+    color: rgb(7, 164, 7);
+}
+.login .xin-chao-user:hover .setup-user {
+    display: block;
 }
 
 /* CSS SlideShow */
 
 .banner {
     position: relative;
+    z-index: 2;
 }
 
 .banner img {
@@ -267,7 +296,7 @@ h3 {
 
 
 
-.footer {
+.footer-trangchu {
     margin-top: 150px;
     padding: 10px;
     background-color: blanchedalmond;
@@ -403,3 +432,10 @@ h3 {
 }
 
 /*end*/
+
+a.register-btn {
+    height: 50px;
+    padding: 0px;
+    margin-top: 45px;
+    padding-top: 17px;
+}

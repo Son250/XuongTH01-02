@@ -1,4 +1,5 @@
 <?php
+session_start();
 include "../model/pdo.php";
 include "header.php";
 include "menu.php";
@@ -8,6 +9,9 @@ include "menu.php";
 <div>
     <?php
 
+    if (!isset($_SESSION['user']) || $_SESSION['user']['role'] == "2") {
+        header('location:../view/index.php');
+    }
     //Controller
     if (isset($_GET['act']) && $_GET['act'] != "") {
         $act = $_GET['act'];
@@ -58,7 +62,11 @@ include "menu.php";
 
                 include "dapan/edit-dapan.php";
                 break;
-          
+            case 'back-to-website':
+
+                header("location:../view/index.php");
+                break;
+
 
             default:
                 include "trangchu/trangchu.php";
