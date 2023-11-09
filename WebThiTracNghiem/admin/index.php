@@ -60,8 +60,26 @@ include "../model/taikhoan.php";
                 include "taikhoan/add-taikhoan.php";
                 break;
             case 'edittk':
-
+                if (isset($_GET['idtk'])) {
+                    $old_taikhoan = getold_taikoan($_GET['idtk']);
+                }
+                if (isset($_POST['btn-edit-user'])) {
+                    $id = $_POST['idtk'];
+                    $user = $_POST['user'];
+                    $pass = $_POST['password'];
+                    $address = $_POST['address'];
+                    $email = $_POST['email'];
+                    update_taikhoan($id, $user, $pass, $email, $address);
+                    header("location: ?act=dstk");
+                }
                 include "taikhoan/edit-taikhoan.php";
+                break;
+            case 'dltk':
+                if (isset($_GET['idtk'])) {
+                    delete_taikhoan($_GET['idtk']);
+                    header("location: ?act=dstk");
+                }
+                include "taikhoan/list-taikhoan.php";
                 break;
             case 'dsch':
 
