@@ -2,10 +2,10 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
-                <h1>Better Solutions For Your Business</h1>
-                <h2>We are team of talented designers making websites with Bootstrap</h2>
+                <h1>Thi thử toán THPT Quốc Gia năm 2024</h1>
+                <h2>Đề thi được thầy Nguyễn Viết Sơn tổng hợp từ các năm 2021,2022,2023. Tỉ lệ sát đề thi thật 80% </h2>
                 <div class="d-flex justify-content-center justify-content-lg-start">
-                    <a href="#about" class="btn-get-started scrollto">Get Started</a>
+                    <a href="#about" class="btn-get-started scrollto">Bắt đầu thi</a>
                     <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
                 </div>
             </div>

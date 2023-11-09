@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 08, 2023 lúc 03:45 PM
+-- Thời gian đã tạo: Th10 09, 2023 lúc 04:42 PM
 -- Phiên bản máy phục vụ: 10.4.24-MariaDB
 -- Phiên bản PHP: 8.1.6
 
@@ -38,7 +38,7 @@ CREATE TABLE `cauhoi` (
 --
 
 INSERT INTO `cauhoi` (`id`, `content`, `image`) VALUES
-(1, 'Cho dãy số liệu: 8; 1998; 195; 2007; 1000; 71 768; 9999; 17 .\r\nDãy trên có tất cả:', NULL),
+(1, 'Cho dãy số liệu: 8; 1998; 195; 2007; 1000; 71 768; 9999; 17 .\nDãy trên có tất cả:', NULL),
 (3, 'Mai có 7 viên bi, Hồng có 15 viên bi. Hỏi Hồng phải cho Mai bao nhiêu viên bi để số bi của hai bạn bằng nhau', NULL);
 
 -- --------------------------------------------------------
