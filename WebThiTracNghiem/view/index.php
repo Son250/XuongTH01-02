@@ -4,7 +4,7 @@ include "../model/pdo.php";
 include "../model/taikhoan.php";
 include "_header.php";
 include "_menu.php";
-include "_banner.php"
+
 
 ?>
 
@@ -18,7 +18,7 @@ include "_banner.php"
 
         switch ($act) {
             case 'trangchu':
-               
+                include "_banner.php";
                 include "home.php";
                 break;
 
@@ -59,12 +59,12 @@ include "_banner.php"
                 break;
 
             default:
-              
+            include "_banner.php";
                 include "home.php";
                 break;
         }
     } else {
-   
+        include "_banner.php";
         include "home.php";
     }
     ?>
