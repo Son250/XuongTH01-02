@@ -31,8 +31,8 @@
             <div class="role">
                 <label for="role">Role:</label>
                 <select name="role">
-                    <option value="">Admin</option>
-                    <option value="">Khách hàng</option>
+                    <option value="1">Admin</option>
+                    <option value="2">Khách hàng</option>
                 </select>
             </div>
         </div>
