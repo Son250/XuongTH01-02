@@ -56,7 +56,17 @@ include "../model/taikhoan.php";
                 include "taikhoan/list-taikhoan.php";
                 break;
             case 'addtk':
-
+                $listtaikhoan = loadall_taikhoan();
+                if (isset($_POST['btn-addtk'])) {
+                    $user = $_POST['user'];
+                    $pass = $_POST['password'];
+                    $fullname = $_POST['full_name'];
+                    $email = $_POST['email'];
+                    $address = $_POST['address'];
+                    $role = $_POST['role'];
+                    add_taikhoan($user, $pass, $fullname, $email, $address, $role);
+                    header("location: ?act=dstk");
+                }
                 include "taikhoan/add-taikhoan.php";
                 break;
             case 'edittk':
@@ -69,7 +79,8 @@ include "../model/taikhoan.php";
                     $pass = $_POST['password'];
                     $address = $_POST['address'];
                     $email = $_POST['email'];
-                    update_taikhoan($id, $user, $pass, $email, $address);
+                    $role = $_POST['role'];
+                    update_taikhoan($id, $user, $pass, $email, $address,$role);
                     header("location: ?act=dstk");
                 }
                 include "taikhoan/edit-taikhoan.php";

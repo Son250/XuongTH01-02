@@ -26,6 +26,15 @@
                 <input type="text" name="email" value="<?php echo $old_taikhoan['email'] ?>">
             </div>
         </div>
+        <div>
+            <div class="role">
+                <label for="role">Role: </label>
+                <select name="role" id="role">
+                    <option value="2" <?php if ($old_taikhoan['role'] == "2") : ?> selected <?php endif; ?>>Khách hàng</option>
+                    <option value="1" <?php if ($old_taikhoan['role'] == "1") : ?> selected <?php endif; ?>>Admin</option>
+                </select>
+            </div>
+        </div>
         <button name="btn-edit-user">Cập Nhật</button>
     </form>
 </div>
