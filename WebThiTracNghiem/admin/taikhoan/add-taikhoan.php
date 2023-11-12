@@ -1,32 +1,35 @@
 <div class="content-boder-user">
     <div class="title-boder-top-user ">
-        <p>Thêm Người Dùng</p>
+        <p>Tài khoản</p>
     </div>
+   
+
     <form id="registrationForm" action="?act=addtk" method="post" enctype="multipart/form-data">
+    <h3>Thêm mới tài khoản</h3>
         <div>
-            <label for="user">Tên tài khoản:</label>
+            <label for="user">Tên tài khoản:</label><br>
             <input type="text" name="user" id="user">
         </div>
         <div>
-            <label for="password">Mật khẩu:</label>
+            <label for="password">Mật khẩu:</label><br>
             <input type="password" name="password" id="password" required>
         </div>
         <div>
-            <label for="fullname">Full name:</label>
+            <label for="fullname">Full name:</label><br>
             <input type="text" name="full_name" required>
         </div>
         <div>
             <div class="address-user">
-                <label for="address">Địa chỉ:</label>
+                <label for="address">Địa chỉ:</label><br>
                 <input type="text" name="address" id="address">
             </div>
         </div>
         <div>
             <div class="email">
-                <label for="email">Email:</label>
+                <label for="email">Email:</label><br>
                 <input type="email" name="email" id="email" required>
             </div>
-        </div>
+        </div> <br>
         <div>
             <div class="role">
                 <label for="role">Role:</label>

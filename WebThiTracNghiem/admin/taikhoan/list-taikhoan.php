@@ -14,6 +14,7 @@
                 <tr>
                     <td>STT</td>
                     <td>User</td>
+                    <td>Fullname</td>
                     <td>Adress</td>
                     <td>Email</td>
                     <td>ROLE</td>
@@ -27,12 +28,18 @@
                 <?php
                 foreach ($listtaikhoan as $key => $taikhoan) {
                     extract($taikhoan);
+                    if($role == 1){
+                        $vaitro = "Admin";
+                    }else {
+                        $vaitro = "Thành viên";
+                    }
                     echo ' <tr>
                         <td>' . $id . '</td>
                         <td>' . $username . '</td>
+                        <td>' . $fullname . '</td>
                         <td>' . $address . '</td>
                         <td>' . $email . '</td>
-                        <td>' . $role . '</td>
+                        <td>' .  $vaitro . '</td>
                         <td>
                             <a href="?act=edittk&idtk=' . $id . '">Sửa</a>
                             <a href="?act=dltk&idtk=' . $id . '">Xóa</a>
@@ -40,30 +47,7 @@
                     </tr>';
                 }
                 ?>
-                <!--   <tr>
-                            <td>1</td>
-                            <td>Ngô Văn Hoàng</td>
-                            <td>An thuận 1</td>
-                            <td>ngovanhoang10@gmail.com</td>
-                            <td>0369232838</td>
-                            <td>
-                                <a href="?act=edittk&id=2">Sửa</a>
-                                <a href="">Xóa</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Ngô Văn Hoàng</td>
-                            <td>An thuận 1</td>
-                            <td>ngovanhoang10@gmail.com</td>
-                            <td>0369232838</td>
-                            <td>
-                                <a href="?act=edittk&id=3">Sửa</a>
-                                <a href="">Xóa</a>
-                            </td>
-                        </tr>
-                      -->
-
+             
             </tbody>
         </table>
     </div>

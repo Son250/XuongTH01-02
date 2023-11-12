@@ -246,11 +246,11 @@
     margin: 30px;
 }
 
-.title-ky-thi h2,
+/* .title-ky-thi h2,
 h3 {
     text-align: center;
 
-}
+} */
 
 .ky-thi {
     margin: 0px auto;
@@ -327,11 +327,12 @@ h3 {
 }
 
 .content-boder-user .title-boder-top-user p {
-    background: green;
-    padding: 15px;
+    /* background: green; */
+    padding: 15px 0px;
     margin: 0px;
-    color: yellow;
+    /* color: yellow; */
     font-size: 25px;
+    font-weight: bolder;
 }
 
 .content-boder-user .main-user table {
@@ -341,32 +342,24 @@ h3 {
     border-collapse: collapse;
 
 }
-.add-user a {
-    background-color: yellow;
-    padding: 10px;
-}
 
-.content-boder-user .main-user table a:nth-child(1) {
-    background: rgb(255, 251, 0);
+
+
+.content-boder-user .main-user table a,.add-user a  {
+    background: rgb(220 220 220);
     padding: 10px;
-    color: red;
+    color: black;
     text-decoration: none;
-    margin-left: 55px;
+    /* margin-left: 15px; */
+    border-radius: 10px;
 }
 
-.content-boder-user .main-user table a:nth-child(2) {
-    background: rgb(255, 251, 0);
-    padding: 10px;
-    color: red;
-    text-decoration: none;
-    margin-left: 15px;
-}
-
-.content-boder-user .main-user table a:hover {
-    background: red;
-    color: yellow;
+.content-boder-user .main-user table a:hover,.add-user a:hover  {
+    background: green;
+    color: white;
     font-weight: bold;
     border-radius: 10px;
+    text-decoration: none;
 }
 
 .content-boder-user .main-user table thead tr td {
@@ -408,13 +401,26 @@ h3 {
 
 .content-boder-user form label {
     line-height: 35px;
+    font-size: 16px;
+    color: #454545;
 
 }
 
 .content-boder-user form input {
-    display: block;
+    /* display: block; */
     line-height: 25px;
     width: 500px;
+    border-radius: 5px;
+}
+form#registrationForm:not(label) {
+    /* text-align: center; */
+    margin-top: 5px;
+    /* margin-left: 150px; */
+    margin-right: 150px;
+    border: 1px solid black;
+    padding: 0px 0px 10px 15px;
+    border-radius: 15px;
+    box-shadow: 0 0 5px purple;
 }
 
 .content-boder-user form button {
@@ -422,7 +428,8 @@ h3 {
     background: gray;
     color: white;
     border: none;
-    height: 25px;
+    /* height: 25px; */
+    padding: 10px 15px;
     border-radius: 5px;
 }
 
