@@ -1,57 +1,72 @@
+<?php 
+if(is_array($cauhoi)){
+        extract($cauhoi) ;
+}
+$hinhpath ="../uploads/".$image;
+if (is_file($hinhpath)) {
+    $hinh = "<img src='".$hinhpath."' width='100px'>";
+} else {
+    $hinh = "Không có hình";
+}
+?>
 <div class="container">
-    <ul class="nav nav-tabs">
-        <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="#">Trang chủ</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Chuyên đề</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link  active" href="#">Câu hỏi</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" aria-disabled="true">Trả lời</a>
-        </li>
-    </ul>
     <nav class="navbar bg-body-tertiary">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Cập nhật câu hỏi</a>
         </div>
     </nav>
-    <select class="form-select" aria-label="Default select example">
-        <option selected>Chuyên đề</option>
-        <option value="1">UI/UX</option>
-        <option value="2">HTML & CSS</option>
-        <option value="3">JAVASCRIPT</option>
+    <form action="index.php?act=update_ch" method="post" enctype="multipart/form-data">
+    <select class="form-select" aria-label="Default select example" name="idcd">
+        <option value="0">Chuyên đề</option>
+        <?php 
+        foreach($listchuyende as $chuyende){
+            extract($chuyende);
+            if($cauhoi['id_cd'] == $id_cd) $s = "selected"; else $s = "" ;
+            echo ' <option value="'.$id_cd.'" '.$s.' >'.$name.'</option>' ;
+        }
+        ?>
     </select>
     <div class="mb-3">
         <label for="formGroupExampleInput" class="form-label">Câu hỏi</label>
-        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Điền câu hỏi">
+        <input type="text" class="form-control" id="formGroupExampleInput" name="content" value="<?=$content ?>" >
     </div>
     <div class="mb-3">
-        <label for="formFile" class="form-label">Hình ảnh</label>
-        <input class="form-control" type="file" id="formFile">
-    </div>
-    <div class="mb-3">
-        <label for="formGroupExampleInput2" class="form-label">Câu trả lời 1</label>
-        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Điền câu trả lời 1">
-    </div>
-    <div class="mb-3">
-        <label for="formGroupExampleInput2" class="form-label">Câu trả lời 2</label>
-        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Điền câu trả lời 2">
-    </div>
-    <div class="mb-3">
-        <label for="formGroupExampleInput2" class="form-label">Câu trả lời 3</label>
-        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Điền câu trả lời 3">
-    </div>
-    <div class="mb-3">
-        <label for="formGroupExampleInput2" class="form-label">Câu trả lời 4</label>
-        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Điền câu trả lời 4">
-    </div>
-    <div class="btn-group">
-        <a href="#" class="btn btn-primary active" aria-current="page">Cập nhật</a>
-        <a href="/quanlicauhoi/listcauhoi.html" class="btn btn-primary">Danh sách câu hỏi</a>
-        <a href="#" class="btn btn-primary">Danh sách câu trả lời đúng</a>
-    </div>
+    <label for="formFile" class="form-label">Hình ảnh</label>
+    <input class="form-control" type="file" id="formFile" name="image">
+    <?php if (!empty($hinh)) : ?>
+        <img id="imagePreview" src="../uploads/<?= $hinhpath ?>" alt="Current Image" style="max-width: 100%; max-height: 200px; margin-top: 10px;">
+    <?php else : ?>
+        <img id="imagePreview" src="#" alt="Image Preview" style="max-width: 100%; max-height: 200px; margin-top: 10px; display: none;">
+    <?php endif; ?>
+</div>
 
+<script>
+    document.getElementById('formFile').addEventListener('change', function () {
+        var input = this;
+        var imagePreview = document.getElementById('imagePreview');
+
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                imagePreview.src = e.target.result;
+                imagePreview.style.display = 'block';
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        } else {
+            // Handle the case when no new image is selected
+            imagePreview.src = (<?php echo !empty($hinh) ? "'../uploads/$hinh'" : "''"; ?>);
+            imagePreview.style.display = 'block';
+        }
+    });
+</script>
+
+    <div class="btn-group">
+        <input type="hidden" name="id" value="<?php echo $id_ch ?>">
+        <input class="btn btn-primary"  type="submit" name="capnhat" value="Cập nhật">
+        <button type="button" class="btn btn-primary" onclick="window.location.href='index.php?act=dsch'">Danh sách câu hỏi</button>
+        <button type="button" class="btn btn-primary" onclick="window.location.href='#'">Danh sách câu trả lời đúng</button>
+    </div>
+    </form>
 </div>

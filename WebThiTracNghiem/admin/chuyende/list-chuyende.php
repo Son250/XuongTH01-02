@@ -7,8 +7,8 @@
             <thead>
                 <tr>
                     <th></th>
-                    <th>MÃ MÔN HỌC </th>
-                    <th>TÊN MÔN HỌC </th>
+                    <th>ID Chuyên đề </th>
+                    <th>TÊN Chuyên đề </th>
                     <th></th>
 
                 </tr>
@@ -19,7 +19,7 @@
                     extract($chuyende);
                     echo' <tr>
                     <td> <input type="checkbox" name="" id=""></td>
-                    <td>'.$id.'</td>
+                    <td>'.$id_cd.'</td>
                     <td>'.$name.'</td>
                     <td><input type="button" value="sửa"> <input type="button" value="xóa"></td>
                 </tr>';

@@ -4,10 +4,8 @@ function insert_chuyende($tencd){
     pdo_execute($sql);
 }
 function loadall_chuyende(){
-    $sql="select * from chuyende order by id desc";
+    $sql="select * from chuyende order by id_cd desc";
     $listchuyende=pdo_query($sql);
     return $listchuyende;
 }
-   
-
  ?>

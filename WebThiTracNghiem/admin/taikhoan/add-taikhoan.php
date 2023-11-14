@@ -29,6 +29,7 @@
                 <label for="email">Email:</label><br>
                 <input type="email" name="email" id="email" required>
             </div>
+
         </div> <br>
         <div>
             <div class="role">
@@ -40,5 +41,6 @@
             </div>
         </div>
         <button name="btn-addtk" onclick="validateForm()">REGISTER</button>
+
     </form>
 </div>
