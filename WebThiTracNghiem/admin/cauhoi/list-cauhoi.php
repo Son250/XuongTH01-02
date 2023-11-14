@@ -1,43 +1,61 @@
-<body>
-
-    <div class="container">
-        <h2>DANH SÁCH CÂU HỎI </h2>
-
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nội dung câu hỏi </th>
-                    <th>Hình ảnh </th>
-                    <th>Chức năng</th>
-
-                </tr>
-            </thead>
-            <tbody>
-              
+<div class="container">   
+     <nav class="navbar bg-body-tertiary">
+          <div class="container-fluid">
+          <a class="navbar-brand" href="#">Danh sách câu hỏi</a>
+          </div>
+     </nav>
+     <form action="index.php?act=listsp" method="post">
+          <input type="hidden" name="kyw" id="">
+          <div class="row2 mb select">
+               <select name="idcd" id="">
+               <option value="0" selected>Chuyên đề</option>
+                    <?php foreach ($listchuyende as $chuyende){
+                    extract($chuyende);
+                    echo '<option value="'.$id_cd.'">'.$name.'</option>';
+                    }?>
+               </select>
+          </div>
+     </form>
+     <div>
+          <table  class="table" >     
                <tr>
-                    <th>1</th>
-                    <th>Cho dãy số liệu: 8; 1998; 195; 2007; 1000; 71 768; 9999; 17. Dãy trên có tất cả:</th>
                     <th></th>
-                    <th>
-                         <a href="">Sửa</a> 
-                         <a href="">Xóa</a>
-                    </th>
-                   
-               </tr>        
-               
-               
-                
-            </tbody>
-        </table>
-        <div class="row mb10">
-            <button type="button" class="btn btn-success">CHỌN TẤT CẢ</button>
-            <button type="button" class="btn btn-info">BỎ CHỌN TẤT CẢ</button>
-            <button type="button" class="btn btn-warning">XÓA CÁC CHUYÊN ĐỀ ĐÃ CHỌN</button>
-            <a href="?act=add-cauhoi"><button type="button" class="btn btn-danger">NHẬP THÊM</button></a>
-        </div>
-    </div>
-
-</body>
-
-</html>
+                    <th scope="col">STT</th>
+                    <th>Chuyên đề</th>
+                    <th>Câu hỏi</th>
+                    <th>Hình ảnh</th>
+                    <th>Thao tác</th>
+               </tr>     
+          <?php 
+               foreach($listcauhoi as $cauhoi){
+               extract($cauhoi);
+               $suach = "index.php?act=editch&id=".$id_ch;
+               $xoach = "index.php?act=xoach&id=".$id_ch;
+               $hinhpath ="../uploads/".$image;
+               if (is_file($hinhpath)) {
+                    $hinh = "<img src='".$hinhpath."' width='100px'>";
+               } else {
+                    $hinh = "Không có hình";
+               } 
+               echo
+               '<tr>
+                    <td><input type="checkbox"></td>         
+                    <td>'.$id_ch.'</td>
+                    <td>'.$id_cd.'</td>
+                    <td>'.$content.'</td>
+                    <td>'.$hinh.'</td>
+                    <td><a href="'.$suach.'"><input type="button" value="Sửa"></a>
+                    <a href="' . $xoach . '" onclick="return confirm(\'Bạn có chắc chắn muốn xóa?\');">
+                    <input type="button" value="Xóa">
+                </a>
+                    </td>
+               </tr>';
+               }
+          ?>
+          </table>
+     </div>
+     <div class="btn-group">
+          <a href="?act=addch" class="btn btn-primary active" aria-current="page">Thêm mới</a>
+          <a href="/quanlicauhoi/listcauhoi.html" class="btn btn-primary">Danh sách câu trả lời đúng</a>
+     </div>
+</div>

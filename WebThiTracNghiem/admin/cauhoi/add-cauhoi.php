@@ -1,57 +1,56 @@
 <div class="container">
-        <ul class="nav nav-tabs">
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="#">Trang chủ</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Chuyên đề</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link  active" href="#">Câu hỏi</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" aria-disabled="true">Trả lời</a>
-          </li>
-        </ul>
         <nav class="navbar bg-body-tertiary">
           <div class="container-fluid">
             <a class="navbar-brand" href="#">Thêm câu hỏi</a>
           </div>
         </nav>
-        <select class="form-select" aria-label="Default select example">
-          <option selected>Chuyên đề</option>
-          <option value="1">UI/UX</option>
-          <option value="2">HTML & CSS</option>
-          <option value="3">JAVASCRIPT</option>
+        <form action="index.php?act=addch" method="post" enctype="multipart/form-data">
+      <div class="row2 mb select">
+        <select name="idcd" id="">
+          <option value="0">Chuyên đề</option>
+            <?php foreach ($listchuyende as $chuyende){
+              extract($chuyende);
+              echo '<option value="'.$id_cd.'">'.$name.'</option>';
+            }?>
         </select>
+      </div>
         <div class="mb-3">
           <label for="formGroupExampleInput" class="form-label">Câu hỏi</label>
-          <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Điền câu hỏi">
+          <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Điền câu hỏi" name="content">
         </div>
-        <div class="mb-3">
-          <label for="formFile" class="form-label">Hình ảnh</label>
-          <input class="form-control" type="file" id="formFile">
-        </div>
-        <div class="mb-3">
-          <label for="formGroupExampleInput2" class="form-label">Câu trả lời 1</label>
-          <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Điền câu trả lời 1">
-        </div>
-        <div class="mb-3">
-          <label for="formGroupExampleInput2" class="form-label">Câu trả lời 2</label>
-          <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Điền câu trả lời 2">
-        </div>
-        <div class="mb-3">
-          <label for="formGroupExampleInput2" class="form-label">Câu trả lời 3</label>
-          <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Điền câu trả lời 3">
-        </div>
-        <div class="mb-3">
-          <label for="formGroupExampleInput2" class="form-label">Câu trả lời 4</label>
-          <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Điền câu trả lời 4">
-        </div>       
+<!-- Add an <img> tag for image preview -->
+<div class="mb-3">
+    <label for="formFile" class="form-label">Hình ảnh</label>
+    <input class="form-control" type="file" id="formFile" name="image">
+    <img id="imagePreview" src="#" alt="Image Preview" style="max-width: 100%; max-height: 200px; margin-top: 10px; display: none;">
+</div>
+
+<!-- Add JavaScript to handle image preview -->
+<script>
+    document.getElementById('formFile').addEventListener('change', function () {
+        var input = this;
+        var imagePreview = document.getElementById('imagePreview');
+
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                imagePreview.src = e.target.result;
+                imagePreview.style.display = 'block';
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        } else {
+            imagePreview.src = '#';
+            imagePreview.style.display = 'none';
+        }
+    });
+</script>
+
         <div class="btn-group">
-          <a href="#" class="btn btn-primary active" aria-current="page">Thêm</a>
-          <a href="/quanlicauhoi/listcauhoi.html" class="btn btn-primary">Danh sách câu hỏi</a>
-          <a href="#" class="btn btn-primary">Danh sách câu trả lời đúng</a>
+        <input class="btn btn-primary"  type="submit" name="themch" value="Thêm mới">
+        <button type="button" class="btn btn-primary" onclick="window.location.href='index.php?act=dsch'">Danh sách câu hỏi</button>
+        <button type="button" class="btn btn-primary" onclick="window.location.href='#'">Danh sách câu trả lời đúng</button>
         </div>
-   
+        </form> 
     </div>
