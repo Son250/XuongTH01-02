@@ -7,25 +7,25 @@
     <form action="?act=edittk" method="post" enctype="multipart/form-data">
         <input type="hidden" name="idtk" value="<?php echo $old_taikhoan['id']; ?>">
         <div>
-            <label for="">Tên tài khoản: </label>
+            <label for="">Tên tài khoản: </label> <br>
             <input type="text" name="user" value="<?php echo $old_taikhoan['username'] ?>">
         </div>
         <div>
-            <label for="">Mật khẩu: </label>
+            <label for="">Mật khẩu: </label> <br>
             <input type="text" name="password" value="<?php echo  $old_taikhoan['password'] ?>">
         </div>
         <div>
             <div class="address-user">
-                <label for="">Địa chỉ: </label>
+                <label for="">Địa chỉ: </label> <br>
                 <input type="text" name="address" value="<?php echo $old_taikhoan['address'] ?>">
             </div>
         </div>
         <div>
             <div class="email">
-                <label for="">Email: </label>
+                <label for="">Email: </label> <br>
                 <input type="text" name="email" value="<?php echo $old_taikhoan['email'] ?>">
             </div>
-        </div>
+        </div> <br>
         <div>
             <div class="role">
                 <label for="role">Role: </label>

@@ -2,9 +2,12 @@
 session_start();
 include "../model/pdo.php";
 include "../model/chuyende.php";
+include "../model/taikhoan.php";
+include "../model/lichthi.php";
+include "../model/ketqua.php";
 include "header.php";
 include "menu.php";
-include "../model/taikhoan.php";
+
 
 ?>
 
@@ -80,7 +83,7 @@ include "../model/taikhoan.php";
                     $address = $_POST['address'];
                     $email = $_POST['email'];
                     $role = $_POST['role'];
-                    update_taikhoan($id, $user, $pass, $email, $address,$role);
+                    update_taikhoan($id, $user, $pass, $email, $address, $role);
                     header("location: ?act=dstk");
                 }
                 include "taikhoan/edit-taikhoan.php";
@@ -112,6 +115,71 @@ include "../model/taikhoan.php";
 
                 include "dapan/edit-dapan.php";
                 break;
+
+            case 'dslt':
+                $dslt = loadall_lichthi();
+                include "lichthi/list-lichthi.php";
+                break;
+            case 'addlt':
+                if (isset($_POST['btnSubmit'])) {
+
+                    $name = $_POST['name'];
+                    $time_start = $_POST['time_start'];
+                    $time_end = $_POST['time_end'];
+                    $time = $_POST['time'];
+                    $so_de_thi = $_POST['so_de_thi'];
+
+                    add_lichthi($name, $time_start, $time_end, $time, $so_de_thi);
+                    header("location: ?act=dslt");
+                }
+                include "lichthi/add-lichthi.php";
+                break;
+            case 'deletelt':
+                if (isset($_GET['idlt'])) {
+                    delete_lichthi($_GET['idlt']);
+                    header("location: ?act=dslt");
+                }
+                include "lichthi/list-lichthi.php";
+                break;
+            case 'editlt':
+                if (isset($_GET['idlt'])) {
+                    $olddata = getold_lichthi($_GET['idlt']);
+                }
+                if (isset($_POST['btnSubmit'])) {
+                    $id = $_POST['id'];
+                    $name = $_POST['name'];
+                    $time_start = $_POST['time_start'];
+                    $time_end = $_POST['time_end'];
+                    $time = $_POST['time'];
+                    $so_de_thi = $_POST['so_de_thi'];
+                    update_lichthi($id, $name, $time_start, $time_end, $time, $so_de_thi);
+                    header("location: ?act=dslt");
+                }
+                include "lichthi/edit-lichthi.php";
+                break;
+            case 'dskq':
+                $dskq = loadall_ketqua();
+                include "ketqua/list-ketqua.php";
+                break;
+            case 'addkq':
+                if (isset($_POST['btnSubmit'])) {
+
+                    $name = $_POST['name'];
+                    $time_start = $_POST['time_start'];
+                    $time_end = $_POST['time_end'];
+                    $time = $_POST['time'];
+                    $so_de_thi = $_POST['so_de_thi'];
+
+                    add_lichthi($name, $time_start, $time_end, $time, $so_de_thi);
+                    header("location: ?act=dslt");
+                }
+                include "lichthi/add-lichthi.php";
+                break;
+
+
+
+
+
             case 'back-to-website':
 
                 header("location:../view/index.php");
