@@ -1,57 +1,45 @@
 <div class="container">
-        <ul class="nav nav-tabs">
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="#">Trang chủ</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Chuyên đề</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link  active" href="#">Câu hỏi</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" aria-disabled="true">Trả lời</a>
-          </li>
-        </ul>
         <nav class="navbar bg-body-tertiary">
           <div class="container-fluid">
             <a class="navbar-brand" href="#">Thêm câu hỏi</a>
           </div>
         </nav>
-        <select class="form-select" aria-label="Default select example">
-          <option selected>Chuyên đề</option>
-          <option value="1">UI/UX</option>
-          <option value="2">HTML & CSS</option>
-          <option value="3">JAVASCRIPT</option>
-        </select>
+        <form action="index.php?act=addch" method="post" enctype="multipart/form-data">
         <div class="mb-3">
           <label for="formGroupExampleInput" class="form-label">Câu hỏi</label>
-          <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Điền câu hỏi">
+          <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Điền câu hỏi" name="content">
         </div>
         <div class="mb-3">
           <label for="formFile" class="form-label">Hình ảnh</label>
-          <input class="form-control" type="file" id="formFile">
+          <input class="form-control" type="file" id="formFile" name="image">
         </div>
-        <div class="mb-3">
+        <!-- <div class="mb-3">
           <label for="formGroupExampleInput2" class="form-label">Câu trả lời 1</label>
-          <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Điền câu trả lời 1">
+          <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Điền câu trả lời 1" name="dapan1">
         </div>
         <div class="mb-3">
           <label for="formGroupExampleInput2" class="form-label">Câu trả lời 2</label>
-          <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Điền câu trả lời 2">
+          <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Điền câu trả lời 2" name="dapan2">
         </div>
         <div class="mb-3">
           <label for="formGroupExampleInput2" class="form-label">Câu trả lời 3</label>
-          <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Điền câu trả lời 3">
+          <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Điền câu trả lời 3" name="dapan3">
         </div>
         <div class="mb-3">
           <label for="formGroupExampleInput2" class="form-label">Câu trả lời 4</label>
-          <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Điền câu trả lời 4">
-        </div>       
+          <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Điền câu trả lời 4" name="dapan4">
+        </div>       -->
         <div class="btn-group">
-          <a href="#" class="btn btn-primary active" aria-current="page">Thêm</a>
-          <a href="/quanlicauhoi/listcauhoi.html" class="btn btn-primary">Danh sách câu hỏi</a>
+
+        <input class="mr20" type="submit" name="themch" value="THÊM MỚI">
+          <a href="" class="btn btn-primary">Danh sách câu hỏi</a>
           <a href="#" class="btn btn-primary">Danh sách câu trả lời đúng</a>
         </div>
+        </form>
+        <?php
+    if(isset($thongbao)&&($thongbao!=""))
+    echo $thongbao;
+    ?>
+        
    
     </div>

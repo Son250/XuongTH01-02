@@ -1,43 +1,45 @@
-<body>
-
-    <div class="container">
-        <h2>DANH SÁCH CÂU HỎI </h2>
-
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nội dung câu hỏi </th>
-                    <th>Hình ảnh </th>
-                    <th>Chức năng</th>
-
-                </tr>
-            </thead>
-            <tbody>
-              
-               <tr>
-                    <th>1</th>
-                    <th>Cho dãy số liệu: 8; 1998; 195; 2007; 1000; 71 768; 9999; 17. Dãy trên có tất cả:</th>
-                    <th></th>
-                    <th>
-                         <a href="">Sửa</a> 
-                         <a href="">Xóa</a>
-                    </th>
-                   
-               </tr>        
-               
-               
-                
-            </tbody>
-        </table>
-        <div class="row mb10">
-            <button type="button" class="btn btn-success">CHỌN TẤT CẢ</button>
-            <button type="button" class="btn btn-info">BỎ CHỌN TẤT CẢ</button>
-            <button type="button" class="btn btn-warning">XÓA CÁC CHUYÊN ĐỀ ĐÃ CHỌN</button>
-            <a href="?act=add-cauhoi"><button type="button" class="btn btn-danger">NHẬP THÊM</button></a>
-        </div>
+<div class="container">
+        
+          <nav class="navbar bg-body-tertiary">
+               <div class="container-fluid">
+               <a class="navbar-brand" href="#">Danh sách câu hỏi</a>
+               </div>
+          </nav>
+                    <table  class="table" >     
+                        <tr>
+                            <th></th>
+                            <th>STT</th>
+                            <th>Câu hỏi</th>
+                            <th>Hình ảnh</th>
+                            <th>Thao tác</th>
+                        </tr>
+                         
+                    <?php 
+                    foreach($listcauhoi as $cauhoi){
+                        extract($cauhoi);
+                        $suach = "index.php?act=editch&id=".$id;
+                        $xoach = "index.php?act=xoach&id=".$id;
+                        $hinhpath ="../uploads/".$image;
+                        if (is_file($hinhpath)) {
+                            $hinh = "<img src='".$hinhpath."' width='100px'>";
+                        } else {
+                            $hinh = "Không có hình";
+                        }
+                        echo 
+                        '<tr>
+                            <td><input type="checkbox"></td>        
+                            <td>'.$id.'</td>
+                            <td>'.$content.'</td>
+                            <td>'.$hinh.'</td>
+                            <td><a href="'.$suach.'" onclick="return confirm("bạn vhawcs chắn muốn xoá")"><input type="button" value="Sửa"></a>
+                            <a href="'.$xoach.'"><input type="button" value="Xoá"></a></td>
+                         </tr>';
+                    }
+                    ?>
+                    </table>
+          <div class="btn-group">
+               <a href="?act=editch" class="btn btn-primary active" aria-current="page" >Cập nhật</a>
+               <a href="?act=addch" class="btn btn-primary active" aria-current="page">Thêm mới</a>
+               <a href="/quanlicauhoi/listcauhoi.html" class="btn btn-primary">Danh sách câu trả lời đúng</a>
+             </div>
     </div>
-
-</body>
-
-</html>

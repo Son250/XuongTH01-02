@@ -2,6 +2,8 @@
 session_start();
 include "../model/pdo.php";
 include "../model/chuyende.php";
+include "../model/cauhoi.php";
+include "../model/dapan.php" ;
 include "header.php";
 include "menu.php";
 include "../model/taikhoan.php";
@@ -60,29 +62,127 @@ include "../model/taikhoan.php";
                 include "taikhoan/add-taikhoan.php";
                 break;
             case 'edittk':
-
                 include "taikhoan/edit-taikhoan.php";
                 break;
-            case 'dsch':
+                case 'dsch':
+                    $listcauhoi= loadall_cauhoi();
+                    include "cauhoi/list-cauhoi.php";
+                    break;
+                case 'addch':
+                    if(isset($_POST['themch'])&&($_POST['themch'])){
+                        $content=$_POST['content'];
+                        $image = $_FILES['image']['name'];
+                    $target_dir = "../uploads/";
+                    $target_file = $target_dir . basename($_FILES["image"]["name"]);
+                    if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)){
+                        // echo "The file ". htmlspecialchars( basename( $_FILES["hinh"]["name"])). " has been uploaded.";
+                    } else {
 
-                include "cauhoi/list-cauhoi.php";
-                break;
-            case 'addch':
-
-                include "cauhoi/add-cauhoi.php";
-                break;
-            case 'editch':
-
-                include "cauhoi/edit-cauhoi.php";
-                break;
+                        // echo "Sorry, there was an error uploading your file.";
+                    };
+                    insert_cauhoi($content,$image);
+                    //     $thongbao='<script>
+                    //     var thongbao = new Object();
+                    //     thongbao.name = "bạn đã thêm chuyên đề thành công";
+                       
+                    //     thongbao.intro = function() {
+                    //         alert("bạn đã thêm chuyên đề thành công ");
+                
+                
+                    //     }
+                      
+                    //     thongbao.intro();
+                    // </script>';
+                    }
+                    include "cauhoi/add-cauhoi.php";
+                    break;
+                case 'editch':
+                    if(isset($_GET['id']) && ($_GET['id']>0)){
+                       $id=$_GET['id'];
+                        $cauhoi=loadone_cauhoi($id);
+                    }
+                    $listdanhmuc=loadall_cauhoi();
+                    include "cauhoi/edit-cauhoi.php";
+                    break;
+                case 'update_ch':
+                    if(isset($_POST['capnhat'])&&($_POST['capnhat'])){
+                        $id = $_POST['id'];
+                        $content=$_POST['content'];
+                        $image = $_FILES['image']['name'];
+                        $target_dir = "../uploads/";
+                        $target_file = $target_dir . basename($_FILES["image"]["name"]);
+                        if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)){
+    
+                        }else{
+    
+                        }
+                        update_cauhoi($content,$image,$id) ;
+                        $thongbao='<script>
+                        var thongbao = new Object();
+                        thongbao.name = "bạn đã thêm chuyên đề thành công";
+                       
+                        thongbao.intro = function() {
+                            alert("bạn đã thêm chuyên đề thành công ");
+                
+                
+                        }
+                      
+                        thongbao.intro();
+                    </script>';
+                    } 
+                    $listcauhoi = loadall_cauhoi();
+                    include "cauhoi/list-cauhoi.php";
+                    break;
+                case 'xoach':
+                    if(isset($_GET['id']) && ($_GET['id'])){
+                        $id=$_GET['id'];
+                         delete_cauhoi($id);
+                    }
+                    $listcauhoi= loadall_cauhoi();
+                    include "cauhoi/list-cauhoi.php";
+                   
+                    break;
             case 'dsda':
-
+                
+                $listdapan = loadall_dapan();
                 include "dapan/list-dapan.php";
                 break;
             case 'editda':
-
+                if(isset($_GET['id']) && ($_GET['id']>0)){
+                    $id=$_GET['id'];
+                     $dapan=loadone_dapan($id);
+                 }
+                 $listda=loadall_dapan();
                 include "dapan/edit-dapan.php";
                 break;
+            case "update_da" :
+                if(isset($_POST['capnhat'])&&($_POST['capnhat'])){
+                    $id = $_POST['id'];
+                    $traloi=$_POST['traloi'];
+                    $cauhoi = $_POST['cauhoi'] ;
+                    $image = $_FILES['image']['name'];
+                    $target_dir = "../uploads/";
+                    $target_file = $target_dir . basename($_FILES["image"]["name"]);
+                    if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)){
+
+                    }else{
+
+                    }
+                    update_dapan($traloi,$image,$cauhoi,$id );
+                     $thongbao = "cập nhập thành công" ;
+                }
+                $listdapan = loadall_dapan();
+                include "dapan/list-dapan.php";
+                break;
+            case 'xoada':
+                if(isset($_GET['id']) && ($_GET['id'])){
+                    $id=$_GET['id'];
+                     delete_dapan($id);
+                }
+                $listdapan= loadall_dapan();
+                include 'dapan/list-dapan.php' ;
+                break;
+
             case 'back-to-website':
 
                 header("location:../view/index.php");
