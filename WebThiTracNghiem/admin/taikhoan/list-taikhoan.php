@@ -28,9 +28,9 @@
                 <?php
                 foreach ($listtaikhoan as $key => $taikhoan) {
                     extract($taikhoan);
-                    if($role == 1){
+                    if ($role == 1) {
                         $vaitro = "Admin";
-                    }else {
+                    } else {
                         $vaitro = "Thành viên";
                     }
                     echo ' <tr>
@@ -42,13 +42,22 @@
                         <td>' .  $vaitro . '</td>
                         <td>
                             <a href="?act=edittk&idtk=' . $id . '">Sửa</a>
-                            <a href="?act=dltk&idtk=' . $id . '">Xóa</a>
+                            <a onclick="hoixoa(' . $id . ')">Xóa</a>
                         </td>
                     </tr>';
                 }
                 ?>
-             
+
             </tbody>
         </table>
+        <script>
+            function hoixoa(id) {
+                let ok = confirm("Bạn có thực sự muốn xóa hay không.");
+                if (ok) {
+                    window.location.href = "?act=dltk&idtk= " + id;
+                }
+            }
+        </script>
+        </script>
     </div>
 </div>
