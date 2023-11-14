@@ -23,12 +23,7 @@
                 <input type="email" name="email" id="email" required>
             </div>
         </div>
-        <div>
-            <div class="phone-number">
-                <label for="phone-number">Số điện thoại:</label>
-                <input type="tel" name="phone-number" id="phone-number">
-            </div>
-        </div>
+        
         <button type="button" onclick="validateForm()">REGISTER</button>
     </form>
 </div>
