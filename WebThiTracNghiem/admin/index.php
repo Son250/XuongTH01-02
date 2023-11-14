@@ -80,7 +80,7 @@ include "../model/taikhoan.php";
                     $address = $_POST['address'];
                     $email = $_POST['email'];
                     $role = $_POST['role'];
-                    update_taikhoan($id, $user, $pass, $email, $address,$role);
+                    update_taikhoan($id, $user, $pass, $email, $address, $role);
                     header("location: ?act=dstk");
                 }
                 include "taikhoan/edit-taikhoan.php";
