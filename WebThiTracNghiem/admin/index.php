@@ -38,18 +38,7 @@ include "menu.php";
                 if (isset($_POST['themcd']) && ($_POST['themcd'])) {
                     $name= $_POST['tencd'];
                     insert_chuyende($name);
-                    $thongbao = '<script>
-                    var thongbao = new Object();
-                    thongbao.name = "bạn đã thêm chuyên đề thành công";
-                   
-                    thongbao.intro = function() {
-                        alert("bạn đã thêm chuyên đề thành công ");
-            
-            
-                    }
-                  
-                    thongbao.intro();
-                </script>';
+                  header("location:?act=dscd");
                 }
                 include "chuyende/add-chuyende.php";
                 break;
