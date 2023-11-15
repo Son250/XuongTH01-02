@@ -89,7 +89,7 @@ include "menu.php";
                 break;
             case 'edittk':
                 if (isset($_GET['idtk'])) {
-                    $old_taikhoan = getold_taikoan($_GET['idtk']);
+                    $old_taikhoan = getold_taikhoan($_GET['idtk']);
                 }
                 if (isset($_POST['btn-edit-user'])) {
                     $id = $_POST['idtk'];
@@ -120,15 +120,14 @@ include "menu.php";
                 if (isset($_POST['themch']) && ($_POST['themch'])) {
                     $idcd = $_POST['idcd'];
                     $content = $_POST['content'];
-
                     $image = $_FILES['image']['name'];
                     $target_dir = "../uploads/";
                     $target_file = $target_dir . basename($_FILES["image"]["name"]);
                     if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
-                        insert_cauhoi($content, $image, $idcd);
                     }
+                    insert_cauhoi($content, $image, $idcd);
+                    header("Location:index.php?act=dsch");
                     }
-            //Bạn bỏ mấy cái thông báo script di
                 $listchuyende = loadall_chuyende();
                 include "cauhoi/add-cauhoi.php";
                 break;
@@ -152,11 +151,11 @@ include "menu.php";
                     $target_dir = "../uploads/";
                     $target_file = $target_dir . basename($_FILES["image"]["name"]);
                     if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
-                    } else {
-
-                    }
                     }
                     update_cauhoi($idcd, $content, $image, $id);
+                    header("Location:index.php?act=dsch");
+                    }
+
                 $listchuyende = loadall_chuyende();
                 $listcauhoi = loadall_cauhoi();
                 include "cauhoi/list-cauhoi.php";
