@@ -4,7 +4,7 @@
 
         <div class="">
             <label for="">CHUYÊN ĐỀ:</label>
-            <input type="text" class="form-control" name="tencd" placeholder="Tên chuyên đề">
+            <input type="text" class="form-control" name="tencd"  >
         </div>
         <div class="checkbox">
 
