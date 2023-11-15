@@ -56,11 +56,12 @@ if (is_file($hinhpath)) {
             reader.readAsDataURL(input.files[0]);
         } else {
             // Handle the case when no new image is selected
-            imagePreview.src = (<?php echo !empty($hinh) ? "'../uploads/$hinh'" : "''"; ?>);
+            imagePreview.src = '<?php echo !empty($hinh) ? "../uploads/$hinh" : ""; ?>';
             imagePreview.style.display = 'block';
         }
     });
 </script>
+
 
     <div class="btn-group">
         <input type="hidden" name="id" value="<?php echo $id_ch ?>">
