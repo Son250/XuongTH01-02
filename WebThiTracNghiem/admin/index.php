@@ -79,10 +79,11 @@ include "../model/taikhoan.php";
                     $target_dir = "../uploads/";
                     $target_file = $target_dir . basename($_FILES["image"]["name"]);
                     if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
-                        insert_cauhoi($content, $image, $idcd);
+                    
                     }
+                    insert_cauhoi($content, $image, $idcd);
+                    header("Location: index.php?act=dsch");
                     }
-            //Bạn bỏ mấy cái thông báo script di
                 $listchuyende = loadall_chuyende();
                 include "cauhoi/add-cauhoi.php";
                 break;
@@ -105,10 +106,10 @@ include "../model/taikhoan.php";
                     $target_dir = "../uploads/";
                     $target_file = $target_dir . basename($_FILES["image"]["name"]);
                     if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
-                    } else {
-                    }
                     }
                     update_cauhoi($idcd, $content, $image, $id);
+                }
+                    
                 $listchuyende = loadall_chuyende();
                 $listcauhoi = loadall_cauhoi();
                 include "cauhoi/list-cauhoi.php";
