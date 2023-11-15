@@ -36,8 +36,8 @@ include "menu.php";
                 break;
             case 'add-chuyende':
                 if (isset($_POST['themcd']) && ($_POST['themcd'])) {
-                    $tencd = $_POST['tencd'];
-                    insert_chuyende($tencd);
+                    $name= $_POST['tencd'];
+                    insert_chuyende($name);
                     $thongbao = '<script>
                     var thongbao = new Object();
                     thongbao.name = "bạn đã thêm chuyên đề thành công";
@@ -53,8 +53,31 @@ include "menu.php";
                 }
                 include "chuyende/add-chuyende.php";
                 break;
-
-
+            case 'xoacd':
+                if (isset($_GET['id_cd']) && ($_GET['id_cd'] > 0)) {
+                    delete_chuyende($_GET['id_cd']);
+                }
+                $listchuyende = loadall_chuyende();
+                include "chuyende/list-chuyende.php";
+                break;
+            case 'suacd':
+                if (isset($_GET['id_cd']) && ($_GET['id_cd'] > 0)) {
+                   $a=loadone_chuyende ($_GET['id_cd']);
+                }
+                include "chuyende/edit-chuyende.php";
+                break;
+              
+            case "updatecd":
+            if(isset($_POST['capnhat'])&& ($_POST['capnhat'])){
+                $name=$_POST['tencd'];
+                $id_cd=$_POST['id_cd'];
+                update_chuyende($id_cd,$name);
+                $thongbao = "cap nhap thanh cong";
+            }
+            $listchuyende = loadall_chuyende();
+            include "chuyende/list-chuyende.php";
+            break;
+                
             case 'dstk':
                 $listtaikhoan = loadall_taikhoan();
 

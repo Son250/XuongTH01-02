@@ -17,11 +17,13 @@
                 <?php 
                 foreach($listchuyende as $chuyende){
                     extract($chuyende);
+                    $suacd="index.php?act=suacd&id_cd=".$id_cd;
+                    $xoacd="index.php?act=xoacd&id_cd=".$id_cd;
                     echo' <tr>
                     <td> <input type="checkbox" name="" id=""></td>
                     <td>'.$id_cd.'</td>
                     <td>'.$name.'</td>
-                    <td><input type="button" value="sửa"> <input type="button" value="xóa"></td>
+                    <td><a href="'. $suacd.' "><input type="button" value="sửa"></a>, <a href="'.$xoacd.' "><input type="button" value="xóa"></a></td>
                 </tr>';
                 }
                  ?>
