@@ -79,11 +79,11 @@ include "../model/taikhoan.php";
                     $target_dir = "../uploads/";
                     $target_file = $target_dir . basename($_FILES["image"]["name"]);
                     if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
-                        
-                    }
                     }
                 insert_cauhoi($content, $image, $idcd);
                 header("Location:index.php?act=dsch");
+                    }
+
                 $listchuyende = loadall_chuyende();
                 include "cauhoi/add-cauhoi.php";
                 break;
