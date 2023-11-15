@@ -4,7 +4,7 @@ function insert_cauhoi($content,$image, $idcd){
     pdo_execute($sql);
 }
 function loadall_cauhoi(){
-    $sql="select * from cauhoi order by id_ch desc";
+    $sql="select * from cauhoi order by id_ch asc";
     $listcauhoi=pdo_query($sql);
     return $listcauhoi;
 }
