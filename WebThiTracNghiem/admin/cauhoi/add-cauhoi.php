@@ -1,19 +1,24 @@
 <div class="container">
-  <div class="container-fluid">
-    <h2>Thêm câu hỏi</h2>
-  </div>
-  <form action="index.php?act=addch" method="post" enctype="multipart/form-data">
 
-    <div class="mb-3">
-      <label class="form-label">Câu hỏi</label> 
-      <input type="text" class="form-control" placeholder="Điền câu hỏi" name="content">
+
+    <div class="container-fluid">
+      <h2>Thêm câu hỏi</h2>
     </div>
-
+  
+  <form action="index.php?act=addch" method="post" enctype="multipart/form-data">
+   
+    <div class="mb-3">
+      <label for="formGroupExampleInput" class="form-label">Câu hỏi</label>
+      <input type="text" class="form-control" id="formGroupExampleInput" required placeholder="Điền câu hỏi" name="content">
+    </div>
+    <!-- Add an <img> tag for image preview -->
     <div class="mb-3">
       <label for="formFile" class="form-label">Hình ảnh</label>
       <input class="form-control" type="file" id="formFile" name="image">
       <img id="imagePreview" src="#" alt="Image Preview" style="max-width: 100%; max-height: 200px; margin-top: 10px; display: none;">
-    </div><br>
+    </div>
+    <br>
+
 
     <div class="row2 mb select">
       <select name="idcd" id="">

@@ -121,16 +121,15 @@ include "menu.php";
                     $idcd = $_POST['idcd'];
                     $content = $_POST['content'];
 
-                    if (isset($_FILES['image']) && $_FILES['image']['error'] == UPLOAD_ERR_OK) {
-                        $image = $_FILES['image']['name'];
-                        $target_dir = "../uploads/";
-                        $target_file = $target_dir . basename($_FILES["image"]["name"]);
-
-                       
+                    $image = $_FILES['image']['name'];
+                    $target_dir = "../uploads/";
+                    $target_file = $target_dir . basename($_FILES["image"]["name"]);
+                    if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
                     }
-                    header("location: ?act=dsch ");
-                }
-           
+                insert_cauhoi($content, $image, $idcd);
+                header("Location:index.php?act=dsch");
+                    }
+
                 $listchuyende = loadall_chuyende();
                 include "cauhoi/add-cauhoi.php";
                 break;
@@ -149,19 +148,17 @@ include "menu.php";
                     $id = $_POST['id'];
                     $idcd = $_POST['idcd'];
                     $content = $_POST['content'];
-                    if (isset($_FILES['image']) && $_FILES['image']['error'] == UPLOAD_ERR_OK) {
-                        $image = $_FILES['image']['name'];
-                        $target_dir = "../uploads/";
-                        $target_file = $target_dir . basename($_FILES["image"]["name"]);
-                        if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
-                            update_cauhoi($idcd, $content, $image, $id);
-                          
-                        }
-                    } else {
-                        update_cauhoi($idcd, $content, null, $id);
-                       
+
+                    $image = $_FILES['image']['name'];
+                    $target_dir = "../uploads/";
+                    $target_file = $target_dir . basename($_FILES["image"]["name"]);
+                    if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
+
                     }
-                }
+                      update_cauhoi($idcd, $content, $image, $id);
+                    }
+                  
+            
                 $listchuyende = loadall_chuyende();
                 $listcauhoi = loadall_cauhoi();
                 include "cauhoi/list-cauhoi.php";
