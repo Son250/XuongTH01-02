@@ -8,7 +8,7 @@
     <h3>Thêm mới tài khoản</h3>
         <div>
             <label for="user">Tên tài khoản:</label><br>
-            <input type="text" name="user" id="user">
+            <input type="text" name="user" id="user" required>
         </div>
         <div>
             <label for="password">Mật khẩu:</label><br>

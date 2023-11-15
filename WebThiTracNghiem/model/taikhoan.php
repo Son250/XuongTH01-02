@@ -26,7 +26,6 @@ function loadall_taikhoan()
 {
     $sql = "select * from taikhoan ";
     $listtaikhoan = pdo_query($sql);
-
     return $listtaikhoan;
 }
 function add_taikhoan($user, $pass, $fullname, $email, $address, $role)
