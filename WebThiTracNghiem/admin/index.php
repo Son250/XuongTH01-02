@@ -171,14 +171,25 @@ include "menu.php";
                 $listcauhoi = loadall_cauhoi();
                 include "cauhoi/list-cauhoi.php";
                 break;
-            case 'dsda':
 
+
+
+
+
+            case 'dsda':
+                // $dsdp = loadall_dapan();
                 include "dapan/list-dapan.php";
                 break;
             case 'editda':
 
                 include "dapan/edit-dapan.php";
                 break;
+
+
+
+
+
+
 
             case 'dslt':
                 $dslt = loadall_lichthi();
@@ -239,10 +250,6 @@ include "menu.php";
                 }
                 include "lichthi/add-lichthi.php";
                 break;
-
-
-
-
 
             case 'back-to-website':
 

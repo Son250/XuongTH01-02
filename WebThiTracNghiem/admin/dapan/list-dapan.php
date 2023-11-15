@@ -1,38 +1,47 @@
-<div class="container ">
-        <h2>DANH SÁCH ĐÁP ÁN</h2>
+<div class="content-boder-user">
+    <div class="title-boder-top-user">
+        <p>QUẢN LÝ ĐÁP ÁN</p>
     </div>
-    <div class="navbar">
-        <div class="container">
-            <div class="content">
-                <table border="1">
-                    <tr>
-                        <th></th>
-                        <th>Mã câu hỏi</th>
-                        <th>Nội dung</th>
-                        <th>Hình ảnh </th>
-                        <th>Câu trả lời</th>
-                        <th>Thao tác</th>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" name="" id=""></td>
-                        <td>1</td>
-                        <td>Hôm nay thứ mấy?</td>
-                        <td><img src="" alt=""></td>
-                        <td>Thứ 2</td>
-                        <td>
-                            <a href="?act=editda"><button type="submit" class="btn btn-primary">Sửa</button></a>
-                            <a href=""><button type="submit" class="btn btn-primary">Xoá</button></a>
-                        </td>
-                    </tr>
-               
-                </table>
+    <br>
+    <div class="add-user">
+        <a href="?act=addda">
+            Nhập thêm
+        </a>
+    </div>
+    <div class="main-user">
+        <table>
+            <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>Nội dung đáp án</td>
+                    <td>Image</td>
+                    <td>Kết quả (Đúng/Sai)</td>
+                    <td>ID câu hỏi</td>
+                    <td>Chức Năng</td>
+                </tr>
+            </thead>
 
-            </div>
-        </div>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
 
+            </tbody>
+        </table>
+        <script>
+            function hoixoa(id) {
+                let ok = confirm("Bạn có thực sự muốn xóa hay không.");
+                if (ok) {
+                    window.location.href = "?act=deleteda&idda= " + id;
+                }
+            }
+        </script>
+        </script>
     </div>
-    <div class="container">
-        <input type="button" class="btn" value="Chọn tất cả">
-        <input type="button" class="btn" value="Xoá tất cả">
-        <input type="button" class="btn" value="Danh sách câu hỏi">
-    </div>
+</div>
