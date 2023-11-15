@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 15, 2023 lúc 06:00 AM
+-- Thời gian đã tạo: Th10 15, 2023 lúc 10:40 AM
 -- Phiên bản máy phục vụ: 10.4.24-MariaDB
 -- Phiên bản PHP: 8.1.6
 
@@ -40,7 +40,9 @@ CREATE TABLE `cauhoi` (
 
 INSERT INTO `cauhoi` (`id_ch`, `content`, `image`, `id_cd`) VALUES
 (1, 'Cho dãy số liệu: 8; 1998; 195; 2007; 1000; 71 768; 9999; 17 .\r\nDãy trên có tất cả:', NULL, 0),
-(3, 'Mai có 7 viên bi, Hồng có 15 viên bi. Hỏi Hồng phải cho Mai bao nhiêu viên bi để số bi của hai bạn bằng nhau', NULL, 0);
+(3, 'Mai có 7 viên bi, Hồng có 15 viên bi. Hỏi Hồng phải cho Mai bao nhiêu viên bi để số bi của hai bạn bằng nhau', NULL, 0),
+(16, 'Test câu hỏi 5', '', 0),
+(17, 'Test câu hỏi2', 'Ảnh chụp màn hình 2022-07-01 182911.png', 1);
 
 -- --------------------------------------------------------
 
@@ -58,7 +60,7 @@ CREATE TABLE `chuyende` (
 --
 
 INSERT INTO `chuyende` (`id_cd`, `name`) VALUES
-(1, 'Chuyên đề thi kì 2 Toán lớp 3a3'),
+(1, 'Chuyên đề thi kì 2 Toán lớp 3'),
 (5, 'Chuyên đề lập trình web với PHP2');
 
 -- --------------------------------------------------------
@@ -150,7 +152,7 @@ CREATE TABLE `lichthi` (
 
 INSERT INTO `lichthi` (`id`, `name`, `time_start`, `time_end`, `time`, `so_de_thi`) VALUES
 (1, 'Thi cuối kỳ 2 ', '2023-11-30 15:00:00', '2023-11-30 16:45:00', 45, 2),
-(2, 'Kỳ thi mới test', '2023-11-14 17:35:00', '2023-11-14 18:35:00', 60, 2);
+(2, 'Kỳ thi mới test', '2023-11-14 17:35:00', '2023-11-14 18:35:00', 60, 4);
 
 -- --------------------------------------------------------
 
@@ -236,13 +238,13 @@ ALTER TABLE `taikhoan`
 -- AUTO_INCREMENT cho bảng `cauhoi`
 --
 ALTER TABLE `cauhoi`
-  MODIFY `id_ch` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_ch` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT cho bảng `chuyende`
 --
 ALTER TABLE `chuyende`
-  MODIFY `id_cd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_cd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT cho bảng `dapan`
@@ -266,7 +268,7 @@ ALTER TABLE `ketqua`
 -- AUTO_INCREMENT cho bảng `lichthi`
 --
 ALTER TABLE `lichthi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `taikhoan`
