@@ -75,20 +75,13 @@ include "../model/taikhoan.php";
                 if (isset($_POST['themch']) && ($_POST['themch'])) {
                     $idcd = $_POST['idcd'];
                     $content = $_POST['content'];
-                    if (isset($_FILES['image']) && $_FILES['image']['error'] == UPLOAD_ERR_OK) {
-                        $image = $_FILES['image']['name'];
-                        $target_dir = "../uploads/";
-                        $target_file = $target_dir . basename($_FILES["image"]["name"]);
-
-                    if (empty($content) || empty($_FILES['image']['name'])) {
-                        echo '<script>alert("Vui lòng điền đầy đủ thông tin.");</script>'; //mà thôi giờ mình đẩy lên nhé
-                    } else { 
-                        if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
-                            insert_cauhoi($content, $image, $idcd);
-                        }
+                    $image = $_FILES['image']['name'];
+                    $target_dir = "../uploads/";
+                    $target_file = $target_dir . basename($_FILES["image"]["name"]);
+                    if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
+                        insert_cauhoi($content, $image, $idcd);
                     }
-                }
-            }
+                    }
             //Bạn bỏ mấy cái thông báo script di
                 $listchuyende = loadall_chuyende();
                 include "cauhoi/add-cauhoi.php";
@@ -108,20 +101,14 @@ include "../model/taikhoan.php";
                     $id = $_POST['id'];
                     $idcd = $_POST['idcd'];
                     $content = $_POST['content'];
-                    if (isset($_FILES['image']) && $_FILES['image']['error'] == UPLOAD_ERR_OK) {
-                        $image = $_FILES['image']['name'];
-                        $target_dir = "../uploads/";
-                        $target_file = $target_dir . basename($_FILES["image"]["name"]);
-                            if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
-                                update_cauhoi($idcd, $content, $image, $id);
-                                echo '<script>alert("câu hỏi đã được cập nhật.");</script>';
-                            } else {
-                            }
+                    $image = $_FILES['image']['name'];
+                    $target_dir = "../uploads/";
+                    $target_file = $target_dir . basename($_FILES["image"]["name"]);
+                    if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
                     } else {
-                        update_cauhoi($idcd, $content, null, $id);
-                        echo '<script>alert("câu hỏi đã được cập nhật.");</script>';
                     }
-                }
+                    }
+                    update_cauhoi($idcd, $content, $image, $id);
                 $listchuyende = loadall_chuyende();
                 $listcauhoi = loadall_cauhoi();
                 include "cauhoi/list-cauhoi.php";

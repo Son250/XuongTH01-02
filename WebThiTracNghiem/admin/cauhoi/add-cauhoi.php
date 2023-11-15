@@ -16,7 +16,7 @@
       </div>
         <div class="mb-3">
           <label for="formGroupExampleInput" class="form-label">Câu hỏi</label>
-          <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Điền câu hỏi" name="content">
+          <input type="text" class="form-control" id="formGroupExampleInput" required placeholder="Điền câu hỏi" name="content">
         </div>
 <!-- Add an <img> tag for image preview -->
 <div class="mb-3">
