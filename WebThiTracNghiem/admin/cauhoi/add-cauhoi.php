@@ -18,8 +18,6 @@
       <img id="imagePreview" src="#" alt="Image Preview" style="max-width: 100%; max-height: 200px; margin-top: 10px; display: none;">
     </div>
     <br>
-
-
     <div class="row2 mb select">
       <select name="idcd" id="">
         <option value="0">Chuyên đề</option>
