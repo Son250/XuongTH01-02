@@ -19,7 +19,7 @@
                     extract($chuyende);
                     echo' <tr>
                     <td> <input type="checkbox" name="" id=""></td>
-                    <td>'.$id.'</td>
+                    <td>'.$id_cd.'</td>
                     <td>'.$name.'</td>
                     <td><input type="button" value="sửa"> <input type="button" value="xóa"></td>
                 </tr>';
