@@ -1,12 +1,10 @@
 <div class="container">
+  <div class="container-fluid">
+    <h2>Thêm câu hỏi</h2>
+  </div>
 
-
-    <div class="container-fluid">
-      <h2>Thêm câu hỏi</h2>
-    </div>
-  
   <form action="index.php?act=addch" method="post" enctype="multipart/form-data">
-   
+
     <div class="mb-3">
       <label for="formGroupExampleInput" class="form-label">Câu hỏi</label>
       <input type="text" class="form-control" id="formGroupExampleInput" required placeholder="Điền câu hỏi" name="content">
@@ -18,7 +16,6 @@
       <img id="imagePreview" src="#" alt="Image Preview" style="max-width: 100%; max-height: 200px; margin-top: 10px; display: none;">
     </div>
     <br>
-
 
     <div class="row2 mb select">
       <select name="idcd" id="">

@@ -3,10 +3,12 @@ session_start();
 include "../model/pdo.php";
 include "../model/chuyende.php";
 
+
 include "../model/taikhoan.php";
 include "../model/lichthi.php";
 include "../model/ketqua.php";
 include "../model/cauhoi.php";
+include "../model/dapan.php";
 include "header.php";
 include "menu.php";
 
@@ -36,9 +38,9 @@ include "menu.php";
                 break;
             case 'add-chuyende':
                 if (isset($_POST['themcd']) && ($_POST['themcd'])) {
-                    $name= $_POST['tencd'];
+                    $name = $_POST['tencd'];
                     insert_chuyende($name);
-                  header("location:?act=dscd");
+                    header("location:?act=dscd");
                 }
                 include "chuyende/add-chuyende.php";
                 break;
@@ -51,22 +53,22 @@ include "menu.php";
                 break;
             case 'suacd':
                 if (isset($_GET['id_cd']) && ($_GET['id_cd'] > 0)) {
-                   $a=loadone_chuyende ($_GET['id_cd']);
+                    $a = loadone_chuyende($_GET['id_cd']);
                 }
                 include "chuyende/edit-chuyende.php";
                 break;
-              
+
             case "updatecd":
-            if(isset($_POST['capnhat'])&& ($_POST['capnhat'])){
-                $name=$_POST['tencd'];
-                $id_cd=$_POST['id_cd'];
-                update_chuyende($id_cd,$name);
-                $thongbao = "cap nhap thanh cong";
-            }
-            $listchuyende = loadall_chuyende();
-            include "chuyende/list-chuyende.php";
-            break;
-                
+                if (isset($_POST['capnhat']) && ($_POST['capnhat'])) {
+                    $name = $_POST['tencd'];
+                    $id_cd = $_POST['id_cd'];
+                    update_chuyende($id_cd, $name);
+                    $thongbao = "cap nhap thanh cong";
+                }
+                $listchuyende = loadall_chuyende();
+                include "chuyende/list-chuyende.php";
+                break;
+
             case 'dstk':
                 $listtaikhoan = loadall_taikhoan();
 
@@ -88,6 +90,7 @@ include "menu.php";
                 include "taikhoan/add-taikhoan.php";
                 break;
             case 'edittk':
+
                 if (isset($_GET['idtk'])) {
                     $old_taikhoan = getold_taikoan($_GET['idtk']);
                 }
@@ -124,11 +127,14 @@ include "menu.php";
                     $image = $_FILES['image']['name'];
                     $target_dir = "../uploads/";
                     $target_file = $target_dir . basename($_FILES["image"]["name"]);
+                
                     if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
                         insert_cauhoi($content, $image, $idcd);
                     }
-                    }
-            //Bạn bỏ mấy cái thông báo script di
+              
+                    header("location:?act=dsch");
+                }
+
                 $listchuyende = loadall_chuyende();
                 include "cauhoi/add-cauhoi.php";
                 break;
@@ -153,10 +159,9 @@ include "menu.php";
                     $target_file = $target_dir . basename($_FILES["image"]["name"]);
                     if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
                     } else {
-
                     }
-                    }
-                    update_cauhoi($idcd, $content, $image, $id);
+                }
+                update_cauhoi($idcd, $content, $image, $id);
                 $listchuyende = loadall_chuyende();
                 $listcauhoi = loadall_cauhoi();
                 include "cauhoi/list-cauhoi.php";
@@ -173,15 +178,19 @@ include "menu.php";
 
 
 
-
             case 'dsda':
-                // $dsdp = loadall_dapan();
+                $listdapan = loadall_dapan();
                 include "dapan/list-dapan.php";
                 break;
             case 'editda':
-
+                if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                    $id = $_GET['id'];
+                    $dapan = loadone_dapan($id);
+                }
+                $listda = loadall_dapan();
                 include "dapan/edit-dapan.php";
                 break;
+
 
 
 
@@ -247,6 +256,32 @@ include "menu.php";
                     header("location: ?act=dslt");
                 }
                 include "lichthi/add-lichthi.php";
+
+            case "update_da":
+                if (isset($_POST['capnhat']) && ($_POST['capnhat'])) {
+                    $id = $_POST['id'];
+                    $traloi = $_POST['traloi'];
+                    $cauhoi = $_POST['cauhoi'];
+                    $image = $_FILES['image']['name'];
+                    $target_dir = "../uploads/";
+                    $target_file = $target_dir . basename($_FILES["image"]["name"]);
+                    if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
+                    } else {
+                    }
+                    update_dapan($traloi, $image, $cauhoi, $id);
+                    $thongbao = "cập nhập thành công";
+                }
+                $listdapan = loadall_dapan();
+                include "dapan/list-dapan.php";
+                break;
+            case 'xoada':
+                if (isset($_GET['id']) && ($_GET['id'])) {
+                    $id = $_GET['id'];
+                    delete_dapan($id);
+                }
+                $listdapan = loadall_dapan();
+                include 'dapan/list-dapan.php';
+
                 break;
 
             case 'back-to-website':

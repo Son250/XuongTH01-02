@@ -1,3 +1,18 @@
+<?php 
+if(is_array($dapan)){
+        extract($dapan) ;
+}else{
+   
+}
+$hinhpath ="../uploads/".$image;
+if (is_file($hinhpath)) {
+    $hinh = "<img src='".$hinhpath."' width='100px'>";
+} else {
+    $hinh = "Không có hình";
+}
+
+?>
+
 <div class="container ">
         <div class="header">
             <h2>CHỈNH SỬA ĐÁP ÁN</h2>
@@ -5,29 +20,33 @@
     </div>
     <div class="container">
         <div class="form">
-            <form action="" method="post" enctype="multipart/form-data">
+            <div class="form-group"> 
+            <form action="index.php?act=update_da" method="post" enctype="multipart/form-data">
             <label for="">Tên kỳ thi: </label> 
-            <input type="text" id="" placeholder="Nhập tên kỳ thi..."><br><br>
-            <label for="">Môn học: </label>
-            <select name="" id="">
+            <input type="text" id="" class="form-control" placeholder="Nhập tên kỳ thi..."><br><br>
+            <label for="">Chuyên đề: </label>
+            <select class="form-control" name="chuyende" id="">
                 <option value="">Toán</option>
                 <option value="">Văn</option>
                 <option value="">Anh</option>
             </select> <br>
-            <label for="">Bài học: </label>
-            <select name="" id="">
-                <option value="">Chương 1</option>
-                <option value="">Chương 2</option>
-                <option value="">Chương 3</option>
-            </select> <br>
+            
            <label for="">Câu hỏi: </label> <br>
-          <textarea name="cauhoi" id="" cols="30" rows="10"></textarea> <br>
-          File đính kèm: <input type="file" name="" id=""> <br>
+          <input type="text" name="cauhoi" id="" class="form-control" value="<?= $id_question ?>"> <br>
+          File đính kèm(nếu có): <input type="file" name="image" class="form-control-file" id="" value="<?= $hinh ?>"> <br>
            <label for="">Câu trả lời: </label> <br>
-          <textarea name="traloi" id="" cols="30" rows="10"></textarea> <br>
-           <button type="submit" class="btn">Cập nhập</button>
-           <button type="reset" class="btn">Nhập lại</button>
-          <a href="dapan.html"><button type="button" class="btn">Danh sách câu hỏi</button></a>
+         <input type="text" name="traloi" class="form-control" id="" value="<?= $content ?>" > <br>
+
+         <input type="hidden" name="id" value="<?= $id ?>">
+          <input type="submit" name="capnhat" class="btn btn-info"  value="Cập nhập">
+           <button type="reset" class="btn btn-info">Nhập lại</button>
+          <a href="?act=listch"><button type="button" class="btn btn-success">Danh sách câu hỏi</button></a>
+          <?php
+                   if(isset($thongbao) && $thongbao != ""){
+                    echo $thongbao;
+                   }
+                   ?>
         </form>
+        </div>
         </div>
     </div>
