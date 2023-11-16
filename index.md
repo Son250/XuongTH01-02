@@ -52,6 +52,11 @@
          + Validate: Sơn
 
          
+3.2:Chia việc ngày 15/11/2023
+        + CRUD kết quả thi: Thanh
+        + Đăng nhập/Đăng ký người dùng: Trang
+        + Giao diện người dùng: Hoàng
+        + Giao diện người dùng: Thắm         
 
 ## Cơ sở dữ liệu
     tai_khoan:
