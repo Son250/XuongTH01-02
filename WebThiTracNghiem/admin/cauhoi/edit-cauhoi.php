@@ -6,6 +6,8 @@ if (is_array($cauhoi)) {
 $hinhpath = "../uploads/" . $image;
 if (is_file($hinhpath)) {
     $hinh = "<img src='" . $hinhpath . "' width='200px'>";
+}else{
+    $hinh= "";
 }
 ?>
 <div class="container">

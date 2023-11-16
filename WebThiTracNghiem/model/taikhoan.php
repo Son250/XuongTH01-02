@@ -33,7 +33,7 @@ function add_taikhoan($user, $pass, $fullname, $email, $address, $role)
     $sql = "INSERT INTO `taikhoan`(`username`, `password`, `fullname`,`email`, `address`,`role`) VALUES ('$user','$pass','$fullname','$email','$address','$role')";
     pdo_execute($sql);
 }
-function getold_taikoan($idtk)
+function getold_taikhoan($idtk)
 {
     $sql = "SELECT * FROM taikhoan WHERE id =$idtk";
     $result = pdo_query_one($sql);

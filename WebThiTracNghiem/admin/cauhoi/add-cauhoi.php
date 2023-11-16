@@ -13,7 +13,6 @@
     <div class="mb-3">
       <label for="formFile" class="form-label">Hình ảnh</label>
       <input class="form-control" type="file" id="formFile" name="image">
-      <img id="imagePreview" src="#" alt="Image Preview" style="max-width: 100%; max-height: 200px; margin-top: 10px; display: none;">
     </div>
     <br>
 
