@@ -3,10 +3,12 @@ session_start();
 include "../model/pdo.php";
 include "../model/chuyende.php";
 
+
 include "../model/taikhoan.php";
 include "../model/lichthi.php";
 include "../model/ketqua.php";
 include "../model/cauhoi.php";
+include "../model/dapan.php";
 include "header.php";
 include "menu.php";
 
@@ -36,20 +38,9 @@ include "menu.php";
                 break;
             case 'add-chuyende':
                 if (isset($_POST['themcd']) && ($_POST['themcd'])) {
-                    $name= $_POST['tencd'];
+                    $name = $_POST['tencd'];
                     insert_chuyende($name);
-                    $thongbao = '<script>
-                    var thongbao = new Object();
-                    thongbao.name = "bạn đã thêm chuyên đề thành công";
-                   
-                    thongbao.intro = function() {
-                        alert("bạn đã thêm chuyên đề thành công ");
-            
-            
-                    }
-                  
-                    thongbao.intro();
-                </script>';
+                    header("location:?act=dscd");
                 }
                 include "chuyende/add-chuyende.php";
                 break;
@@ -62,22 +53,22 @@ include "menu.php";
                 break;
             case 'suacd':
                 if (isset($_GET['id_cd']) && ($_GET['id_cd'] > 0)) {
-                   $a=loadone_chuyende ($_GET['id_cd']);
+                    $a = loadone_chuyende($_GET['id_cd']);
                 }
                 include "chuyende/edit-chuyende.php";
                 break;
-              
+
             case "updatecd":
-            if(isset($_POST['capnhat'])&& ($_POST['capnhat'])){
-                $name=$_POST['tencd'];
-                $id_cd=$_POST['id_cd'];
-                update_chuyende($id_cd,$name);
-                $thongbao = "cap nhap thanh cong";
-            }
-            $listchuyende = loadall_chuyende();
-            include "chuyende/list-chuyende.php";
-            break;
-                
+                if (isset($_POST['capnhat']) && ($_POST['capnhat'])) {
+                    $name = $_POST['tencd'];
+                    $id_cd = $_POST['id_cd'];
+                    update_chuyende($id_cd, $name);
+                    $thongbao = "cap nhap thanh cong";
+                }
+                $listchuyende = loadall_chuyende();
+                include "chuyende/list-chuyende.php";
+                break;
+
             case 'dstk':
                 $listtaikhoan = loadall_taikhoan();
 
@@ -99,8 +90,9 @@ include "menu.php";
                 include "taikhoan/add-taikhoan.php";
                 break;
             case 'edittk':
+
                 if (isset($_GET['idtk'])) {
-                    $old_taikhoan = getold_taikoan($_GET['idtk']);
+                    $old_taikhoan = getold_taikhoan($_GET['idtk']);
                 }
                 if (isset($_POST['btn-edit-user'])) {
                     $id = $_POST['idtk'];
@@ -122,8 +114,6 @@ include "menu.php";
                 include "taikhoan/list-taikhoan.php";
                 break;
 
-
-
             case 'dsch':
                 $listcauhoi = loadall_cauhoi();
                 $listchuyende = loadall_chuyende();
@@ -133,59 +123,15 @@ include "menu.php";
                 if (isset($_POST['themch']) && ($_POST['themch'])) {
                     $idcd = $_POST['idcd'];
                     $content = $_POST['content'];
+                    $image = $_FILES['image']['name'];
+                    $target_dir = "../uploads/";
+                    $target_file = $target_dir . basename($_FILES["image"]["name"]);
 
-                    // Check if content and image are not empty
-                    if (empty($content) || empty($_FILES['image']['name'])) {
-                        echo '<script>alert("Vui lòng điền đầy đủ thông tin câu hỏi và chọn hình ảnh.");</script>';
-                    } else {
-                        // Continue with file upload and processing
-                        $image = $_FILES['image']['name'];
-
-                        // Change the file name to something unique, for example, based on the current timestamp
-                        $timestamp = time();
-                        $imageFileName = $timestamp . '_' . $image;
-
-                        $target_dir = "../uploads/";
-                        $target_file = $target_dir . $imageFileName;
-
-                        // Check if the file already exists and rename it
-                        $counter = 1;
-                        while (file_exists($target_file)) {
-                            $imageFileName = $timestamp . '_' . $counter . '_' . $image;
-                            $target_file = $target_dir . $imageFileName;
-                            $counter++;
-                        }
-
-                        // Check if the file is an image
-                        $check = getimagesize($_FILES["image"]["tmp_name"]);
-                        if ($check !== false) {
-                            // Check file size
-                            if ($_FILES["image"]["size"] > 500000) {
-                                echo '<script>alert("Xin lỗi, kích thước tệp quá lớn.");</script>';
-                            } else {
-                                // Allow certain file formats
-                                $allowed_types = array("jpg", "jpeg", "png", "gif");
-                                $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-                                if (!in_array($imageFileType, $allowed_types)) {
-                                    echo '<script>alert("Xin lỗi, chỉ chấp nhận tệp JPG, JPEG, PNG, và GIF.");</script>';
-                                } else {
-                                    // Move the uploaded file to the target directory
-                                    if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
-                                        // Insert the question with the image into the database
-                                        insert_cauhoi($content, $imageFileName, $idcd);
-                                        echo '<script>alert("Tệp ' . $imageFileName . ' đã được tải lên và câu hỏi đã được thêm.");</script>';
-                                    } else {
-                                        echo '<script>alert("Xin lỗi, có lỗi khi tải lên tệp của bạn.");</script>';
-                                    }
-                                }
-                            }
-                        } else {
-                            echo '<script>alert("Tệp không phải là hình ảnh.");</script>';
-                        }
+                    if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
                     }
 
-                    // You may want to redirect the user or perform other actions after processing the form.
-                    // header("Location: redirect_page.php");
+                    insert_cauhoi($content, $image, $idcd);
+                    header("Location:index.php?act=dsch");
                 }
                 $listchuyende = loadall_chuyende();
                 include "cauhoi/add-cauhoi.php";
@@ -206,43 +152,13 @@ include "menu.php";
                     $idcd = $_POST['idcd'];
                     $content = $_POST['content'];
 
-                    // Check if an image was uploaded
-                    if (isset($_FILES['image']) && $_FILES['image']['error'] == UPLOAD_ERR_OK) {
-                        $image = $_FILES['image']['name'];
-                        $target_dir = "../uploads/";
-                        $target_file = $target_dir . basename($_FILES["image"]["name"]);
-
-                        // Check if the file is an image
-                        $check = getimagesize($_FILES["image"]["tmp_name"]);
-                        if ($check !== false) {
-                            if (file_exists($target_file)) {
-                                echo '<script>alert("Xin lỗi, tệp đã tồn tại.");</script>';
-                            } else {
-
-                                if ($_FILES["image"]["size"] > 500000) {
-                                    echo '<script>alert("Xin lỗi, kích thước tệp quá lớn.");</script>';
-                                } else {
-                                    $allowed_types = array("jpg", "jpeg", "png", "gif");
-                                    $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-                                    if (!in_array($imageFileType, $allowed_types)) {
-                                        echo '<script>alert("Xin lỗi, chỉ chấp nhận tệp JPG, JPEG, PNG, và GIF.");</script>';
-                                    } else {
-                                        if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
-                                            update_cauhoi($idcd, $content, $image, $id);
-                                            echo '<script>alert("Tệp ' . basename($_FILES["image"]["name"]) . ' đã được tải lên và câu hỏi đã được cập nhật.");</script>';
-                                        } else {
-                                            echo '<script>alert("Xin lỗi, có lỗi khi tải lên tệp của bạn.");</script>';
-                                        }
-                                    }
-                                }
-                            }
-                        } else {
-                            echo '<script>alert("Tệp không phải là hình ảnh.");</script>';
-                        }
-                    } else {
-                        update_cauhoi($idcd, $content, null, $id);
-                        echo '<script>alert("Câu hỏi đã được cập nhật mà không có thay đổi hình ảnh.");</script>';
+                    $image = $_FILES['image']['name'];
+                    $target_dir = "../uploads/";
+                    $target_file = $target_dir . basename($_FILES["image"]["name"]);
+                    if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
                     }
+                    update_cauhoi($idcd, $content, $image, $id);
+                    header("Location:index.php?act=dsch");
                 }
                 $listchuyende = loadall_chuyende();
                 $listcauhoi = loadall_cauhoi();
@@ -256,14 +172,56 @@ include "menu.php";
                 $listcauhoi = loadall_cauhoi();
                 include "cauhoi/list-cauhoi.php";
                 break;
-            case 'dsda':
 
+            case 'dsda':
+                $listdapan = loadall_dapan();
                 include "dapan/list-dapan.php";
                 break;
-            case 'editda':
 
+            case "addda":
+                $idcauhoi = loadid_cauhoi();
+                if (isset($_POST['btnSubmit'])) {
+                    $photo = "";
+                    if ($_FILES['img']['name'] != "") {
+                        $photo = time() . "_" . $_FILES['img']['name'];
+                        move_uploaded_file($_FILES['img']['tmp_name'], "../uploads/$photo");
+                    }
+                    add_dapan($_POST['content'], $photo, $_POST['right_answer'], $_POST['id_question']);
+                    header("location: ?act=dsda");
+                }
+                include "dapan/add-dapan.php";
+                break;
+
+            case 'editda':
+                $idcauhoi = loadid_cauhoi();
+               
+                if (isset($_GET['idda'])) {
+                    $olddata = loadone_dapan($_GET['idda']);
+                  
+                }
+
+                if (isset($_POST['btnSubmit'])) {
+                    $photo = "";
+                    if ($_FILES['img']['name'] != "") {
+                        unlink("../uploads/{$data['image']}");
+                        $photo = time() . "_" . $_FILES['img']['name'];
+                        move_uploaded_file($_FILES['img']['tmp_name'], "../uploads/$photo");
+                    }
+                    edit_dapan($_POST['id'],$_POST['content'], $photo, $_POST['right_answer'], $_POST['id_question']);
+                    header("location: ?act=dsda");
+                }
                 include "dapan/edit-dapan.php";
                 break;
+
+            case "deleteda":
+                if (isset($_GET['idda'])) {
+                    delete_dapan($_GET['idda']);
+                    header("location: ?act=dsda");
+                }
+                include "dapan/list-dapan.php";
+                break;
+
+
 
             case 'dslt':
                 $dslt = loadall_lichthi();
@@ -323,7 +281,7 @@ include "menu.php";
                     header("location: ?act=dslt");
                 }
                 include "lichthi/add-lichthi.php";
-                break;
+
 
 
 

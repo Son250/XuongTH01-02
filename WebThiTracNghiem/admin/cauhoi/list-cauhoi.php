@@ -1,21 +1,11 @@
+
 <div class="container">   
      <nav class="navbar bg-body-tertiary">
           <div class="container-fluid">
           <h2>DANH SÁCH CÂU HỎI</h2>
           </div>
      </nav>
-     <!-- <form action="index.php?act=listsp" method="post">
-          <input type="hidden" name="kyw" id="">
-          <div class="row2 mb select">
-               <select name="idcd">
-               <option value="0" selected>Chuyên đề</option>
-                    <?php foreach ($listchuyende as $chuyende){
-                    extract($chuyende);
-                    echo '<option value="'.$id_cd.'">'.$name.'</option>';
-                    }?>
-               </select>
-          </div>
-     </form> -->
+   
      <div>
           <table  class="table" >     
                <tr>    
@@ -58,3 +48,4 @@
        
      </div>
 </div>
+

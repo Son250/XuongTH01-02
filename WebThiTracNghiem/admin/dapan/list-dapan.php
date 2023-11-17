@@ -1,38 +1,57 @@
-<div class="container ">
-        <h2>DANH SÁCH ĐÁP ÁN</h2>
+<div class="content-boder-user">
+    <div class="title-boder-top-user">
+        <p>QUẢN LÝ ĐÁP ÁN</p>
     </div>
+
     <div class="navbar">
         <div class="container">
-            <div class="content">
-                <table border="1">
-                    <tr>
-                        <th></th>
-                        <th>Mã câu hỏi</th>
-                        <th>Nội dung</th>
-                        <th>Hình ảnh </th>
-                        <th>Câu trả lời</th>
-                        <th>Thao tác</th>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" name="" id=""></td>
-                        <td>1</td>
-                        <td>Hôm nay thứ mấy?</td>
-                        <td><img src="" alt=""></td>
-                        <td>Thứ 2</td>
-                        <td>
-                            <a href="?act=editda"><button type="submit" class="btn btn-primary">Sửa</button></a>
-                            <a href=""><button type="submit" class="btn btn-primary">Xoá</button></a>
-                        </td>
-                    </tr>
-               
-                </table>
+            <a class="btn" href="?act=addda">Thêm mới</a> <br>
+            <div>
+                <form action="index.php?act=dsda" method="post" enctype="multipart/form-data">
+                    <table border="1" class="table">
+                        <thead>
+                            <tr>
+                                <th>STT </th>
+                                <th>Nội dung đáp án</th>
+                                <th>Hình ảnh </th>
+                                <th>Đáp án (1:Đúng, 2:Sai)</th>
+                                <th>Tên câu hỏi</th>
+                                <th>Thao tác</th>
+                            </tr>
 
+                        </thead>
+                        <tbody>
+                            <?php foreach ($listdapan as $key => $value) : ?>
+                                <tr>
+                                    <td><?= $key + 1 ?></td>
+                                    <td><?= $value['content'] ?></td>
+                                    <td><?php
+                                        if ($value['image'] != "" && $value['image'] != null) {
+                                            echo "<img width='70' src='../uploads/{$value['image']}'>";
+                                        }
+
+                                        ?>
+                                    </td>
+                                    <td><?php
+                                        if ($value['right_answer'] == 1) {
+                                            echo "Đúng";
+                                        } else {
+                                            echo "Sai";
+                                        }
+                                        ?></td>
+                                    <td><?= $value['question_content'] ?></td>
+                                    
+                                    <td><a class="btn" href="?act=editda&idda=<?= $value['idda'] ?>">Sửa</a>
+                                        <a class="btn" href="?act=deleteda&idda=<?= $value['idda'] ?>">Xóa</a>
+                                    </td>
+
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+
+                    </table>
+                </form>
             </div>
         </div>
 
-    </div>
-    <div class="container">
-        <input type="button" class="btn" value="Chọn tất cả">
-        <input type="button" class="btn" value="Xoá tất cả">
-        <input type="button" class="btn" value="Danh sách câu hỏi">
     </div>

@@ -18,8 +18,6 @@
                     <td>Adress</td>
                     <td>Email</td>
                     <td>ROLE</td>
-
-
                     <td>Chức Năng</td>
                 </tr>
             </thead>

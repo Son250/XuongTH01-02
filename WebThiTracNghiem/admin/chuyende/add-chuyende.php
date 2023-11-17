@@ -4,20 +4,18 @@
 
         <div class="">
             <label for="">CHUYÊN ĐỀ:</label>
-            <input type="text" class="form-control" name="tencd"  >
+            <input type="text" class="form-control" name="tencd" placeholder="Nhập tên chuyên đề">
         </div>
-        <div class="checkbox">
+        <br>
 
-        </div>
-        <input type="submit" value="submit"class="btn btn-success" name="themcd">
-        <a href="index.php?act=dscd"><input type="button" value="DANH SACH" class="btn btn-info">
-        </a>
-        
+        <a href="index.php?act=dscd"><input type="button" value="Danh sách" class="btn btn-info"> </a>
+        <input type="submit" value="Thêm mới" class="btn btn-success" name="themcd">
+
     </form>
     <?php
-    if(isset($thongbao)&&($thongbao!=""))
-    echo $thongbao;
+    if (isset($thongbao) && ($thongbao != ""))
+        echo $thongbao;
     ?>
-   
+
 
 </div>

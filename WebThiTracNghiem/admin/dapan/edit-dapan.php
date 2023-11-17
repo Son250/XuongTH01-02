@@ -1,33 +1,51 @@
-<div class="container ">
-        <div class="header">
-            <h2>CHỈNH SỬA ĐÁP ÁN</h2>
-        </div>
+<div class="content-boder-user">
+    <div class="title-boder-top-user">
+        <p>SỬA ĐÁP ÁN</p>
     </div>
-    <div class="container">
-        <div class="form">
-            <form action="" method="post" enctype="multipart/form-data">
-            <label for="">Tên kỳ thi: </label> 
-            <input type="text" id="" placeholder="Nhập tên kỳ thi..."><br><br>
-            <label for="">Môn học: </label>
-            <select name="" id="">
-                <option value="">Toán</option>
-                <option value="">Văn</option>
-                <option value="">Anh</option>
-            </select> <br>
-            <label for="">Bài học: </label>
-            <select name="" id="">
-                <option value="">Chương 1</option>
-                <option value="">Chương 2</option>
-                <option value="">Chương 3</option>
-            </select> <br>
-           <label for="">Câu hỏi: </label> <br>
-          <textarea name="cauhoi" id="" cols="30" rows="10"></textarea> <br>
-          File đính kèm: <input type="file" name="" id=""> <br>
-           <label for="">Câu trả lời: </label> <br>
-          <textarea name="traloi" id="" cols="30" rows="10"></textarea> <br>
-           <button type="submit" class="btn">Cập nhập</button>
-           <button type="reset" class="btn">Nhập lại</button>
-          <a href="dapan.html"><button type="button" class="btn">Danh sách câu hỏi</button></a>
-        </form>
+
+    <div class="navbar">
+        <div class="container">
+            <form action="?act=editda" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="id" value="<?= $olddata['id'] ?>">
+                <div>
+                    <label for="">Nội dung đáp án</label> <br>
+                    <input type="text" name="content" value="<?= $olddata['content'] ?>">
+                </div><br>
+                <div>
+                    <label for="">Image</label> <br>
+                    <?php
+                    if ($olddata['image'] != "" && $olddata['image'] != null) {
+                        echo "<img width='150' src='../uploads/{$olddata['image']}'>";
+                    }
+
+                    ?>
+                    <input type="file" name="img">
+                </div><br>
+          
+                <div>
+                    <label for="">Đáp án</label> <br>
+                    <select name="right_answer" id="">
+                        <option value="2" <?php if ($olddata['right_answer'] == '2') echo 'selected'; ?>>Sai</option>
+                        <option value="1" <?php if ($olddata['right_answer'] == '1') echo 'selected'; ?>>Đúng</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="">Câu hỏi</label> <br>
+                    <select name="id_question" id="">
+                        <?php foreach ($idcauhoi as $key => $value) : ?>
+                            <option value="<?= $value['id_ch']; ?>" <?php if ($olddata['id_question'] == $value['id_ch']) : ?> selected <?php endif; ?>>
+                                <?= $value['content'] ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+
+
+                <br>
+                <button type="submit" name="btnSubmit">Xác nhận</button>
+            </form>
+
         </div>
+
     </div>

@@ -1,7 +1,7 @@
 <?php  
     session_start();
-    include "model/pdo.php";
-    include "model/taikhoan.php";
+    include "../model/pdo.php";
+    include "../model/taikhoan.php";
     // header("Location:admin/index.php");
     if(isset($_SESSION['user'])){
         if($_SESSION['user']['role'] == "1"){
