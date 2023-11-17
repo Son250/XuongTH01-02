@@ -453,3 +453,9 @@ a.register-btn {
 .login {
     padding-top: 70px;
 }
+
+.btn {
+    background-color: #c9c9c9;
+    padding: 10px;
+    color: black;
+}

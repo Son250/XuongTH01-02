@@ -177,14 +177,50 @@ include "menu.php";
                 $listdapan = loadall_dapan();
                 include "dapan/list-dapan.php";
                 break;
-            case 'editda':
-                if (isset($_GET['id']) && ($_GET['id'] > 0)) {
-                    $id = $_GET['id'];
-                    $dapan = loadone_dapan($id);
+
+            case "addda":
+                $idcauhoi = loadid_cauhoi();
+                if (isset($_POST['btnSubmit'])) {
+                    $photo = "";
+                    if ($_FILES['img']['name'] != "") {
+                        $photo = time() . "_" . $_FILES['img']['name'];
+                        move_uploaded_file($_FILES['img']['tmp_name'], "../uploads/$photo");
+                    }
+                    add_dapan($_POST['content'], $photo, $_POST['right_answer'], $_POST['id_question']);
+                    header("location: ?act=dsda");
                 }
-                $listda = loadall_dapan();
+                include "dapan/add-dapan.php";
+                break;
+
+            case 'editda':
+                $idcauhoi = loadid_cauhoi();
+               
+                if (isset($_GET['idda'])) {
+                    $olddata = loadone_dapan($_GET['idda']);
+                  
+                }
+
+                if (isset($_POST['btnSubmit'])) {
+                    $photo = "";
+                    if ($_FILES['img']['name'] != "") {
+                        unlink("../uploads/{$data['image']}");
+                        $photo = time() . "_" . $_FILES['img']['name'];
+                        move_uploaded_file($_FILES['img']['tmp_name'], "../uploads/$photo");
+                    }
+                    edit_dapan($_POST['id'],$_POST['content'], $photo, $_POST['right_answer'], $_POST['id_question']);
+                    header("location: ?act=dsda");
+                }
                 include "dapan/edit-dapan.php";
                 break;
+
+            case "deleteda":
+                if (isset($_GET['idda'])) {
+                    delete_dapan($_GET['idda']);
+                    header("location: ?act=dsda");
+                }
+                include "dapan/list-dapan.php";
+                break;
+
 
 
             case 'dslt':
@@ -246,32 +282,10 @@ include "menu.php";
                 }
                 include "lichthi/add-lichthi.php";
 
-            case "update_da":
-                if (isset($_POST['capnhat']) && ($_POST['capnhat'])) {
-                    $id = $_POST['id'];
-                    $traloi = $_POST['traloi'];
-                    $cauhoi = $_POST['cauhoi'];
-                    $image = $_FILES['image']['name'];
-                    $target_dir = "../uploads/";
-                    $target_file = $target_dir . basename($_FILES["image"]["name"]);
-                    if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
-                    } else {
-                    }
-                    update_dapan($traloi, $image, $cauhoi, $id);
-                    $thongbao = "cập nhập thành công";
-                }
-                $listdapan = loadall_dapan();
-                include "dapan/list-dapan.php";
-                break;
-            case 'xoada':
-                if (isset($_GET['id']) && ($_GET['id'])) {
-                    $id = $_GET['id'];
-                    delete_dapan($id);
-                }
-                $listdapan = loadall_dapan();
-                include 'dapan/list-dapan.php';
 
-                break;
+
+
+
 
             case 'back-to-website':
 

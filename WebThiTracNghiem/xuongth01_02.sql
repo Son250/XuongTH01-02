@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 15, 2023 lúc 10:40 AM
+-- Thời gian đã tạo: Th10 17, 2023 lúc 06:52 AM
 -- Phiên bản máy phục vụ: 10.4.24-MariaDB
 -- Phiên bản PHP: 8.1.6
 
@@ -40,9 +40,7 @@ CREATE TABLE `cauhoi` (
 
 INSERT INTO `cauhoi` (`id_ch`, `content`, `image`, `id_cd`) VALUES
 (1, 'Cho dãy số liệu: 8; 1998; 195; 2007; 1000; 71 768; 9999; 17 .\r\nDãy trên có tất cả:', NULL, 0),
-(3, 'Mai có 7 viên bi, Hồng có 15 viên bi. Hỏi Hồng phải cho Mai bao nhiêu viên bi để số bi của hai bạn bằng nhau', NULL, 0),
-(16, 'Test câu hỏi 5', '', 0),
-(17, 'Test câu hỏi2', 'Ảnh chụp màn hình 2022-07-01 182911.png', 1);
+(3, 'Mai có 7 viên bi, Hồng có 15 viên bi. Hỏi Hồng phải cho Mai bao nhiêu viên bi để số bi của hai bạn bằng nhau', NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -238,7 +236,7 @@ ALTER TABLE `taikhoan`
 -- AUTO_INCREMENT cho bảng `cauhoi`
 --
 ALTER TABLE `cauhoi`
-  MODIFY `id_ch` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id_ch` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT cho bảng `chuyende`
@@ -250,7 +248,7 @@ ALTER TABLE `chuyende`
 -- AUTO_INCREMENT cho bảng `dapan`
 --
 ALTER TABLE `dapan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT cho bảng `dethi`
