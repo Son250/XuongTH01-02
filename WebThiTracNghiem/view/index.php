@@ -45,7 +45,20 @@ include "_menu.php";
                 }
 
             case 'register':
-
+                if(isset($_POST['dangki']) && ($_POST['dangki'])){
+                    $username = $_POST['username'] ;
+                    $fullname = $_POST['fullname'] ;
+                    $email = $_POST['email'] ;
+                    $pass = $_POST['pass'] ;
+                    $repass = $_POST['repass'] ;
+                    if($repass === $pass){
+                        insert_taikhoan($username, $fullname ,$email,$pass);
+                       
+                    }else{
+                       
+                    }
+                  
+                }
                 include "register.php";
                 break;
             case 'logout':
