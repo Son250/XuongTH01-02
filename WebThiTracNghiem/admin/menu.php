@@ -8,7 +8,7 @@
                 <li><a href="?act=dstk">Tài khoản</a></li>
                 <li><a href="?act=dscd">Chuyên đề</a></li>
                 <li><a href="?act=dsch">Câu hỏi</a></li>
-                <li><a href="?act=dsda">Đáp án</a></li>
+                <!-- <li><a href="?act=dsda">Đáp án</a></li> -->
                 <li><a href="?act=dslt">Lịch thi</a></li>
                 <li><a href="?act=dskq">Kết quả thi</a></li>
                 <li class='login'>
