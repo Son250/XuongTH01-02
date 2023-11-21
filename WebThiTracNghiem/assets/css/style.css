@@ -3,14 +3,17 @@
     padding: 0px;
     /* max-width: 1200px; */
 }
+
 .red {
     color: red;
 }
+
 * {
     padding: 0px;
     margin: 0px;
     font-family: roboto;
 }
+
 .mb10 {
     margin-bottom: 10px;
 }
@@ -19,6 +22,7 @@
     float: left;
     width: 100%;
 }
+
 .bg-blue {
     background-color: blue;
 }
@@ -35,7 +39,9 @@
     background-color: green;
 }
 
+
 /* CSS cho menu  */
+
 .menu ul.main-menu li img {
     width: 100px;
     padding-top: 5px;
@@ -84,9 +90,8 @@
     z-index: 3;
 }
 
-
 .login .setup-user {
-    display: none ;
+    display: none;
     background-color: #eaeaea;
     padding: 10px;
     border-radius: 5px;
@@ -103,9 +108,11 @@
 .login .setup-user div:hover a {
     color: rgb(7, 164, 7);
 }
+
 .login .xin-chao-user:hover .setup-user {
     display: block;
 }
+
 
 /* CSS SlideShow */
 
@@ -124,7 +131,6 @@
     border: none;
     height: 50px;
     padding: 8px;
-
 }
 
 .banner input:hover {
@@ -134,7 +140,6 @@
 .banner input {
     position: absolute;
     top: 40%;
-
 }
 
 .banner #pre {
@@ -149,7 +154,6 @@
     border-bottom-left-radius: 5px;
 }
 
-
 .content {
     padding-top: 30px;
     display: grid;
@@ -159,13 +163,13 @@
     margin: 0px auto;
 }
 
+
 /* CSS box-left   */
 
 .box-left .info-all {
     margin-top: 25px;
     border-radius: 10px;
     box-shadow: 0 0 5px black;
-
 }
 
 .box-left .box-img {
@@ -185,14 +189,11 @@
 .box-left .box .xem-chi-tiet a {
     text-decoration: none;
     color: #eeeeee;
-
 }
 
 .box-left .box .xem-chi-tiet a:hover {
     color: rgb(36, 36, 36);
 }
-
-
 
 .info-all h3 {
     margin: 15px;
@@ -227,7 +228,6 @@
 
 .box-title h4 {
     padding: 10px;
-
 }
 
 .box-right .box-title {
@@ -240,11 +240,13 @@
     margin: 15px;
 }
 
+
 /* CSS Box kỳ thi  */
 
 .title-ky-thi {
     margin: 30px;
 }
+
 
 /* .title-ky-thi h2,
 h3 {
@@ -259,7 +261,6 @@ h3 {
     display: flex;
     flex-direction: row;
     justify-content: center;
-
 }
 
 .ky-thi .box {
@@ -267,34 +268,32 @@ h3 {
     padding: 15px;
     border-radius: 5px;
     margin-left: 15px;
-
     box-shadow: 0 0 5px rgb(132, 132, 254);
 }
 
 .ky-thi .box .box-title {
     text-align: center;
-    
 }
+
 .ky-thi .box .box-content .lam-ngay {
     margin: 20px 0px 0px 0px;
 }
+
 .ky-thi .box .box-content .text {
     height: 100px;
-   
 }
+
 .ky-thi .box .box-content a {
     background-color: orange;
     padding: 10px;
     text-decoration: none;
     border-radius: 5px;
-   color: white;
+    color: white;
 }
+
 .ky-thi .box .box-content a:hover {
-    
     font-weight: bold;
 }
-
-
 
 .footer-trangchu {
     margin-top: 150px;
@@ -304,16 +303,21 @@ h3 {
 
 
 /* CSS Quản lý tài khoản  */
+
+
 /*edit-user*/
 
+
 /*end*/
+
+
 /*list-user*/
+
 .container-user {
     max-width: 1200px;
     margin: 0px auto;
     font-family: 'Roboto', sans-serif;
     font-family: 'Roboto Flex', sans-serif;
-
 }
 
 .container-user .head-top-user p {
@@ -323,7 +327,6 @@ h3 {
     padding: 15px;
     margin-top: 0px;
     color: white;
-
 }
 
 .content-boder-user .title-boder-top-user p {
@@ -340,12 +343,10 @@ h3 {
     margin-top: 15px;
     background: rgba(235, 235, 235, 0.68);
     border-collapse: collapse;
-
 }
 
-
-
-.content-boder-user .main-user table a,.add-user a  {
+.content-boder-user .main-user table a,
+.add-user a {
     background: rgb(220 220 220);
     padding: 10px;
     color: black;
@@ -354,7 +355,8 @@ h3 {
     border-radius: 10px;
 }
 
-.content-boder-user .main-user table a:hover,.add-user a:hover  {
+.content-boder-user .main-user table a:hover,
+.add-user a:hover {
     background: green;
     color: white;
     font-weight: bold;
@@ -368,7 +370,6 @@ h3 {
     padding: 0;
     margin: 0;
     height: 35px;
-
 }
 
 .content-boder-user .main-user table tbody tr td {
@@ -382,19 +383,24 @@ h3 {
     padding: 15px;
 }
 
+
 /*nhập thêm user*/
+
 .container-user .add-user a {
     text-decoration: none;
     color: white;
     background: blue;
     padding: 5px;
     border-radius: 5px;
-
 }
+
 
 /**end/
 /*end*/
+
+
 /*register-user*/
+
 .container-user .head-top-user a {
     text-decoration: none;
 }
@@ -403,7 +409,6 @@ h3 {
     line-height: 35px;
     font-size: 16px;
     color: #454545;
-
 }
 
 .content-boder-user form input {
@@ -412,6 +417,7 @@ h3 {
     width: 500px;
     border-radius: 5px;
 }
+
 form#registrationForm:not(label) {
     /* text-align: center; */
     margin-top: 5px;
@@ -435,8 +441,8 @@ form#registrationForm:not(label) {
 
 .content-boder-user form button:hover {
     background: rgb(0, 140, 255);
-
 }
+
 
 /*end*/
 
@@ -450,6 +456,7 @@ a.register-btn {
 .col-xl-10.col-lg-12.col-md-9.justify-content-center {
     padding-left: 220px;
 }
+
 .login {
     padding-top: 70px;
 }
@@ -474,9 +481,182 @@ a.register-btn {
     padding: 15px;
     box-shadow: 0 0 5px purple;
 }
+
 .dapan {
     border: 1px solid rgb(12, 210, 62);
     border-radius: 5px;
     padding: 15px;
     box-shadow: 0 0 5px green;
+}
+
+/* trang thi */
+
+.khung {
+    width: 80%;
+    margin-left: 10%;
+}
+
+.mr {
+    margin-left: 45px;
+}
+
+.top10 {
+    width: 60%;
+}
+
+.table {
+    text-align: center;
+    margin-left: 35%;
+    border: 1px white none;
+    box-shadow: 10px 10px 5px #aaaaaa
+}
+
+.containerfull,
+.row {
+    float: left;
+    width: 100%;
+}
+
+.containerfull img,
+.boxleft img,
+.boxright img,
+.boxnews {
+    width: 100%;
+}
+
+.container {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.box50 {
+    float: left;
+    width: calc(50% - 30px);
+}
+
+.box25 {
+    float: left;
+    width: 25%;
+    width: calc(25% - 30px);
+    position: relative;
+}
+
+.kithi {
+    float: left;
+    width: 50%;
+    width: calc(50% - 30px);
+    position: relative;
+}
+
+.box50 img,
+.box25 img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #999999;
+}
+
+section,
+.mr30 {
+    margin: 30px 0px;
+}
+
+.mr15 {
+    margin-right: 30px;
+}
+
+button {
+    color: #4b709f;
+    font-size: 13pt;
+    font-weight: bold;
+    width: 100%;
+    border: 1px #4b709f dotted;
+    border-radius: 5px;
+    padding: 10px 0px;
+    background-color: #FFFFFF;
+}
+
+h1 {
+    text-align: center;
+    font-size: 24pt;
+    margin: 0px;
+}
+
+h2 {
+    font-size: 18pt;
+    padding-left: 10px;
+    color: #444444;
+    border-left: 4px #FF9900 solid;
+}
+
+.tenchuyende {
+    text-align: center;
+    color: #4b709f;
+    font-size: 20pt;
+    font-weight: bold;
+    float: left;
+    width: 100%;
+    padding: 8px 0px;
+}
+
+.col6 {
+    float: left;
+    width: 25%;
+}
+
+.col62 {
+    float: left;
+    width: 45%;
+}
+
+.imgtenchuyende img {
+    width: 90%;
+}
+
+hr {
+    margin-bottom: 30px;
+    border-top: 1px #CCC dotted;
+}
+
+th,
+td {
+    padding: 10px;
+    border: 1px #666666 solid;
+    text-align: left;
+}
+
+h1 span {
+    color: #993300;
+}
+
+
+/* FORM */
+
+input[type=text],
+input[type=password],
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
+
+input[type=submit] {
+    background-color: #04AA6D;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
 }
