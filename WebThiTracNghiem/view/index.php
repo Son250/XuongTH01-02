@@ -4,14 +4,10 @@ include "../model/pdo.php";
 include "../model/taikhoan.php";
 include "_header.php";
 include "_menu.php";
-
-
 ?>
-
 
 <div>
     <?php
-
     //Controller
     if (isset($_GET['act']) && $_GET['act'] != "") {
         $act = $_GET['act'];
@@ -30,9 +26,7 @@ include "_menu.php";
                                 //Tạo ra biến Session để lưu kết quả vừa tìm đc
                                 $_SESSION['user'] = $check_user;
 
-                                header("Location:?act=trangchu");
-                              
-
+                                header("Location:?act=trangchu");                           
                             } else {
                                 $thongbao = "Tài khoản không tồn tại. Vui lòng kiểm tra hoặc đăng ký";
                             }
