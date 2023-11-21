@@ -178,26 +178,41 @@ include "menu.php";
                 include "dapan/list-dapan.php";
                 break;
 
-            case "addda":
-                $idcauhoi = loadid_cauhoi();
+
+                // Thêm đáp án ở câu hỏi 
+            case "themda":
+                if(isset($_GET['id'])){
+                    $oldcauhoi = loadone_cauhoi($_GET['id']);
+                }
+            
                 if (isset($_POST['btnSubmit'])) {
-                    $photo = "";
-                    if ($_FILES['img']['name'] != "") {
-                        $photo = time() . "_" . $_FILES['img']['name'];
-                        move_uploaded_file($_FILES['img']['tmp_name'], "../uploads/$photo");
+                    $id_question = $_POST['id_question'];
+                    $content_dapan = $_POST['content_dapan'];
+                    $right_answer = $_POST['right_answer'];
+                    foreach ($content_dapan as $key => $value) {
+                        //var_dump($_FILES['image']['name'][$key]);
+                        //die ;
+                        $photo = "";
+                        if ($_FILES['image']['name'][$key] != "") {
+                            $photo = time() . "_" . $_FILES['image']['name'][$key];
+                            move_uploaded_file($_FILES['image']['tmp_name'][$key], "../uploads/$photo");
+                        }
+                      
+                        add_dapan($value, $photo, $right_answer[$key],$id_question);
                     }
-                    add_dapan($_POST['content'], $photo, $_POST['right_answer'], $_POST['id_question']);
-                    header("location: ?act=dsda");
+
+
+             
+                    header("location: ?act=dsch");
                 }
                 include "dapan/add-dapan.php";
                 break;
 
             case 'editda':
                 $idcauhoi = loadid_cauhoi();
-               
+
                 if (isset($_GET['idda'])) {
                     $olddata = loadone_dapan($_GET['idda']);
-                  
                 }
 
                 if (isset($_POST['btnSubmit'])) {
@@ -207,7 +222,7 @@ include "menu.php";
                         $photo = time() . "_" . $_FILES['img']['name'];
                         move_uploaded_file($_FILES['img']['tmp_name'], "../uploads/$photo");
                     }
-                    edit_dapan($_POST['id'],$_POST['content'], $photo, $_POST['right_answer'], $_POST['id_question']);
+                    edit_dapan($_POST['id'], $_POST['content'], $photo, $_POST['right_answer'], $_POST['id_question']);
                     header("location: ?act=dsda");
                 }
                 include "dapan/edit-dapan.php";
@@ -281,7 +296,7 @@ include "menu.php";
                     header("location: ?act=dslt");
                 }
                 include "lichthi/add-lichthi.php";
-
+                break;
 
 
 

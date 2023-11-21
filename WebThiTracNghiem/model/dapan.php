@@ -24,11 +24,7 @@ function loadid_cauhoi()
     return $result;
 }
 
-function add_dapan($content, $photo, $right_answer, $id_question)
-{
-    $sql = "INSERT INTO dapan(`content`, `image`,`right_answer`, `id_question`) VALUES ('$content', '$photo','$right_answer', '$id_question')";
-    pdo_execute($sql);
-}
+
 
 
 function edit_dapan($id, $content, $photo, $right_answer, $id_question)

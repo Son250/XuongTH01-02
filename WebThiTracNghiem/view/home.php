@@ -57,7 +57,7 @@
     <div class="container" data-aos="fade-up">
 
       <div class="section-title">
-        <h2>About Us</h2>
+        <h2>Chuyên đề</h2>
       </div>
 
       <div class="row content">

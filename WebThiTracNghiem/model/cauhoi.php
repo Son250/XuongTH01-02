@@ -11,6 +11,15 @@ function loadall_cauhoi()
     $listcauhoi = pdo_query($sql);
     return $listcauhoi;
 }
+
+
+function add_dapan($content_dapan, $photo, $right_answer, $id_question)
+{
+    $sql = "insert into dapan(content_dapan, image, right_answer, id_question) values('$content_dapan', '$photo', '$right_answer', '$id_question')";
+    pdo_execute($sql);
+}
+
+
 function update_cauhoi($idcd, $content, $image, $id)
 {
     if ($image != "") {

@@ -15,6 +15,15 @@ function pdo_get_connection(){
     }
 }
 
+function pdo_last_insert_id($conn) {
+    try {
+        $last_id = $conn->lastInsertId();
+        return $last_id;
+    } catch (PDOException $e) {
+        throw $e;
+    }
+}
+
 //Thực thi câu lệnh insert, update, delete
 function pdo_execute($sql){
     $sql_args=array_slice(func_get_args(),1);

@@ -24,7 +24,7 @@
                             <?php foreach ($listdapan as $key => $value) : ?>
                                 <tr>
                                     <td><?= $key + 1 ?></td>
-                                    <td><?= $value['content'] ?></td>
+                                    <td><?= $value['content_dapan'] ?></td>
                                     <td><?php
                                         if ($value['image'] != "" && $value['image'] != null) {
                                             echo "<img width='70' src='../uploads/{$value['image']}'>";
