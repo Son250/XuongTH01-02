@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 17, 2023 lúc 06:52 AM
+-- Thời gian đã tạo: Th10 21, 2023 lúc 07:36 AM
 -- Phiên bản máy phục vụ: 10.4.24-MariaDB
 -- Phiên bản PHP: 8.1.6
 
@@ -39,8 +39,12 @@ CREATE TABLE `cauhoi` (
 --
 
 INSERT INTO `cauhoi` (`id_ch`, `content`, `image`, `id_cd`) VALUES
-(1, 'Cho dãy số liệu: 8; 1998; 195; 2007; 1000; 71 768; 9999; 17 .\r\nDãy trên có tất cả:', NULL, 0),
-(3, 'Mai có 7 viên bi, Hồng có 15 viên bi. Hỏi Hồng phải cho Mai bao nhiêu viên bi để số bi của hai bạn bằng nhau', NULL, 0);
+(1, '1+1 = ?', 'con vịt.png', 1),
+(3, '2+2 = ?', 'cauhoi-removebg-preview.png', 1),
+(21, '3 + 3 = ?', 'con vịt.png', 1),
+(22, '1 con vịt + 1 con vịt = ? ', 'con vịt.png', 1),
+(23, '2 con vịt + 2 con vịt = ?', 'con vịt.png', 1),
+(24, '5 + 5 = ?', 'cauhoi-removebg-preview.png', 1);
 
 -- --------------------------------------------------------
 
@@ -69,7 +73,7 @@ INSERT INTO `chuyende` (`id_cd`, `name`) VALUES
 
 CREATE TABLE `dapan` (
   `id` int(11) NOT NULL,
-  `content` varchar(500) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Nội dung đáp án',
+  `content_dapan` varchar(500) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Nội dung đáp án',
   `image` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `right_answer` enum('1','2') COLLATE utf8_unicode_ci NOT NULL COMMENT '1 Đúng, 2 Sai',
   `id_question` int(11) NOT NULL COMMENT 'Id câu hỏi'
@@ -79,15 +83,28 @@ CREATE TABLE `dapan` (
 -- Đang đổ dữ liệu cho bảng `dapan`
 --
 
-INSERT INTO `dapan` (`id`, `content`, `image`, `right_answer`, `id_question`) VALUES
-(1, '11 số', NULL, '2', 1),
-(2, '9 số', NULL, '2', 1),
-(3, '8 số', NULL, '1', 1),
-(4, '10 số', NULL, '2', 1),
-(5, '3 viên', NULL, '2', 3),
-(6, '5 viên', NULL, '2', 3),
-(7, '4 viên', NULL, '1', 3),
-(8, '6 viên', NULL, '2', 3);
+INSERT INTO `dapan` (`id`, `content_dapan`, `image`, `right_answer`, `id_question`) VALUES
+(1, '3', NULL, '2', 1),
+(2, '4', NULL, '2', 1),
+(3, '2', NULL, '1', 1),
+(4, '5', NULL, '2', 1),
+(5, '3', NULL, '2', 3),
+(6, '5', NULL, '2', 3),
+(7, '4', NULL, '1', 3),
+(8, '6', NULL, '2', 3),
+(19, '2 con vịt ', '', '', 22),
+(20, '4 con vịt', '', '', 23),
+(21, '4 con vịt', '', '1', 23),
+(22, '5 con vịt', '', '2', 23),
+(23, '6 con vịt', '', '2', 23),
+(24, '7 con vịt ', '', '2', 23),
+(25, '11', '', '2', 24),
+(26, '10', '', '1', 24),
+(27, '12', '', '2', 24),
+(28, '15', '', '2', 24),
+(29, 'scsa ', '', '2', 24),
+(30, 'csdds', '1700546358_cta-bg.jpg', '2', 24),
+(31, 'sdcdsv', '1700546358_banner2.webp', '2', 24);
 
 -- --------------------------------------------------------
 
@@ -236,7 +253,7 @@ ALTER TABLE `taikhoan`
 -- AUTO_INCREMENT cho bảng `cauhoi`
 --
 ALTER TABLE `cauhoi`
-  MODIFY `id_ch` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_ch` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT cho bảng `chuyende`
@@ -248,7 +265,7 @@ ALTER TABLE `chuyende`
 -- AUTO_INCREMENT cho bảng `dapan`
 --
 ALTER TABLE `dapan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT cho bảng `dethi`

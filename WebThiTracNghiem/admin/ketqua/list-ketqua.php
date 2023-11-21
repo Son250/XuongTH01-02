@@ -4,9 +4,7 @@
     </div>
     <br>
     <div class="add-user">
-        <a href="?act=addkq">
-            Nhập thêm
-        </a>
+       
     </div>
     <div class="main-user">
         <table>
@@ -31,8 +29,8 @@
                         <td><?php echo $value['id'] ?></td>
                         <td><?php echo $value['diem'] ?>đ</td>
 
-                        <td><a href="?act=editkq&idkq=<?php echo $value['id'] ?>">Sửa</a>
-                            <a href="?act=deletekq&idkq=<?php echo $value['id'] ?>">Xóa</a>
+                        <td><a href="">Xem chi tiết</a>
+                     
                         </td>
                         <td></td>
                     </tr>
