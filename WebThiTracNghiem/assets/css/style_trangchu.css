@@ -1,0 +1,171 @@
+/* trang thi */
+
+.khung {
+    width: 80%;
+    margin-left: 10%;
+}
+
+.mr {
+    margin-left: 45px;
+}
+
+.top10 {
+    width: 60%;
+}
+
+.table {
+    text-align: center;
+    margin-left: 35%;
+    border: 1px white none;
+    box-shadow: 10px 10px 5px #aaaaaa
+}
+
+.containerfull,
+.row {
+    float: left;
+    width: 100%;
+}
+
+.containerfull img,
+.boxleft img,
+.boxright img,
+.boxnews {
+    width: 100%;
+}
+
+.container {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.box50 {
+    float: left;
+    width: calc(50% - 30px);
+}
+
+.box25 {
+    float: left;
+    width: 25%;
+    width: calc(25% - 30px);
+    position: relative;
+}
+
+.kithi {
+    float: left;
+    width: 50%;
+    width: calc(50% - 30px);
+    position: relative;
+}
+
+.box50 img,
+.box25 img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #999999;
+}
+
+section,
+.mr30 {
+    margin: 30px 0px;
+}
+
+.mr15 {
+    margin-right: 30px;
+}
+
+button {
+    color: #4b709f;
+    font-size: 13pt;
+    font-weight: bold;
+    width: 100%;
+    border: 1px #4b709f dotted;
+    border-radius: 5px;
+    padding: 10px 0px;
+    background-color: #FFFFFF;
+}
+
+h1 {
+    text-align: center;
+    font-size: 24pt;
+    margin: 0px;
+}
+
+h2 {
+    font-size: 18pt;
+    padding-left: 10px;
+    color: #444444;
+    border-left: 4px #FF9900 solid;
+}
+
+.tenchuyende {
+    text-align: center;
+    color: #4b709f;
+    font-size: 20pt;
+    font-weight: bold;
+    float: left;
+    width: 100%;
+    padding: 8px 0px;
+}
+
+.col6 {
+    float: left;
+    width: 25%;
+}
+
+.col62 {
+    float: left;
+    width: 45%;
+}
+
+.imgtenchuyende img {
+    width: 90%;
+}
+
+hr {
+    margin-bottom: 30px;
+    border-top: 1px #CCC dotted;
+}
+
+th,
+td {
+    padding: 10px;
+    border: 1px #666666 solid;
+    text-align: left;
+}
+
+h1 span {
+    color: #993300;
+}
+
+
+/* FORM */
+
+input[type=text],
+input[type=password],
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
+
+input[type=submit] {
+    background-color: #04AA6D;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}

@@ -15,7 +15,6 @@
                     <td>Tên người dùng</td>
                     <td>ID đề thi </td>
                     <td>Điểm</td>
-
                     <td colspan="2">Chức Năng</td>
                 </tr>
             </thead>

@@ -9,7 +9,7 @@
           <div class="btn-group">
                <a href="?act=addch" class="btn btn-primary active" aria-current="page">Thêm câu hỏi</a>
           </div>
-          <table class="table">
+          <table class="table table_dsch">
                <tr>
                     <th scope="col">ID</th>
 
