@@ -52,6 +52,21 @@
          + Validate: Sơn
 Test thử ...........
          
+3.2:Chia việc ngày 15/11/2023
+        + CRUD kết quả thi: Thanh
+        + Đăng nhập/Đăng ký người dùng: Trang
+        + Giao diện người dùng: Hoàng
+        + Giao diện người dùng: Thắm         
+
+
+3.3Chia việc ngày 21/11/2023
+        + CRUD lịch thi: Sơn
+        + Đổ dữ liệu chuyên đề, kỳ thi : Hoàng
+        + Thời gian đếm ngược: Thanh
+        + Giao diện kết quả thi(đã thi xong): Trang
+        + Giao diện biểu đồ ở Kết quả thi(Admin): Thắm 
+
+
 
 ## Cơ sở dữ liệu
     tai_khoan:

@@ -18,7 +18,7 @@ include "_menu.php";
 
         switch ($act) {
             case 'trangchu':
-                include "_banner.php";
+                
                 include "home.php";
                 break;
 
@@ -72,12 +72,12 @@ include "_menu.php";
                 break;
 
             default:
-            include "_banner.php";
+           
                 include "home.php";
                 break;
         }
     } else {
-        include "_banner.php";
+       
         include "home.php";
     }
     ?>

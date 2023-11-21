@@ -2,18 +2,23 @@
 session_start();
 include "../model/pdo.php";
 include "../model/chuyende.php";
+
+
+include "../model/taikhoan.php";
+include "../model/lichthi.php";
+include "../model/ketqua.php";
 include "../model/cauhoi.php";
-include "../model/dapan.php" ;
+include "../model/dapan.php";
 include "header.php";
 include "menu.php";
-include "../model/taikhoan.php";
+
+
+
+
 
 ?>
-
-<!--  -->
 <div>
     <?php
-
     if (!isset($_SESSION['user']) || $_SESSION['user']['role'] == "2") {
         header('location:../view/index.php');
     }
@@ -33,24 +38,36 @@ include "../model/taikhoan.php";
                 break;
             case 'add-chuyende':
                 if (isset($_POST['themcd']) && ($_POST['themcd'])) {
-                    $tencd = $_POST['tencd'];
-                    insert_chuyende($tencd);
-                    $thongbao = '<script>
-                    var thongbao = new Object();
-                    thongbao.name = "bạn đã thêm chuyên đề thành công";
-                   
-                    thongbao.intro = function() {
-                        alert("bạn đã thêm chuyên đề thành công ");
-            
-            
-                    }
-                  
-                    thongbao.intro();
-                </script>';
+                    $name = $_POST['tencd'];
+                    insert_chuyende($name);
+                    header("location:?act=dscd");
                 }
                 include "chuyende/add-chuyende.php";
                 break;
+            case 'xoacd':
+                if (isset($_GET['id_cd']) && ($_GET['id_cd'] > 0)) {
+                    delete_chuyende($_GET['id_cd']);
+                }
+                $listchuyende = loadall_chuyende();
+                include "chuyende/list-chuyende.php";
+                break;
+            case 'suacd':
+                if (isset($_GET['id_cd']) && ($_GET['id_cd'] > 0)) {
+                    $a = loadone_chuyende($_GET['id_cd']);
+                }
+                include "chuyende/edit-chuyende.php";
+                break;
 
+            case "updatecd":
+                if (isset($_POST['capnhat']) && ($_POST['capnhat'])) {
+                    $name = $_POST['tencd'];
+                    $id_cd = $_POST['id_cd'];
+                    update_chuyende($id_cd, $name);
+                    $thongbao = "cap nhap thanh cong";
+                }
+                $listchuyende = loadall_chuyende();
+                include "chuyende/list-chuyende.php";
+                break;
 
             case 'dstk':
                 $listtaikhoan = loadall_taikhoan();
@@ -59,129 +76,231 @@ include "../model/taikhoan.php";
                 break;
             case 'addtk':
 
+                $listtaikhoan = loadall_taikhoan();
+                if (isset($_POST['btn-addtk'])) {
+                    $user = $_POST['user'];
+                    $pass = $_POST['password'];
+                    $fullname = $_POST['full_name'];
+                    $email = $_POST['email'];
+                    $address = $_POST['address'];
+                    $role = $_POST['role'];
+                    add_taikhoan($user, $pass, $fullname, $email, $address, $role);
+                    header("location: ?act=dstk");
+                }
                 include "taikhoan/add-taikhoan.php";
                 break;
             case 'edittk':
+
+                if (isset($_GET['idtk'])) {
+                    $old_taikhoan = getold_taikhoan($_GET['idtk']);
+                }
+                if (isset($_POST['btn-edit-user'])) {
+                    $id = $_POST['idtk'];
+                    $user = $_POST['user'];
+                    $pass = $_POST['password'];
+                    $address = $_POST['address'];
+                    $email = $_POST['email'];
+                    $role = $_POST['role'];
+                    update_taikhoan($id, $user, $pass, $email, $address, $role);
+                    header("location: ?act=dstk");
+                }
                 include "taikhoan/edit-taikhoan.php";
                 break;
-                case 'dsch':
-                    $listcauhoi= loadall_cauhoi();
-                    include "cauhoi/list-cauhoi.php";
-                    break;
-                case 'addch':
-                    if(isset($_POST['themch'])&&($_POST['themch'])){
-                        $content=$_POST['content'];
-                        $image = $_FILES['image']['name'];
-                    $target_dir = "../uploads/";
-                    $target_file = $target_dir . basename($_FILES["image"]["name"]);
-                    if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)){
-                        // echo "The file ". htmlspecialchars( basename( $_FILES["hinh"]["name"])). " has been uploaded.";
-                    } else {
+            case 'dltk':
+                if (isset($_GET['idtk'])) {
+                    delete_taikhoan($_GET['idtk']);
+                    header("location: ?act=dstk");
+                }
+                include "taikhoan/list-taikhoan.php";
+                break;
 
-                        // echo "Sorry, there was an error uploading your file.";
-                    };
-                    insert_cauhoi($content,$image);
-                    //     $thongbao='<script>
-                    //     var thongbao = new Object();
-                    //     thongbao.name = "bạn đã thêm chuyên đề thành công";
-                       
-                    //     thongbao.intro = function() {
-                    //         alert("bạn đã thêm chuyên đề thành công ");
-                
-                
-                    //     }
-                      
-                    //     thongbao.intro();
-                    // </script>';
-                    }
-                    include "cauhoi/add-cauhoi.php";
-                    break;
-                case 'editch':
-                    if(isset($_GET['id']) && ($_GET['id']>0)){
-                       $id=$_GET['id'];
-                        $cauhoi=loadone_cauhoi($id);
-                    }
-                    $listdanhmuc=loadall_cauhoi();
-                    include "cauhoi/edit-cauhoi.php";
-                    break;
-                case 'update_ch':
-                    if(isset($_POST['capnhat'])&&($_POST['capnhat'])){
-                        $id = $_POST['id'];
-                        $content=$_POST['content'];
-                        $image = $_FILES['image']['name'];
-                        $target_dir = "../uploads/";
-                        $target_file = $target_dir . basename($_FILES["image"]["name"]);
-                        if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)){
-    
-                        }else{
-    
-                        }
-                        update_cauhoi($content,$image,$id) ;
-                        $thongbao='<script>
-                        var thongbao = new Object();
-                        thongbao.name = "bạn đã thêm chuyên đề thành công";
-                       
-                        thongbao.intro = function() {
-                            alert("bạn đã thêm chuyên đề thành công ");
-                
-                
-                        }
-                      
-                        thongbao.intro();
-                    </script>';
-                    } 
-                    $listcauhoi = loadall_cauhoi();
-                    include "cauhoi/list-cauhoi.php";
-                    break;
-                case 'xoach':
-                    if(isset($_GET['id']) && ($_GET['id'])){
-                        $id=$_GET['id'];
-                         delete_cauhoi($id);
-                    }
-                    $listcauhoi= loadall_cauhoi();
-                    include "cauhoi/list-cauhoi.php";
-                   
-                    break;
-            case 'dsda':
-                
-                $listdapan = loadall_dapan();
-                include "dapan/list-dapan.php";
+            case 'dsch':
+                $listcauhoi = loadall_cauhoi();
+                $listchuyende = loadall_chuyende();
+                include "cauhoi/list-cauhoi.php";
                 break;
-            case 'editda':
-                if(isset($_GET['id']) && ($_GET['id']>0)){
-                    $id=$_GET['id'];
-                     $dapan=loadone_dapan($id);
-                 }
-                 $listda=loadall_dapan();
-                include "dapan/edit-dapan.php";
-                break;
-            case "update_da" :
-                if(isset($_POST['capnhat'])&&($_POST['capnhat'])){
-                    $id = $_POST['id'];
-                    $traloi=$_POST['traloi'];
-                    $cauhoi = $_POST['cauhoi'] ;
+            case 'addch':
+                if (isset($_POST['themch']) && ($_POST['themch'])) {
+                    $idcd = $_POST['idcd'];
+                    $content = $_POST['content'];
                     $image = $_FILES['image']['name'];
                     $target_dir = "../uploads/";
                     $target_file = $target_dir . basename($_FILES["image"]["name"]);
-                    if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)){
 
-                    }else{
-
+                    if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
                     }
-                    update_dapan($traloi,$image,$cauhoi,$id );
-                     $thongbao = "cập nhập thành công" ;
+
+                    insert_cauhoi($content, $image, $idcd);
+                    header("Location:index.php?act=dsch");
                 }
+                $listchuyende = loadall_chuyende();
+                include "cauhoi/add-cauhoi.php";
+                break;
+
+            case 'editch':
+                if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                    $id = $_GET['id'];
+                    $cauhoi = loadone_cauhoi($id);
+                }
+                $listchuyende = loadall_chuyende();
+                $listdanhmuc = loadall_cauhoi();
+                include "cauhoi/edit-cauhoi.php";
+                break;
+            case 'update_ch':
+                if (isset($_POST['capnhat']) && ($_POST['capnhat'])) {
+                    $id = $_POST['id'];
+                    $idcd = $_POST['idcd'];
+                    $content = $_POST['content'];
+
+                    $image = $_FILES['image']['name'];
+                    $target_dir = "../uploads/";
+                    $target_file = $target_dir . basename($_FILES["image"]["name"]);
+                    if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
+                    }
+                    update_cauhoi($idcd, $content, $image, $id);
+                    header("Location:index.php?act=dsch");
+                }
+                $listchuyende = loadall_chuyende();
+                $listcauhoi = loadall_cauhoi();
+                include "cauhoi/list-cauhoi.php";
+                break;
+            case 'xoach':
+                if (isset($_GET['id']) && ($_GET['id'])) {
+                    $id = $_GET['id'];
+                    delete_cauhoi($id);
+                }
+                $listcauhoi = loadall_cauhoi();
+                include "cauhoi/list-cauhoi.php";
+                break;
+
+            case 'dsda':
                 $listdapan = loadall_dapan();
                 include "dapan/list-dapan.php";
                 break;
-            case 'xoada':
-                if(isset($_GET['id']) && ($_GET['id'])){
-                    $id=$_GET['id'];
-                     delete_dapan($id);
+
+
+                // Thêm đáp án ở câu hỏi 
+            case "themda":
+                if(isset($_GET['id'])){
+                    $oldcauhoi = loadone_cauhoi($_GET['id']);
                 }
-                $listdapan= loadall_dapan();
-                include 'dapan/list-dapan.php' ;
+            
+                if (isset($_POST['btnSubmit'])) {
+                    $id_question = $_POST['id_question'];
+                    $content_dapan = $_POST['content_dapan'];
+                    $right_answer = $_POST['right_answer'];
+                    foreach ($content_dapan as $key => $value) {
+                        //var_dump($_FILES['image']['name'][$key]);
+                        //die ;
+                        $photo = "";
+                        if ($_FILES['image']['name'][$key] != "") {
+                            $photo = time() . "_" . $_FILES['image']['name'][$key];
+                            move_uploaded_file($_FILES['image']['tmp_name'][$key], "../uploads/$photo");
+                        }
+                      
+                        add_dapan($value, $photo, $right_answer[$key],$id_question);
+                    }
+
+
+             
+                    header("location: ?act=dsch");
+                }
+                include "dapan/add-dapan.php";
                 break;
+
+            case 'editda':
+                $idcauhoi = loadid_cauhoi();
+
+                if (isset($_GET['idda'])) {
+                    $olddata = loadone_dapan($_GET['idda']);
+                }
+
+                if (isset($_POST['btnSubmit'])) {
+                    $photo = "";
+                    if ($_FILES['img']['name'] != "") {
+                        unlink("../uploads/{$data['image']}");
+                        $photo = time() . "_" . $_FILES['img']['name'];
+                        move_uploaded_file($_FILES['img']['tmp_name'], "../uploads/$photo");
+                    }
+                    edit_dapan($_POST['id'], $_POST['content'], $photo, $_POST['right_answer'], $_POST['id_question']);
+                    header("location: ?act=dsda");
+                }
+                include "dapan/edit-dapan.php";
+                break;
+
+            case "deleteda":
+                if (isset($_GET['idda'])) {
+                    delete_dapan($_GET['idda']);
+                    header("location: ?act=dsda");
+                }
+                include "dapan/list-dapan.php";
+                break;
+
+
+
+            case 'dslt':
+                $dslt = loadall_lichthi();
+                include "lichthi/list-lichthi.php";
+                break;
+            case 'addlt':
+                if (isset($_POST['btnSubmit'])) {
+
+                    $name = $_POST['name'];
+                    $time_start = $_POST['time_start'];
+                    $time_end = $_POST['time_end'];
+                    $time = $_POST['time'];
+                    $so_de_thi = $_POST['so_de_thi'];
+
+                    add_lichthi($name, $time_start, $time_end, $time, $so_de_thi);
+                    header("location: ?act=dslt");
+                }
+                include "lichthi/add-lichthi.php";
+                break;
+            case 'deletelt':
+                if (isset($_GET['idlt'])) {
+                    delete_lichthi($_GET['idlt']);
+                    header("location: ?act=dslt");
+                }
+                include "lichthi/list-lichthi.php";
+                break;
+            case 'editlt':
+                if (isset($_GET['idlt'])) {
+                    $olddata = getold_lichthi($_GET['idlt']);
+                }
+                if (isset($_POST['btnSubmit'])) {
+                    $id = $_POST['id'];
+                    $name = $_POST['name'];
+                    $time_start = $_POST['time_start'];
+                    $time_end = $_POST['time_end'];
+                    $time = $_POST['time'];
+                    $so_de_thi = $_POST['so_de_thi'];
+                    update_lichthi($id, $name, $time_start, $time_end, $time, $so_de_thi);
+                    header("location: ?act=dslt");
+                }
+                include "lichthi/edit-lichthi.php";
+                break;
+            case 'dskq':
+                $dskq = loadall_ketqua();
+                include "ketqua/list-ketqua.php";
+                break;
+            case 'addkq':
+                if (isset($_POST['btnSubmit'])) {
+
+                    $name = $_POST['name'];
+                    $time_start = $_POST['time_start'];
+                    $time_end = $_POST['time_end'];
+                    $time = $_POST['time'];
+                    $so_de_thi = $_POST['so_de_thi'];
+
+                    add_lichthi($name, $time_start, $time_end, $time, $so_de_thi);
+                    header("location: ?act=dslt");
+                }
+                include "lichthi/add-lichthi.php";
+                break;
+
+
+
+
 
             case 'back-to-website':
 

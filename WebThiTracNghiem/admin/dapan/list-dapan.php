@@ -1,54 +1,57 @@
-<div class="container ">
-        <h2>DANH SÁCH ĐÁP ÁN</h2>
+<div class="content-boder-user">
+    <div class="title-boder-top-user">
+        <p>QUẢN LÝ ĐÁP ÁN</p>
     </div>
+
     <div class="navbar">
         <div class="container">
-            <div class="content">
+            <a class="btn" href="?act=addda">Thêm mới</a> <br>
+            <div>
                 <form action="index.php?act=dsda" method="post" enctype="multipart/form-data">
-                <table border="1" class="table">
-                    <tr>
-                        <th></th>
-                        <th>Mã câu hỏi</th>
-                        <th>Nội dung câu hỏi</th>
-                        <th>Hình ảnh </th>
-                        <th>Nội dung đáp án</th>
-                        <th>Thao tác</th>
-                    </tr>
-                    <?php foreach ($listdapan as $dapan){
-                        extract($dapan);
-                       
-                        $suada = "index.php?act=editda&id=".$id;
-                        $xoada = "index.php?act=xoada&id=".$id;
-                        $hinhpath ="../uploads/".$image;
-                        if (is_file($hinhpath)) {
-                            $hinh = "<img src='".$hinhpath."' width='100px'>";
-                        } else {
-                            $hinh = "Không có hình";
-                        }
-                        echo '
-                        <tr>
-                        <td><input type="checkbox" name="" id=""></td>
-                        <td>'.$id.'</td>
-                        <td>'.$id_question.'</td>
-                        <td><img src="'.$hinh.'" alt=""></td>
-                        <td>'.$content.'</td>
-                        <td>
-                            <a href="'.$suada.'"><input type="button"  class="btn btn-success"  value="Sửa"></a>
-                            <a href="'.$xoada.'"><input type="button"  class="btn btn-success"  value="Xoá"></a>
-                        </td>
-                    </tr>
-                        ' ;
-                    } ?>
-                    
-               
-                </table>
+                    <table border="1" class="table">
+                        <thead>
+                            <tr>
+                                <th>STT </th>
+                                <th>Nội dung đáp án</th>
+                                <th>Hình ảnh </th>
+                                <th>Đáp án (1:Đúng, 2:Sai)</th>
+                                <th>Tên câu hỏi</th>
+                                <th>Thao tác</th>
+                            </tr>
+
+                        </thead>
+                        <tbody>
+                            <?php foreach ($listdapan as $key => $value) : ?>
+                                <tr>
+                                    <td><?= $key + 1 ?></td>
+                                    <td><?= $value['content_dapan'] ?></td>
+                                    <td><?php
+                                        if ($value['image'] != "" && $value['image'] != null) {
+                                            echo "<img width='70' src='../uploads/{$value['image']}'>";
+                                        }
+
+                                        ?>
+                                    </td>
+                                    <td><?php
+                                        if ($value['right_answer'] == 1) {
+                                            echo "Đúng";
+                                        } else {
+                                            echo "Sai";
+                                        }
+                                        ?></td>
+                                    <td><?= $value['question_content'] ?></td>
+                                    
+                                    <td><a class="btn" href="?act=editda&idda=<?= $value['idda'] ?>">Sửa</a>
+                                        <a class="btn" href="?act=deleteda&idda=<?= $value['idda'] ?>">Xóa</a>
+                                    </td>
+
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+
+                    </table>
                 </form>
             </div>
         </div>
 
-    </div>
-    <div class="container">
-        <input type="button" class="btn btn-success" value="Chọn tất cả">
-        <input type="button" class="btn btn-danger" value="Xoá tất cả">
-        <input type="button" class="btn btn-info" value="Danh sách câu hỏi">
     </div>

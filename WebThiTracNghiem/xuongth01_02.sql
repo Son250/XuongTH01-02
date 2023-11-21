@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 09, 2023 lúc 04:42 PM
+-- Thời gian đã tạo: Th10 21, 2023 lúc 07:36 AM
 -- Phiên bản máy phục vụ: 10.4.24-MariaDB
 -- Phiên bản PHP: 8.1.6
 
@@ -28,18 +28,23 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `cauhoi` (
-  `id` int(11) NOT NULL,
+  `id_ch` int(11) NOT NULL,
   `content` varchar(500) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Nội dung câu hỏi (Đề bài)',
-  `image` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL
+  `image` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `id_cd` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `cauhoi`
 --
 
-INSERT INTO `cauhoi` (`id`, `content`, `image`) VALUES
-(1, 'Cho dãy số liệu: 8; 1998; 195; 2007; 1000; 71 768; 9999; 17 .\nDãy trên có tất cả:', NULL),
-(3, 'Mai có 7 viên bi, Hồng có 15 viên bi. Hỏi Hồng phải cho Mai bao nhiêu viên bi để số bi của hai bạn bằng nhau', NULL);
+INSERT INTO `cauhoi` (`id_ch`, `content`, `image`, `id_cd`) VALUES
+(1, '1+1 = ?', 'con vịt.png', 1),
+(3, '2+2 = ?', 'cauhoi-removebg-preview.png', 1),
+(21, '3 + 3 = ?', 'con vịt.png', 1),
+(22, '1 con vịt + 1 con vịt = ? ', 'con vịt.png', 1),
+(23, '2 con vịt + 2 con vịt = ?', 'con vịt.png', 1),
+(24, '5 + 5 = ?', 'cauhoi-removebg-preview.png', 1);
 
 -- --------------------------------------------------------
 
@@ -48,7 +53,7 @@ INSERT INTO `cauhoi` (`id`, `content`, `image`) VALUES
 --
 
 CREATE TABLE `chuyende` (
-  `id` int(11) NOT NULL,
+  `id_cd` int(11) NOT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Tên chuyên đề'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -56,10 +61,9 @@ CREATE TABLE `chuyende` (
 -- Đang đổ dữ liệu cho bảng `chuyende`
 --
 
-INSERT INTO `chuyende` (`id`, `name`) VALUES
+INSERT INTO `chuyende` (`id_cd`, `name`) VALUES
 (1, 'Chuyên đề thi kì 2 Toán lớp 3'),
-(2, 'Chuyên đề lập trình web với PHP1'),
-(3, 'sss');
+(5, 'Chuyên đề lập trình web với PHP2');
 
 -- --------------------------------------------------------
 
@@ -69,7 +73,7 @@ INSERT INTO `chuyende` (`id`, `name`) VALUES
 
 CREATE TABLE `dapan` (
   `id` int(11) NOT NULL,
-  `content` varchar(500) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Nội dung đáp án',
+  `content_dapan` varchar(500) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Nội dung đáp án',
   `image` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `right_answer` enum('1','2') COLLATE utf8_unicode_ci NOT NULL COMMENT '1 Đúng, 2 Sai',
   `id_question` int(11) NOT NULL COMMENT 'Id câu hỏi'
@@ -79,15 +83,28 @@ CREATE TABLE `dapan` (
 -- Đang đổ dữ liệu cho bảng `dapan`
 --
 
-INSERT INTO `dapan` (`id`, `content`, `image`, `right_answer`, `id_question`) VALUES
-(1, '11 số', NULL, '2', 1),
-(2, '9 số', NULL, '2', 1),
-(3, '8 số', NULL, '1', 1),
-(4, '10 số', NULL, '2', 1),
-(5, '3 viên', NULL, '2', 3),
-(6, '5 viên', NULL, '2', 3),
-(7, '4 viên', NULL, '1', 3),
-(8, '6 viên', NULL, '2', 3);
+INSERT INTO `dapan` (`id`, `content_dapan`, `image`, `right_answer`, `id_question`) VALUES
+(1, '3', NULL, '2', 1),
+(2, '4', NULL, '2', 1),
+(3, '2', NULL, '1', 1),
+(4, '5', NULL, '2', 1),
+(5, '3', NULL, '2', 3),
+(6, '5', NULL, '2', 3),
+(7, '4', NULL, '1', 3),
+(8, '6', NULL, '2', 3),
+(19, '2 con vịt ', '', '', 22),
+(20, '4 con vịt', '', '', 23),
+(21, '4 con vịt', '', '1', 23),
+(22, '5 con vịt', '', '2', 23),
+(23, '6 con vịt', '', '2', 23),
+(24, '7 con vịt ', '', '2', 23),
+(25, '11', '', '2', 24),
+(26, '10', '', '1', 24),
+(27, '12', '', '2', 24),
+(28, '15', '', '2', 24),
+(29, 'scsa ', '', '2', 24),
+(30, 'csdds', '1700546358_cta-bg.jpg', '2', 24),
+(31, 'sdcdsv', '1700546358_banner2.webp', '2', 24);
 
 -- --------------------------------------------------------
 
@@ -149,7 +166,8 @@ CREATE TABLE `lichthi` (
 --
 
 INSERT INTO `lichthi` (`id`, `name`, `time_start`, `time_end`, `time`, `so_de_thi`) VALUES
-(1, 'Thi cuối kỳ 2 ', '2023-11-30 15:00:00', '2023-11-30 16:45:00', 45, 2);
+(1, 'Thi cuối kỳ 2 ', '2023-11-30 15:00:00', '2023-11-30 16:45:00', 45, 2),
+(2, 'Kỳ thi mới test', '2023-11-14 17:35:00', '2023-11-14 18:35:00', 60, 4);
 
 -- --------------------------------------------------------
 
@@ -173,9 +191,8 @@ CREATE TABLE `taikhoan` (
 --
 
 INSERT INTO `taikhoan` (`id`, `username`, `password`, `fullname`, `image`, `email`, `address`, `role`) VALUES
-(1, 'admin', 'admin123', 'Nguyễn Viết Sơn', NULL, 'admin@gmail.com', 'HN', '1'),
-(2, 'hoangnv', '123', 'Ngô Văn Hoàng', NULL, NULL, 'HN', '2'),
-(3, 'vietson', '123', 'Nguyễn Viết Sơn 2', NULL, NULL, NULL, '2');
+(1, 'admin', 'admin123', 'Admin', NULL, 'admin@gmail.com', 'HN', '1'),
+(2, 'hoangnv', '123', 'Ngô Văn Hoàng', NULL, 'dá', 'HN', '2');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -185,13 +202,14 @@ INSERT INTO `taikhoan` (`id`, `username`, `password`, `fullname`, `image`, `emai
 -- Chỉ mục cho bảng `cauhoi`
 --
 ALTER TABLE `cauhoi`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id_ch`),
+  ADD KEY `id_cd` (`id_cd`);
 
 --
 -- Chỉ mục cho bảng `chuyende`
 --
 ALTER TABLE `chuyende`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id_cd`);
 
 --
 -- Chỉ mục cho bảng `dapan`
@@ -235,19 +253,19 @@ ALTER TABLE `taikhoan`
 -- AUTO_INCREMENT cho bảng `cauhoi`
 --
 ALTER TABLE `cauhoi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_ch` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT cho bảng `chuyende`
 --
 ALTER TABLE `chuyende`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_cd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT cho bảng `dapan`
 --
 ALTER TABLE `dapan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT cho bảng `dethi`
@@ -265,7 +283,7 @@ ALTER TABLE `ketqua`
 -- AUTO_INCREMENT cho bảng `lichthi`
 --
 ALTER TABLE `lichthi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `taikhoan`
@@ -281,7 +299,7 @@ ALTER TABLE `taikhoan`
 -- Các ràng buộc cho bảng `dapan`
 --
 ALTER TABLE `dapan`
-  ADD CONSTRAINT `dapan_ibfk_1` FOREIGN KEY (`id_question`) REFERENCES `cauhoi` (`id`);
+  ADD CONSTRAINT `dapan_ibfk_1` FOREIGN KEY (`id_question`) REFERENCES `cauhoi` (`id_ch`);
 
 --
 -- Các ràng buộc cho bảng `dethi`
