@@ -12,6 +12,7 @@
                 <li><a href="?act=dslt">Lịch thi</a></li>
                 <li><a href="?act=dsdt">Đề thi</a></li>
                 <li><a href="?act=dskq">Kết quả thi</a></li>
+                <li><a href="?act=bieudo">Thống Kê</a></li>
                 <li class='login'>
 
                     <div class='xin-chao-user'>
