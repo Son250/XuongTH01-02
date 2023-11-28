@@ -1,48 +1,60 @@
 <div class="content-boder-user">
     <div class="title-boder-top-user">
-        <p>QUẢN LÝ ĐÁP ÁN</p>
+        <p>DANH SÁCH ĐÁP ÁN</p>
     </div>
 
     <div class="navbar">
         <div class="container">
-            <a class="btn" href="?act=addda">Thêm mới</a> <br>
+        <a class="btn" href="?act=dsch">Trở về</a>  
+        <a class="btn" href="?act=themda&id=<?= $_GET['id'] ?>">Thêm đáp án</a> 
+        <hr>
+        
             <div>
                 <form action="index.php?act=dsda" method="post" enctype="multipart/form-data">
+
                     <table border="1" class="table">
                         <thead>
                             <tr>
-                                <th>STT </th>
                                 <th>Nội dung đáp án</th>
                                 <th>Hình ảnh </th>
                                 <th>Đáp án (1:Đúng, 2:Sai)</th>
-                                <th>Tên câu hỏi</th>
                                 <th>Thao tác</th>
                             </tr>
 
                         </thead>
                         <tbody>
-                            <?php foreach ($listdapan as $key => $value) : ?>
+                
+                            <div>
+                                <p class='bold font-size-16'>Câu hỏi: <?php echo $oldcauhoi['content'] ?></p>
+                            </div>
+                            <?php foreach ($listdapan as $key => $value) : extract($value) ?>
+                                
                                 <tr>
-                                    <td><?= $key + 1 ?></td>
-                                    <td><?= $value['content_dapan'] ?></td>
+                                    <td class="bold">
+                                        <?php
+                                        if ($value['right_answer'] == 1) {
+                                            echo "<p class='green'>$content_dapan</p>";
+                                        } else {
+                                            echo "<p class='red'>$content_dapan</p>";
+                                        }
+                                        ?></td>
                                     <td><?php
-                                        if ($value['image'] != "" && $value['image'] != null) {
-                                            echo "<img width='70' src='../uploads/{$value['image']}'>";
+                                        if ($hinhanh_da != "" && $hinhanh_da != null) {
+                                            echo "<img width='70' src='../uploads/{$hinhanh_da}'>";
                                         }
 
                                         ?>
                                     </td>
                                     <td><?php
-                                        if ($value['right_answer'] == 1) {
-                                            echo "Đúng";
+                                        if ($right_answer == 1) {
+                                            echo "<p class='green'>Đúng</p>";
                                         } else {
-                                            echo "Sai";
+                                            echo "<p class='red'>Sai</p>";
                                         }
                                         ?></td>
-                                    <td><?= $value['question_content'] ?></td>
-                                    
-                                    <td><a class="btn" href="?act=editda&idda=<?= $value['idda'] ?>">Sửa</a>
-                                        <a class="btn" href="?act=deleteda&idda=<?= $value['idda'] ?>">Xóa</a>
+
+                                    <td><a class="btn" href="?act=editda&idda=<?= $idda ?>">Sửa</a>
+                                        <a class="btn" href="?act=deleteda&idda=<?= $idda ?>">Xóa</a>
                                     </td>
 
                                 </tr>

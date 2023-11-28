@@ -14,10 +14,7 @@
             <input type="datetime-local" id="time_start" name="time_start" required>
         </div>
 
-        <div>
-            <label>Thời gian kết thúc:</label><br>
-            <input type="datetime-local" name="time_end" required>
-        </div>
+       
         <div>
             <div class="address-user">
                 <label for="address">Thời gian làm bài:(tính theo phút)</label><br>
