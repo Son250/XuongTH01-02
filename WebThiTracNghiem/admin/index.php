@@ -295,7 +295,6 @@ include "menu.php";
                 }
 
                 if (isset($_POST['btnSubmit'])) {
-
                     if (isset($_POST['selected_ch_de1'])) {
                         // Lấy danh sách các câu hỏi đã được chọn từ checkbox đề 1
                         $id_dethi = $_POST['id_dethi'];
@@ -304,8 +303,8 @@ include "menu.php";
                         foreach ($selectedQuestions as $key => $value) {
                             add_cauhoidethi($id_dethi, $value);
                         }
-                        header("Location: ?act=dslt");
                     }
+                    header("Location: ?act=dslt");
                 }
 
 
