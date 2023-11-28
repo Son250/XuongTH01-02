@@ -7,7 +7,15 @@
 .red {
     color: red;
 }
-
+.green {
+    color: green;
+}
+.bold {
+    font-weight: bold;
+}
+.font-size-16 {
+    font-size: 16px;
+}
 * {
     padding: 0px;
     margin: 0px;
@@ -492,4 +500,17 @@ a.register-btn {
 
 table.table.table_dsch {
     margin-left: 0px;
+}
+
+/* CSS chọn câu hỏi  */
+.chon_cauhoi table .cau_hoi {
+    width: 300px;
+}
+.chon_cauhoi table .chuyen_de {
+    width: 300px;
+}
+.chon_cauhoi table input[type="checkbox"] {
+    width: 22px;
+    height: 22px;
+    margin-top: 18px;
 }

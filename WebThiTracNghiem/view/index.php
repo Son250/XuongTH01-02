@@ -2,23 +2,23 @@
 session_start();
 include "../model/pdo.php";
 include "../model/taikhoan.php";
+include "../model/chuyende.php";
+include "../model/lichthi.php";
 include "_header.php";
 include "_menu.php";
-
-
 ?>
-
 
 <div>
     <?php
-
+        $dslt = loadall_lichthi();
+        $dscd = loadall_chuyende();
     //Controller
     if (isset($_GET['act']) && $_GET['act'] != "") {
         $act = $_GET['act'];
 
         switch ($act) {
             case 'trangchu':
-                
+
                 include "home.php";
                 break;
 
@@ -31,8 +31,6 @@ include "_menu.php";
                                 $_SESSION['user'] = $check_user;
 
                                 header("Location:?act=trangchu");
-                              
-
                             } else {
                                 $thongbao = "Tài khoản không tồn tại. Vui lòng kiểm tra hoặc đăng ký";
                             }
@@ -48,6 +46,14 @@ include "_menu.php";
 
                 include "register.php";
                 break;
+            case 'chuyende':
+            
+                include "chuyende.php";
+                break;
+            case 'lichthi':
+            
+                include "trangchu.php";
+                break;
             case 'logout':
 
                 unset($_SESSION['user']);
@@ -59,12 +65,12 @@ include "_menu.php";
                 break;
 
             default:
-           
+
                 include "home.php";
                 break;
         }
     } else {
-       
+
         include "home.php";
     }
     ?>

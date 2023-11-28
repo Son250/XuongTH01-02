@@ -4,7 +4,7 @@ if (is_array($oldcauhoi)) {
 }
 $hinhpath = "../uploads/" . $image;
 if (is_file($hinhpath)) {
-    $hinh = "<img src='" . $hinhpath . "' width='200px'>";
+    $hinh = "<img src='" . $hinhpath . "' width='150px'>";
 } else {
     $hinh = "";
 }
@@ -21,7 +21,7 @@ if (is_file($hinhpath)) {
                 <div class="cauhoi">
                     <label for="formGroupExampleInput" class="form-label">Câu hỏi</label>
                     <div class="row2 mb select">
-                        <input type="text" name="content" value="<?php echo $oldcauhoi['content'] ?>">
+                        <input type="text" name="content" readonly value="<?php echo $oldcauhoi['content'] ?>">
                     </div> <br>
                     <div class="mb-3">
                         <label class="form-label">Hình ảnh câu hỏi</label> <br>

@@ -7,7 +7,11 @@ function insert_cauhoi($content, $image, $idcd)
 }
 function loadall_cauhoi()
 {
-    $sql = "select * from cauhoi order by id_ch asc";
+    $sql = "SELECT cauhoi.*,
+            chuyende.name AS ten_cd
+    from cauhoi
+    JOIN chuyende ON cauhoi.id_cd = chuyende.id_cd
+     order by id_cd asc";
     $listcauhoi = pdo_query($sql);
     return $listcauhoi;
 }

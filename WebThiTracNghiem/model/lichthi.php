@@ -5,9 +5,14 @@ function loadall_lichthi()
     $result = pdo_query($sql);
     return $result;
 }
-function add_lichthi($name, $time_start, $time_end, $time, $so_de_thi)
+function add_lichthi($name, $time_start, $time, $so_de_thi)
 {
-    $sql = "INSERT INTO `lichthi`(`name`, `time_start`, `time_end`,`time`, `so_de_thi`) VALUES ('$name','$time_start','$time_end','$time', '$so_de_thi')";
+    $sql = "INSERT INTO `lichthi`(`name`, `time_start`,`time`, `so_de_thi`) VALUES ('$name','$time_start','$time', '$so_de_thi')";
+    pdo_execute($sql);
+}
+
+function add_cauhoidethi($id_dethi,$id_cauhoi){
+    $sql = "INSERT INTO `dethi_cauhoi`(`id_dethi`, `id_cauhoi`) VALUES ('$id_dethi', '$id_cauhoi')";
     pdo_execute($sql);
 }
 
@@ -29,3 +34,10 @@ function update_lichthi($id, $name, $time_start, $time_end, $time, $so_de_thi)
     $sql = "UPDATE `lichthi` SET `name`='$name',`time_start`='$time_start',`time_end`='$time_end',`time`='$time' ,`so_de_thi`='$so_de_thi' WHERE id= $id";
     pdo_execute($sql);
 }
+// function load_choncauhoi($idlt){
+//     $sql = "SELECT 
+//     chuyende.
+//     ";
+//     $result = pdo_query($sql);
+//     return $result;
+// }
