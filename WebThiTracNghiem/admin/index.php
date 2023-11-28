@@ -9,9 +9,11 @@ include "../model/lichthi.php";
 include "../model/ketqua.php";
 include "../model/cauhoi.php";
 include "../model/dapan.php";
-include "../model/dethi.php";
 include "header.php";
 include "menu.php";
+
+
+
 
 
 ?>
@@ -172,24 +174,18 @@ include "menu.php";
                 break;
 
             case 'dsda':
-                if (isset($_GET['id'])) {
-                    $oldcauhoi = loadone_cauhoi($_GET['id']);
-                    $listdapan = loadall_dapan($_GET['id']);
-                }
-
+                $listdapan = loadall_dapan();
                 include "dapan/list-dapan.php";
                 break;
 
 
                 // Thêm đáp án ở câu hỏi 
             case "themda":
-                if (isset($_GET['id'])) {
+                if(isset($_GET['id'])){
                     $oldcauhoi = loadone_cauhoi($_GET['id']);
                 }
-
-
+            
                 if (isset($_POST['btnSubmit'])) {
-
                     $id_question = $_POST['id_question'];
                     $content_dapan = $_POST['content_dapan'];
                     $right_answer = $_POST['right_answer'];
@@ -201,11 +197,13 @@ include "menu.php";
                             $photo = time() . "_" . $_FILES['image']['name'][$key];
                             move_uploaded_file($_FILES['image']['tmp_name'][$key], "../uploads/$photo");
                         }
-                        add_dapan($value, $photo, $right_answer[$key], $id_question);
+                      
+                        add_dapan($value, $photo, $right_answer[$key],$id_question);
                     }
 
 
-                    header("Location: ?act=dsda&id=$id_question");
+             
+                    header("location: ?act=dsch");
                 }
                 include "dapan/add-dapan.php";
                 break;
@@ -224,27 +222,21 @@ include "menu.php";
                         $photo = time() . "_" . $_FILES['img']['name'];
                         move_uploaded_file($_FILES['img']['tmp_name'], "../uploads/$photo");
                     }
-                    edit_dapan($_POST['id'], $_POST['content_dapan'], $photo, $_POST['right_answer'], $_POST['id_question']);
-
-                    // Chuyển hướng đến trang danh sách đáp án của câu hỏi đã chỉnh sửa
-                    header("Location: ?act=dsda&id=" . $_POST['id_question']);
+                    edit_dapan($_POST['id'], $_POST['content'], $photo, $_POST['right_answer'], $_POST['id_question']);
+                    header("location: ?act=dsda");
                 }
                 include "dapan/edit-dapan.php";
                 break;
 
-
             case "deleteda":
                 if (isset($_GET['idda'])) {
-                    $id_deleted_answer = $_GET['idda'];
-                    $question_id = get_question_id_from_answer($id_deleted_answer); // Thay thế hàm này với hàm lấy ID câu hỏi từ ID đáp án
-
-                    delete_dapan($id_deleted_answer);
-
-
-                    header("Location: ?act=dsda&id=$question_id");
+                    delete_dapan($_GET['idda']);
+                    header("location: ?act=dsda");
                 }
                 include "dapan/list-dapan.php";
                 break;
+
+
 
             case 'dslt':
                 $dslt = loadall_lichthi();
@@ -255,11 +247,11 @@ include "menu.php";
 
                     $name = $_POST['name'];
                     $time_start = $_POST['time_start'];
-                    // $time_end = $_POST['time_end'];
+                    $time_end = $_POST['time_end'];
                     $time = $_POST['time'];
                     $so_de_thi = $_POST['so_de_thi'];
 
-                    add_lichthi($name, $time_start, $time, $so_de_thi);
+                    add_lichthi($name, $time_start, $time_end, $time, $so_de_thi);
                     header("location: ?act=dslt");
                 }
                 include "lichthi/add-lichthi.php";
@@ -287,33 +279,6 @@ include "menu.php";
                 }
                 include "lichthi/edit-lichthi.php";
                 break;
-
-            case 'chon_cauhoi':
-                $listcauhoi = loadall_cauhoi();
-                if (isset($_GET['idlt'])) {
-                    $olddata = getold_lichthi($_GET['idlt']);
-                }
-
-                if (isset($_POST['btnSubmit'])) {
-
-                    if (isset($_POST['selected_ch_de1'])) {
-                        // Lấy danh sách các câu hỏi đã được chọn từ checkbox đề 1
-                        $id_dethi = $_POST['id_dethi'];
-                        $selectedQuestions = $_POST['selected_ch_de1'];
-
-                        foreach ($selectedQuestions as $key => $value) {
-                            add_cauhoidethi($id_dethi, $value);
-                        }
-                        header("Location: ?act=dslt");
-                    }
-                }
-
-
-                include "lichthi/chon-cauhoi.php";
-                break;
-
-
-
             case 'dskq':
                 $dskq = loadall_ketqua();
                 include "ketqua/list-ketqua.php";
@@ -327,16 +292,16 @@ include "menu.php";
                     $time = $_POST['time'];
                     $so_de_thi = $_POST['so_de_thi'];
 
-                    add_lichthi($name, $time_start, $time, $so_de_thi);
+                    add_lichthi($name, $time_start, $time_end, $time, $so_de_thi);
                     header("location: ?act=dslt");
                 }
                 include "lichthi/add-lichthi.php";
                 break;
 
-            case "dsdt":
-                $dsdt = loadall_dethicauhoi();
-                include "dethi/list-dethi.php";
-                break;
+
+
+
+
             case 'back-to-website':
 
                 header("location:../view/index.php");
