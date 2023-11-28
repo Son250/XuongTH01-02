@@ -99,7 +99,7 @@ h2 {
 
 .tenchuyende {
     text-align: center;
-    color: #4b709f;
+    color: white;
     font-size: 20pt;
     font-weight: bold;
     float: left;
@@ -115,6 +115,7 @@ h2 {
 .col62 {
     float: left;
     width: 45%;
+    color: white;
 }
 
 .imgtenchuyende img {

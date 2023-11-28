@@ -10,7 +10,7 @@
       <ul>
         <li><a class="nav-link scrollto active" href="?act=trangchu">Trang chủ</a></li>
         <li><a class="nav-link scrollto" href="#about">Kỳ thi</a></li>
-        <li><a class="nav-link scrollto" href="#services">Chuyên đề</a></li>
+        <li><a class="nav-link scrollto" href="?act=chuyende">Chuyên đề</a></li>
         <li><a class="nav-link scrollto" href="#portfolio">Hỗ trợ</a></li>
         <li><a class="nav-link scrollto" href="#team">Điểm</a></li>
         <?php
