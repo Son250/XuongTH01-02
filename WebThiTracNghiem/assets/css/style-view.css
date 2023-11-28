@@ -1650,6 +1650,7 @@ section {
   text-align: center;
   font-size: 15px;
   color: #444444;
+  display: none;
 }
 
 #footer .footer-newsletter h4 {
@@ -1700,6 +1701,7 @@ section {
 #footer .footer-top {
   padding: 60px 0 30px 0;
   background: #fff;
+  display: none;
 }
 
 #footer .footer-top .row {

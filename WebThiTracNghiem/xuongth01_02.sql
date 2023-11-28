@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 21, 2023 lúc 07:36 AM
+-- Thời gian đã tạo: Th10 28, 2023 lúc 12:31 PM
 -- Phiên bản máy phục vụ: 10.4.24-MariaDB
 -- Phiên bản PHP: 8.1.6
 
@@ -39,12 +39,15 @@ CREATE TABLE `cauhoi` (
 --
 
 INSERT INTO `cauhoi` (`id_ch`, `content`, `image`, `id_cd`) VALUES
-(1, '1+1 = ?', 'con vịt.png', 1),
-(3, '2+2 = ?', 'cauhoi-removebg-preview.png', 1),
-(21, '3 + 3 = ?', 'con vịt.png', 1),
-(22, '1 con vịt + 1 con vịt = ? ', 'con vịt.png', 1),
-(23, '2 con vịt + 2 con vịt = ?', 'con vịt.png', 1),
-(24, '5 + 5 = ?', 'cauhoi-removebg-preview.png', 1);
+(26, '1 + 1 = ?', 'con vịt.png', 1),
+(27, '2 + 2 = ?', 'cauhoi-removebg-preview.png', 1),
+(28, '3 + 3 = ?', 'top10.jpg', 1),
+(30, '4 + 4 = ?', 'toan.jpg', 1),
+(31, '1 x 1 = ?', 'cauhoi-removebg-preview.png', 9),
+(32, '2 x 3 = ?', '', 9),
+(33, '1 + 3 = ?', '', 1),
+(34, '5 + 6 = ?', '', 1),
+(35, '5 x 5 = ?', '', 1);
 
 -- --------------------------------------------------------
 
@@ -63,7 +66,7 @@ CREATE TABLE `chuyende` (
 
 INSERT INTO `chuyende` (`id_cd`, `name`) VALUES
 (1, 'Chuyên đề thi kì 2 Toán lớp 3'),
-(5, 'Chuyên đề lập trình web với PHP2');
+(9, 'Chuyên đề thi kì 1 Toán lớp 4');
 
 -- --------------------------------------------------------
 
@@ -84,27 +87,15 @@ CREATE TABLE `dapan` (
 --
 
 INSERT INTO `dapan` (`id`, `content_dapan`, `image`, `right_answer`, `id_question`) VALUES
-(1, '3', NULL, '2', 1),
-(2, '4', NULL, '2', 1),
-(3, '2', NULL, '1', 1),
-(4, '5', NULL, '2', 1),
-(5, '3', NULL, '2', 3),
-(6, '5', NULL, '2', 3),
-(7, '4', NULL, '1', 3),
-(8, '6', NULL, '2', 3),
-(19, '2 con vịt ', '', '', 22),
-(20, '4 con vịt', '', '', 23),
-(21, '4 con vịt', '', '1', 23),
-(22, '5 con vịt', '', '2', 23),
-(23, '6 con vịt', '', '2', 23),
-(24, '7 con vịt ', '', '2', 23),
-(25, '11', '', '2', 24),
-(26, '10', '', '1', 24),
-(27, '12', '', '2', 24),
-(28, '15', '', '2', 24),
-(29, 'scsa ', '', '2', 24),
-(30, 'csdds', '1700546358_cta-bg.jpg', '2', 24),
-(31, 'sdcdsv', '1700546358_banner2.webp', '2', 24);
+(32, '2', '1700923091_cta-bg.jpg', '1', 26),
+(36, '4', NULL, '1', 27),
+(37, '4', '1700929844_dekiemtra.jpg', '2', 26),
+(46, '5', '', '2', 27),
+(47, '7', '', '2', 27),
+(48, '10', '', '2', 27),
+(50, '5', '1700929851_hero-img.png', '2', 26),
+(51, '6', '1700929858_logo-cong-ty-removebg-preview.png', '2', 26),
+(52, '5', '', '2', 30);
 
 -- --------------------------------------------------------
 
@@ -114,7 +105,7 @@ INSERT INTO `dapan` (`id`, `content_dapan`, `image`, `right_answer`, `id_questio
 
 CREATE TABLE `dethi` (
   `id` int(11) NOT NULL,
-  `bo_cau_hoi` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Bộ câu hỏi',
+  `ten_de` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `id_lichthi` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -122,8 +113,45 @@ CREATE TABLE `dethi` (
 -- Đang đổ dữ liệu cho bảng `dethi`
 --
 
-INSERT INTO `dethi` (`id`, `bo_cau_hoi`, `id_lichthi`) VALUES
-(1, '2 câu', 1);
+INSERT INTO `dethi` (`id`, `ten_de`, `id_lichthi`) VALUES
+(1, 'Đề 1', 1),
+(2, 'Đề 1', 4);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `dethi_cauhoi`
+--
+
+CREATE TABLE `dethi_cauhoi` (
+  `id` int(11) NOT NULL,
+  `id_dethi` int(11) NOT NULL,
+  `id_cauhoi` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `dethi_cauhoi`
+--
+
+INSERT INTO `dethi_cauhoi` (`id`, `id_dethi`, `id_cauhoi`) VALUES
+(2, 1, 26),
+(3, 1, 28),
+(4, 1, 27),
+(5, 1, 30),
+(6, 1, 26),
+(7, 1, 28),
+(8, 1, 33),
+(9, 1, 27),
+(10, 1, 30),
+(11, 1, 34),
+(12, 1, 31),
+(13, 1, 32),
+(14, 1, 27),
+(15, 1, 30),
+(16, 1, 35),
+(17, 1, 31),
+(18, 1, 32),
+(19, 2, 26);
 
 -- --------------------------------------------------------
 
@@ -166,8 +194,8 @@ CREATE TABLE `lichthi` (
 --
 
 INSERT INTO `lichthi` (`id`, `name`, `time_start`, `time_end`, `time`, `so_de_thi`) VALUES
-(1, 'Thi cuối kỳ 2 ', '2023-11-30 15:00:00', '2023-11-30 16:45:00', 45, 2),
-(2, 'Kỳ thi mới test', '2023-11-14 17:35:00', '2023-11-14 18:35:00', 60, 4);
+(1, 'Thi cuối kỳ 2 ', '2023-11-26 09:00:00', '0000-00-00 00:00:00', 90, 2),
+(4, 'Thi giữa kì 1', '2023-11-25 12:00:00', '0000-00-00 00:00:00', 30, 1);
 
 -- --------------------------------------------------------
 
@@ -226,6 +254,14 @@ ALTER TABLE `dethi`
   ADD KEY `id_lichthi` (`id_lichthi`);
 
 --
+-- Chỉ mục cho bảng `dethi_cauhoi`
+--
+ALTER TABLE `dethi_cauhoi`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idDeThi` (`id_dethi`),
+  ADD KEY `idCauHoi` (`id_cauhoi`);
+
+--
 -- Chỉ mục cho bảng `ketqua`
 --
 ALTER TABLE `ketqua`
@@ -253,25 +289,31 @@ ALTER TABLE `taikhoan`
 -- AUTO_INCREMENT cho bảng `cauhoi`
 --
 ALTER TABLE `cauhoi`
-  MODIFY `id_ch` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id_ch` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT cho bảng `chuyende`
 --
 ALTER TABLE `chuyende`
-  MODIFY `id_cd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_cd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT cho bảng `dapan`
 --
 ALTER TABLE `dapan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT cho bảng `dethi`
 --
 ALTER TABLE `dethi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT cho bảng `dethi_cauhoi`
+--
+ALTER TABLE `dethi_cauhoi`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT cho bảng `ketqua`
@@ -283,7 +325,7 @@ ALTER TABLE `ketqua`
 -- AUTO_INCREMENT cho bảng `lichthi`
 --
 ALTER TABLE `lichthi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT cho bảng `taikhoan`
@@ -296,6 +338,12 @@ ALTER TABLE `taikhoan`
 --
 
 --
+-- Các ràng buộc cho bảng `cauhoi`
+--
+ALTER TABLE `cauhoi`
+  ADD CONSTRAINT `cauhoi_ibfk_1` FOREIGN KEY (`id_cd`) REFERENCES `chuyende` (`id_cd`);
+
+--
 -- Các ràng buộc cho bảng `dapan`
 --
 ALTER TABLE `dapan`
@@ -306,6 +354,13 @@ ALTER TABLE `dapan`
 --
 ALTER TABLE `dethi`
   ADD CONSTRAINT `dethi_ibfk_1` FOREIGN KEY (`id_lichthi`) REFERENCES `lichthi` (`id`);
+
+--
+-- Các ràng buộc cho bảng `dethi_cauhoi`
+--
+ALTER TABLE `dethi_cauhoi`
+  ADD CONSTRAINT `dethi_cauhoi_ibfk_1` FOREIGN KEY (`id_dethi`) REFERENCES `dethi` (`id`),
+  ADD CONSTRAINT `dethi_cauhoi_ibfk_2` FOREIGN KEY (`id_cauhoi`) REFERENCES `cauhoi` (`id_ch`);
 
 --
 -- Các ràng buộc cho bảng `ketqua`

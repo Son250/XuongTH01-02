@@ -48,7 +48,7 @@ include "_menu.php";
                 break;
             case 'chuyende':
             
-                include "trangchu.php";
+                include "chuyende.php";
                 break;
             case 'lichthi':
             
