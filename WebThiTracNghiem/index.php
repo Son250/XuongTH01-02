@@ -1,5 +1,6 @@
 <?php  
-    session_start();
+    //echo "Hello word";
+   session_start();
     include "../model/pdo.php";
     include "../model/taikhoan.php";
     // header("Location:admin/index.php");

@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="../assets/css/style-view.css">
     <link rel="stylesheet" href="../assets/css/style_trangchu.css">
     <link rel="stylesheet" href="../assets/css/style_admin.css">
+    <link rel="stylesheet" href="../assets/css/st.css" />
 
     <link href="../assets/css/sb-admin-2.min.css" rel="stylesheet">
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">

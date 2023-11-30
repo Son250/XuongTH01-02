@@ -66,6 +66,7 @@
         + Giao diện kết quả thi(đã thi xong): Trang
         + Giao diện biểu đồ ở Kết quả thi(Admin): Thắm 
 
+
 3.4. Chia việc ngày 29/11/2023
         + Sửa Quản lý lịch thi phần Thêm, Sửa có 
         hiện thời gian kết thúc = JS và lưu lên Db: Thanh
