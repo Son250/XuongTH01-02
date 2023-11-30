@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 28, 2023 lúc 12:31 PM
+-- Thời gian đã tạo: Th10 30, 2023 lúc 06:49 AM
 -- Phiên bản máy phục vụ: 10.4.24-MariaDB
 -- Phiên bản PHP: 8.1.6
 
@@ -47,7 +47,9 @@ INSERT INTO `cauhoi` (`id_ch`, `content`, `image`, `id_cd`) VALUES
 (32, '2 x 3 = ?', '', 9),
 (33, '1 + 3 = ?', '', 1),
 (34, '5 + 6 = ?', '', 1),
-(35, '5 x 5 = ?', '', 1);
+(35, '5 x 5 = ?', '', 1),
+(36, '2 : 2 = ?', '', 1),
+(37, '10 + 10 = ?', 'con vịt.png', 1);
 
 -- --------------------------------------------------------
 
@@ -95,7 +97,10 @@ INSERT INTO `dapan` (`id`, `content_dapan`, `image`, `right_answer`, `id_questio
 (48, '10', '', '2', 27),
 (50, '5', '1700929851_hero-img.png', '2', 26),
 (51, '6', '1700929858_logo-cong-ty-removebg-preview.png', '2', 26),
-(52, '5', '', '2', 30);
+(52, '5', '', '2', 30),
+(53, '20', '1701183926_cauhoi-removebg-preview.png', '1', 37),
+(54, '19', '', '2', 37),
+(56, '29', '1701183926_dekiemtra.jpg', '2', 37);
 
 -- --------------------------------------------------------
 
@@ -115,7 +120,12 @@ CREATE TABLE `dethi` (
 
 INSERT INTO `dethi` (`id`, `ten_de`, `id_lichthi`) VALUES
 (1, 'Đề 1', 1),
-(2, 'Đề 1', 4);
+(8, 'Đề 1', 5),
+(9, 'Đề 2', 5),
+(10, 'Đề 3', 5),
+(11, 'Đề 4', 5),
+(12, 'Đề 1', 1),
+(13, 'Đề 2', 1);
 
 -- --------------------------------------------------------
 
@@ -134,24 +144,22 @@ CREATE TABLE `dethi_cauhoi` (
 --
 
 INSERT INTO `dethi_cauhoi` (`id`, `id_dethi`, `id_cauhoi`) VALUES
-(2, 1, 26),
-(3, 1, 28),
-(4, 1, 27),
-(5, 1, 30),
-(6, 1, 26),
-(7, 1, 28),
-(8, 1, 33),
-(9, 1, 27),
-(10, 1, 30),
-(11, 1, 34),
-(12, 1, 31),
-(13, 1, 32),
-(14, 1, 27),
-(15, 1, 30),
-(16, 1, 35),
-(17, 1, 31),
-(18, 1, 32),
-(19, 2, 26);
+(49, 8, 26),
+(50, 8, 28),
+(51, 8, 33),
+(52, 9, 33),
+(53, 9, 35),
+(54, 9, 37),
+(55, 10, 37),
+(56, 10, 27),
+(57, 10, 30),
+(58, 11, 30),
+(59, 11, 34),
+(60, 11, 36),
+(61, 12, 26),
+(62, 12, 28),
+(63, 13, 26),
+(64, 13, 33);
 
 -- --------------------------------------------------------
 
@@ -195,7 +203,9 @@ CREATE TABLE `lichthi` (
 
 INSERT INTO `lichthi` (`id`, `name`, `time_start`, `time_end`, `time`, `so_de_thi`) VALUES
 (1, 'Thi cuối kỳ 2 ', '2023-11-26 09:00:00', '0000-00-00 00:00:00', 90, 2),
-(4, 'Thi giữa kì 1', '2023-11-25 12:00:00', '0000-00-00 00:00:00', 30, 1);
+(4, 'Thi giữa kì 1', '2023-11-25 12:00:00', '0000-00-00 00:00:00', 30, 1),
+(5, 'Thi thử THPT Quốc Gia 2024', '2023-11-29 20:30:00', '0000-00-00 00:00:00', 60, 4),
+(6, 'Kỳ thi thử ', '2023-11-28 22:06:00', '0000-00-00 00:00:00', 60, 2);
 
 -- --------------------------------------------------------
 
@@ -289,31 +299,31 @@ ALTER TABLE `taikhoan`
 -- AUTO_INCREMENT cho bảng `cauhoi`
 --
 ALTER TABLE `cauhoi`
-  MODIFY `id_ch` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id_ch` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT cho bảng `chuyende`
 --
 ALTER TABLE `chuyende`
-  MODIFY `id_cd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_cd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT cho bảng `dapan`
 --
 ALTER TABLE `dapan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT cho bảng `dethi`
 --
 ALTER TABLE `dethi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT cho bảng `dethi_cauhoi`
 --
 ALTER TABLE `dethi_cauhoi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT cho bảng `ketqua`
@@ -325,7 +335,7 @@ ALTER TABLE `ketqua`
 -- AUTO_INCREMENT cho bảng `lichthi`
 --
 ALTER TABLE `lichthi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT cho bảng `taikhoan`

@@ -10,8 +10,8 @@ include "_menu.php";
 
 <div>
     <?php
-        $dslt = loadall_lichthi();
-        $dscd = loadall_chuyende();
+    $dslt = loadall_lichthi();
+    $dscd = loadall_chuyende();
     //Controller
     if (isset($_GET['act']) && $_GET['act'] != "") {
         $act = $_GET['act'];
@@ -46,11 +46,11 @@ include "_menu.php";
                 include "register.php";
                 break;
             case 'chuyende':
-            
+
                 include "chuyende.php";
                 break;
             case 'lichthi':
-            
+
                 include "trangchu.php";
                 break;
             case 'logout':
@@ -61,6 +61,9 @@ include "_menu.php";
             case 'admin':
 
                 header("Location:../admin/index.php");
+                break;
+            case "trangthi":
+                include 'trang_thi.php';
                 break;
 
             default:

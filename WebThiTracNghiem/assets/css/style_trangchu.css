@@ -58,6 +58,16 @@
     position: relative;
 }
 
+.kithi .btn {
+    background-color: white;
+
+}
+
+.kithi .btn:hover {
+    color: red;
+    background-color: white;
+}
+
 .box50 img,
 .box25 img {
     width: 100%;
@@ -124,6 +134,7 @@ h2 {
 .imgtenchuyende img {
     width: 90%;
 }
+
 .col62.textchitiet p {
     font-size: 14px;
 }
