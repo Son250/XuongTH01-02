@@ -21,14 +21,15 @@
                         <td>STT</td>
                         <td class='chuyen_de'>Chuyên đề</td>
                         <td class='cau_hoi'>Câu hỏi</td>
-                        <td>Đề 1</td>
-                        
+                        <?php for($i = 1; $i <= $olddata['so_de_thi']; $i++): ?>
+                            <td>Đề <?=$i ?> </td>
+                        <?php endfor; ?>
                     </tr>
                 </thead>
 
                 <tbody>
 
-                    <input type="text" hidden name='id_dethi' value='1'>Đề 1 :
+                    <input type="text" hidden name='id_lichthi' value='<?= $_GET['idlt'] ?>'>
 
                     <!-- Các checkbox cho từng đề thi -->
                     <?php foreach ($listcauhoi as $key => $value) : extract($value) ?>
@@ -36,14 +37,18 @@
                             <td><?= $key + 1 ?></td>
                             <td><?= $ten_cd ?></td>
                             <td><?= $content ?></td>
-                            <td><input type="checkbox" name="selected_ch_de1[]" value="<?= $id_ch ?>"></td>
+                            <?php for($i = 1; $i <= $olddata['so_de_thi']; $i++): ?>
+                                <td><input type="checkbox" name="selected_ch_de<?= $i ?>[]" value="<?= $id_ch ?>"></td>
+                            <?php endfor; ?>
+                           
 
                         </tr>
                     <?php endforeach; ?>
-                    <button type="submit" class="btn" name="btnSubmit">Xác nhận</button>
+                
 
 
                 </tbody>
+                <button type="submit" class="btn" name="btnSubmit">Xác nhận</button>
             </form>
         </table>
     </div>

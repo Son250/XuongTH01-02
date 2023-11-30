@@ -66,6 +66,13 @@
         + Giao diện kết quả thi(đã thi xong): Trang
         + Giao diện biểu đồ ở Kết quả thi(Admin): Thắm 
 
+3.4. Chia việc ngày 29/11/2023
+        + Sửa Quản lý lịch thi phần Thêm, Sửa có 
+        hiện thời gian kết thúc = JS và lưu lên Db: Thanh
+        + Thêm hình ảnh Chuyên đề, kỳ thi rồi in ra giao diện người dùng: Thắm
+        + So sánh thời gian để hiện chữ "Vào thi", khi click vào thi sẽ 
+        Random đề và lưu biến id đề đó: Hoàng
+        + Sau khi có id đề vừa random, load toàn bộ câu hỏi ở đề ý lên: Trang
 
 
 ## Cơ sở dữ liệu

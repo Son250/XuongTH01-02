@@ -28,6 +28,6 @@
             </div>
         </div> <br>
 
-        <button name="btnSubmit">REGISTER</button>
+        <button name="btnSubmit">Thêm mới</button>
     </form>
 </div>

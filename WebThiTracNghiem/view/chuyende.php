@@ -117,7 +117,7 @@
                                     Thi ĐGNL là một kỳ thi có bài thi (môn thi) tổng hợp thường gồm các câu hỏi để kiểm tra
                                     trình độ ngôn ngữ; Toán học, tư duy logic và phân tích số liệu; và giải quyết vấn đề.
                                 </p>
-                                <button>CHƯA ĐẾN GIỜ</button>
+                                <a class="btn" href="?act=trangthi">Vào thi</a>
                             </div>
                         </div>
                     <?php endforeach; ?>
