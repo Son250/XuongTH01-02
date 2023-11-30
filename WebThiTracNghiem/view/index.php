@@ -29,7 +29,6 @@ include "_menu.php";
                             if (is_array($check_user)) {
                                 //Tạo ra biến Session để lưu kết quả vừa tìm đc
                                 $_SESSION['user'] = $check_user;
-
                                 header("Location:?act=trangchu");
                             } else {
                                 $thongbao = "Tài khoản không tồn tại. Vui lòng kiểm tra hoặc đăng ký";

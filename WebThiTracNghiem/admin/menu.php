@@ -4,7 +4,7 @@
         <div class="menu">
             <ul class="main-menu">
                 <li class='logo-cong-ty'><a href="?act=trangchu"><img src="../assets/img/logo-cong-ty-removebg-preview.png" alt=""></a></li>
-                <li><a href="?act=trangchu">Trang chủ</a></li>
+                <!-- <li><a href="?act=trangchu">Trang chủ</a></li> -->
                 <li><a href="?act=dstk">Tài khoản</a></li>
                 <li><a href="?act=dscd">Chuyên đề</a></li>
                 <li><a href="?act=dsch">Câu hỏi</a></li>
@@ -12,6 +12,7 @@
                 <li><a href="?act=dslt">Lịch thi</a></li>
                 <li><a href="?act=dsdt">Đề thi</a></li>
                 <li><a href="?act=dskq">Kết quả thi</a></li>
+                <li><a href="?act=bieudo">Thống Kê</a></li>
                 <li class='login'>
 
                     <div class='xin-chao-user'>

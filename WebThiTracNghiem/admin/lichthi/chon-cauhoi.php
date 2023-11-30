@@ -15,19 +15,20 @@
     </div><br>
     <div class="main-user">
         <table>
-            <thead>
-                <tr>
-                    <td>STT</td>
-                    <td class='chuyen_de'>Chuyên đề</td>
-                    <td class='cau_hoi'>Câu hỏi</td>
-                    <td>Đề 1</td>
+            <form method="post" action="?act=chon_cauhoi">
+                <thead>
+                    <tr>
+                        <td>STT</td>
+                        <td class='chuyen_de'>Chuyên đề</td>
+                        <td class='cau_hoi'>Câu hỏi</td>
+                        <td>Đề 1</td>
+                        
+                    </tr>
+                </thead>
 
-                </tr>
-            </thead>
+                <tbody>
 
-            <tbody>
-                <form method="post" action="?act=chon_cauhoi">
-                    <input type="text" hidden name='id_dethi' value='1'>Đề 1
+                    <input type="text" hidden name='id_dethi' value='1'>Đề 1 :
 
                     <!-- Các checkbox cho từng đề thi -->
                     <?php foreach ($listcauhoi as $key => $value) : extract($value) ?>
@@ -40,9 +41,10 @@
                         </tr>
                     <?php endforeach; ?>
                     <button type="submit" class="btn" name="btnSubmit">Xác nhận</button>
-                </form>
 
-            </tbody>
+
+                </tbody>
+            </form>
         </table>
     </div>
 </div>

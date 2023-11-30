@@ -11,10 +11,7 @@ function add_lichthi($name, $time_start, $time, $so_de_thi)
     pdo_execute($sql);
 }
 
-function add_cauhoidethi($id_dethi,$id_cauhoi){
-    $sql = "INSERT INTO `dethi_cauhoi`(`id_dethi`, `id_cauhoi`) VALUES ('$id_dethi', '$id_cauhoi')";
-    pdo_execute($sql);
-}
+
 
 function delete_lichthi($id)
 {
