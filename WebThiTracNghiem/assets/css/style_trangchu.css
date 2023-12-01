@@ -187,3 +187,115 @@ input[type=submit] {
 input[type=submit]:hover {
     background-color: #45a049;
 }
+
+/* CSS cho trang thi  */
+
+.container-thi {
+    margin: 0px auto;
+    padding: 0px;
+    max-width: 1200px;
+
+}
+
+.container-thi .title {
+    margin-top: 100px;
+}
+
+.container-thi .title {
+    display: flex;
+    justify-content: space-between;
+}
+
+.container-thi .thoi-gian {
+    color: black;
+}
+
+
+.container-thi .content-thi {
+    display: flex;
+    border-top: 1px solid #3333;
+    margin-top: 20px;
+    padding-top: 15px;
+    margin-bottom: 100px;
+}
+
+.container-thi .box-left {
+    flex-basis: 25%;
+}
+
+.container-thi .box-center {
+    flex-basis: 75%;
+}
+
+.container-thi .box-content div a {
+    background: white;
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 50%;
+    display: block;
+    width: 40px;
+    height: 41px;
+    text-align: center;
+}
+
+.container-thi .box-content div a:hover {
+    background-color: #7d7d7d;
+    color: white;
+}
+
+.container-thi .content-thi .box-content .row-cauhoi {
+    display: flex;
+}
+
+.container-thi .content-thi .box-content .row-cauhoi div {
+    margin: 6px;
+}
+
+button[name="btnNopbai"] {
+    width: 200px;
+    height: 44px;
+    margin-left: 30px;
+    margin-top: 20px;
+}
+
+.container-thi .box-center .box-title p {
+    font-size: 17px;
+}
+
+.content-cauhoi p {
+    margin-bottom: 0px;
+    font-size: 17px;
+}
+
+.content-cauhoi .img-cauhoi img {
+    width: 100%;
+    height: 200px;
+}
+
+.box-dapan {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+
+}
+
+.box-dapan label {
+    padding: 0px;
+    margin: 0px;
+}
+
+.box-dapan img {
+    width: 100%;
+    height: 200px;
+}
+
+input#dapan {
+    width: 18px;
+    border-radius: 50%;
+    height: 18px;
+    
+}
+
+.box-cauhoi {
+    margin-bottom: 10px;
+}
