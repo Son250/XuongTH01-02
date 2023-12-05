@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 30, 2023 lúc 06:49 AM
+-- Thời gian đã tạo: Th12 05, 2023 lúc 03:58 PM
 -- Phiên bản máy phục vụ: 10.4.24-MariaDB
 -- Phiên bản PHP: 8.1.6
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `cauhoi` (
   `id_ch` int(11) NOT NULL,
-  `content` varchar(500) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Nội dung câu hỏi (Đề bài)',
+  `content` varchar(1000) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Nội dung câu hỏi (Đề bài)',
   `image` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `id_cd` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -44,7 +44,6 @@ INSERT INTO `cauhoi` (`id_ch`, `content`, `image`, `id_cd`) VALUES
 (28, '3 + 3 = ?', 'top10.jpg', 1),
 (30, '4 + 4 = ?', 'toan.jpg', 1),
 (31, '1 x 1 = ?', 'cauhoi-removebg-preview.png', 9),
-(32, '2 x 3 = ?', '', 9),
 (33, '1 + 3 = ?', '', 1),
 (34, '5 + 6 = ?', '', 1),
 (35, '5 x 5 = ?', '', 1),
@@ -68,7 +67,8 @@ CREATE TABLE `chuyende` (
 
 INSERT INTO `chuyende` (`id_cd`, `name`) VALUES
 (1, 'Chuyên đề thi kì 2 Toán lớp 3'),
-(9, 'Chuyên đề thi kì 1 Toán lớp 4');
+(9, 'Chuyên đề thi kì 1 Toán lớp 4'),
+(11, 'Lập trình PHP cơ bản');
 
 -- --------------------------------------------------------
 
@@ -202,9 +202,8 @@ CREATE TABLE `lichthi` (
 --
 
 INSERT INTO `lichthi` (`id`, `name`, `time_start`, `time_end`, `time`, `so_de_thi`) VALUES
-(1, 'Thi cuối kỳ 2 ', '2023-11-26 09:00:00', '0000-00-00 00:00:00', 90, 2),
-(4, 'Thi giữa kì 1', '2023-11-25 12:00:00', '0000-00-00 00:00:00', 30, 1),
-(5, 'Thi thử THPT Quốc Gia 2024', '2023-11-29 20:30:00', '0000-00-00 00:00:00', 60, 4),
+(1, 'Thi cuối kỳ 2 ', '2023-12-05 09:00:00', '2023-12-05 10:00:00', 90, 2),
+(5, 'Thi thử THPT Quốc Gia 2024', '2023-12-05 21:50:45', '2023-12-05 23:50:45', 60, 4),
 (6, 'Kỳ thi thử ', '2023-11-28 22:06:00', '0000-00-00 00:00:00', 60, 2);
 
 -- --------------------------------------------------------
@@ -229,7 +228,7 @@ CREATE TABLE `taikhoan` (
 --
 
 INSERT INTO `taikhoan` (`id`, `username`, `password`, `fullname`, `image`, `email`, `address`, `role`) VALUES
-(1, 'admin', 'admin123', 'Admin', NULL, 'admin@gmail.com', 'HN', '1'),
+(1, 'admin', '123', 'Admin', NULL, 'admin@gmail.com', 'HN', '1'),
 (2, 'hoangnv', '123', 'Ngô Văn Hoàng', NULL, 'dá', 'HN', '2');
 
 --
@@ -299,19 +298,19 @@ ALTER TABLE `taikhoan`
 -- AUTO_INCREMENT cho bảng `cauhoi`
 --
 ALTER TABLE `cauhoi`
-  MODIFY `id_ch` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id_ch` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT cho bảng `chuyende`
 --
 ALTER TABLE `chuyende`
-  MODIFY `id_cd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_cd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT cho bảng `dapan`
 --
 ALTER TABLE `dapan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT cho bảng `dethi`

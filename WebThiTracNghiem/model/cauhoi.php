@@ -11,7 +11,7 @@ function loadall_cauhoi()
             chuyende.name AS ten_cd
     from cauhoi
     JOIN chuyende ON cauhoi.id_cd = chuyende.id_cd
-     order by id_cd asc";
+     order by id_cd desc";
     $listcauhoi = pdo_query($sql);
     return $listcauhoi;
 }
