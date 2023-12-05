@@ -343,15 +343,13 @@ include "menu.php";
                 if (isset($_POST['btnTimkiem'])) {
                     // $olddata = getold_lichthi($_GET['idlt']);
                     $dsdt = loadall_dethicauhoi($_POST['id_lichthi']);
-
                 } else {
                     $dsdt = loadall_dethicauhoi();
                 }
+
                 $ds_lichthi = loadall_lichthi();
                 include "dethi/list-dethi.php";
                 break;
-
-
 
             case "bieudo": {
                     include "thongke/bieudo.php";

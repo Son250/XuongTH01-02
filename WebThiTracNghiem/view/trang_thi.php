@@ -90,9 +90,19 @@
                 </form>
             </div>
         </div>
+        <?php
+        $ds_dt = loadAll_dethi($id_lichthi);
+        if ($ds_dt) {
+            // Lấy một ID đề thi ngẫu nhiên từ danh sách
+            $random_id = $ds_dt[array_rand($ds_dt)];
+            // Tiếp tục xử lý hoặc hiển thị trang với $random_id
+        } else {
+            echo "Không tìm thấy đề thi nào.";
+        }
+        ?>
         <div class="box-center">
             <div class="box-title" align='center'>
-                <p class="bold">Đề 1</p>
+                <p class="bold"><?= $random_id['ten_de'] ?></p>
             </div>
             <div class="box-content">
                 <div class="box-cauhoi">
@@ -118,11 +128,11 @@
                             <label for="dapan">5</label> <br>
                         </div>
                     </div>
-                    
+
                 </div>
                 <div class="box-cauhoi">
                     <div class="content-cauhoi">
-                        <p  class='bold'>Câu 2: 2 + 1 = ?</p>
+                        <p class='bold'>Câu 2: 2 + 1 = ?</p>
 
                     </div>
                     <div class="box-dapan">
@@ -148,7 +158,7 @@
                 <!--Câu hỏi mà có hình ảnh  -->
                 <div class="box-cauhoi">
                     <div class="content-cauhoi">
-                        <p  class='bold'>Câu 3: 6 + 1 = ?</p>
+                        <p class='bold'>Câu 3: 6 + 1 = ?</p>
                         <div class="img-cauhoi">
                             <img src="../assets/img/banner0.webp" alt="">
                         </div>

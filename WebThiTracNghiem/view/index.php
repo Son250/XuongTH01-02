@@ -4,6 +4,7 @@ include "../model/pdo.php";
 include "../model/taikhoan.php";
 include "../model/chuyende.php";
 include "../model/lichthi.php";
+include "../model/dethi.php";
 include "_header.php";
 include "_menu.php";
 ?>
@@ -12,6 +13,7 @@ include "_menu.php";
     <?php
     $dslt = loadall_lichthi();
     $dscd = loadall_chuyende();
+
     //Controller
     if (isset($_GET['act']) && $_GET['act'] != "") {
         $act = $_GET['act'];
@@ -63,9 +65,18 @@ include "_menu.php";
                 header("Location:../admin/index.php");
                 break;
             case "trangthi":
+                if (isset($_GET['id_lichthi'])) {
+                    $id_lichthi = $_GET['id_lichthi'];
+                    // Tải dữ liệu đề thi
+                    $ds_dt = loadAll_dethi($id_lichthi);
+                    // Hiển thị nội dung trang_thi.php, chẳng hạn
+                    echo "Nội dung trang thi ở đây.";
+                } else {
+                    // Xử lý trường hợp không có id_lichthi được cung cấp
+                    echo "Vui lòng cung cấp id_lichthi.";
+                }
                 include 'trang_thi.php';
                 break;
-
             default:
 
                 include "home.php";

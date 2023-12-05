@@ -117,7 +117,19 @@
                   Thi ĐGNL là một kỳ thi có bài thi (môn thi) tổng hợp thường gồm các câu hỏi để kiểm tra
                   trình độ ngôn ngữ; Toán học, tư duy logic và phân tích số liệu; và giải quyết vấn đề.
                 </p>
-                <a class="btn" href="?act=trangthi">Vào thi</a>
+                <?php
+                date_default_timezone_set('Asia/Ho_Chi_Minh');
+                $time_start = $values['time_start'];
+                $time_end = $values['time_end'];
+                $time_now = date("Y-m-d H:i:s");
+                if ($time_start < $time_now && $time_now < $time_end) {
+                  echo '<a class="btn" name="btn-vaothi" href="#" onclick="startExam(' . $values['id'] . ');">Vào thi</a>';
+                } elseif ($time_start > $time_now) {
+                  echo '<a class="btn" name="btn-vaothi" >Chưa đến giờ</a>';
+                } else {
+                  echo '<a class="btn" name="btn-vaothi" >Quá giờ thi</a>';
+                }
+                ?>
               </div>
             </div>
           <?php endforeach; ?>
@@ -145,6 +157,12 @@
         </div>
       </section>
     </main>
+    <script>
+      function startExam(id_lichthi) {
+        // Thực hiện các thao tác cần thiết trước khi vào thi
+        // Chuyển hướng đến trang thi mà không load lại trang
+        window.location.href = '?act=trangthi&id_lichthi=' + id_lichthi;
+      }
+    </script>
   </div>
-
 </main><!-- End #main -->
