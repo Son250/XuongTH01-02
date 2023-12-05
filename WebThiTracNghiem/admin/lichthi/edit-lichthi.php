@@ -24,6 +24,12 @@
             </div>
         </div>
         <div>
+        <div>
+                    <div class="address-user">
+                        <label for="address">Thời gian kết thúc:</label><br>
+                        <input type="text" name="time_end" id="end_time_input" value="<?php echo $olddata['time_end'] ?>">
+                    </div>
+                </div>
             <div class="email">
                 <label for="email">Số lượng đề thi:</label><br>
                 <input type="number" name="so_de_thi" required value="<?php echo $olddata['so_de_thi'] ?>">

@@ -5,11 +5,13 @@ function loadall_lichthi()
     $result = pdo_query($sql);
     return $result;
 }
-function add_lichthi($name, $time_start, $time, $so_de_thi)
+
+function add_lichthi($name, $time_start, $time_end, $time, $so_de_thi)
 {
-    $sql = "INSERT INTO `lichthi`(`name`, `time_start`,`time`, `so_de_thi`) VALUES ('$name','$time_start','$time', '$so_de_thi')";
+    $sql = "INSERT INTO lichthi (`name`, `time_start`, `time_end`,`time`, `so_de_thi`) VALUES ('$name','$time_start', '$time_end','$time','$so_de_thi')";
     pdo_execute($sql);
 }
+
 
 
 

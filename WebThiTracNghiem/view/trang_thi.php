@@ -16,12 +16,12 @@
     </div>
 </section>
 
-<div class="hh trang_thi">
+<div class="hh trang_thi" style="background: #fff;">
     <caption>
         <h1>Kì thi tốt nghiệp</h1>
     </caption>
 
-    <div class="dapan">
+    <div class="dapan" style="background-color: #fff;">
         <div class="p-sidebarWrapper">
             <div class="p-body-sidebar">
                 <div data-xf-init="sticky" data-parent=".p-body-sidebar">
@@ -199,7 +199,7 @@
             </div>
         </div>
     </div>
-    <div class="cauhoi">
+    <div class="cauhoi" style="background-color: #fff;">
 
         <div class="box">
             <div class="nd">
