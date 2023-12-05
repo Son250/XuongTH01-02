@@ -255,11 +255,10 @@ include "menu.php";
 
                     $name = $_POST['name'];
                     $time_start = $_POST['time_start'];
-                    // $time_end = $_POST['time_end'];
+                    $time_end = $_POST['time_end'];
                     $time = $_POST['time'];
                     $so_de_thi = $_POST['so_de_thi'];
-
-                    add_lichthi($name, $time_start, $time, $so_de_thi);
+                    add_lichthi($name, $time_start, $time_end, $time, $so_de_thi);
                     header("location: ?act=dslt");
                 }
                 include "lichthi/add-lichthi.php";
@@ -333,7 +332,7 @@ include "menu.php";
                     $time = $_POST['time'];
                     $so_de_thi = $_POST['so_de_thi'];
 
-                    add_lichthi($name, $time_start, $time, $so_de_thi);
+                    add_lichthi($name, $time_start, $time,$time_end, $so_de_thi);
                     header("location: ?act=dslt");
                 }
                 include "lichthi/add-lichthi.php";

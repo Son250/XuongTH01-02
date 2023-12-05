@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 05, 2023 lúc 03:58 PM
+-- Thời gian đã tạo: Th12 05, 2023 lúc 04:12 PM
 -- Phiên bản máy phục vụ: 10.4.24-MariaDB
 -- Phiên bản PHP: 8.1.6
 
@@ -202,9 +202,8 @@ CREATE TABLE `lichthi` (
 --
 
 INSERT INTO `lichthi` (`id`, `name`, `time_start`, `time_end`, `time`, `so_de_thi`) VALUES
-(1, 'Thi cuối kỳ 2 ', '2023-12-05 09:00:00', '2023-12-05 10:00:00', 90, 2),
-(5, 'Thi thử THPT Quốc Gia 2024', '2023-12-05 21:50:45', '2023-12-05 23:50:45', 60, 4),
-(6, 'Kỳ thi thử ', '2023-11-28 22:06:00', '0000-00-00 00:00:00', 60, 2);
+(1, 'Thi cuối kỳ 2 ', '2023-12-05 22:00:00', '2023-12-05 10:00:00', 40, 2),
+(5, 'Thi thử THPT Quốc Gia 2024', '2023-12-05 21:50:45', '2023-12-05 23:50:45', 60, 4);
 
 -- --------------------------------------------------------
 
@@ -334,7 +333,7 @@ ALTER TABLE `ketqua`
 -- AUTO_INCREMENT cho bảng `lichthi`
 --
 ALTER TABLE `lichthi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT cho bảng `taikhoan`

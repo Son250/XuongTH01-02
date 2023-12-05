@@ -7,7 +7,7 @@
     <form action="?act=editlt" method="post" enctype="multipart/form-data">
         <input type="hidden" name="id" value="<?php echo $olddata['id']; ?>">
 
-           <div>
+        <div>
             <label for="user">Tên kì thi:</label><br>
             <input type="text" name="name" id="name" required value="<?php echo $olddata['name'] ?>">
         </div>
@@ -16,7 +16,6 @@
             <input type="datetime-local" id="time_start" name="time_start" required value="<?php echo $olddata['time_start'] ?>">
         </div>
 
-    
         <div>
             <div class="address-user">
                 <label for="address">Thời gian làm bài:(tính theo phút)</label><br>
@@ -24,6 +23,12 @@
             </div>
         </div>
         <div>
+            <div>
+                <div class="address-user">
+                    <label for="address">Thời gian kết thúc:</label><br>
+                    <input type="text" name="time_end" id="end_time_input" value="<?php echo $olddata['time_end'] ?>">
+                </div>
+            </div>
             <div class="email">
                 <label for="email">Số lượng đề thi:</label><br>
                 <input type="number" name="so_de_thi" required value="<?php echo $olddata['so_de_thi'] ?>">
