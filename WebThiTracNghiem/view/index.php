@@ -4,14 +4,17 @@ include "../model/pdo.php";
 include "../model/taikhoan.php";
 include "../model/chuyende.php";
 include "../model/lichthi.php";
+
 include "_header.php";
 include "_menu.php";
+include "../model/dethi_cauhoi.php" ;
 ?>
 
 <div>
     <?php
     $dslt = loadall_lichthi();
     $dscd = loadall_chuyende();
+   
     //Controller
     if (isset($_GET['act']) && $_GET['act'] != "") {
         $act = $_GET['act'];
@@ -63,6 +66,10 @@ include "_menu.php";
                 header("Location:../admin/index.php");
                 break;
             case "trangthi":
+               
+                $list_trangthi = load_trangthi(8);
+               
+                
                 include 'trang_thi.php';
                 break;
 

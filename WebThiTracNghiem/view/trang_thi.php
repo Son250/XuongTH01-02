@@ -90,22 +90,50 @@
                 </form>
             </div>
         </div>
-        <div class="box-center">
-            <div class="box-title" align='center'>
-                <p class="bold">Đề 1</p>
-            </div>
-            <div class="box-content">
-                <div class="box-cauhoi">
-                    <div class="content-cauhoi">
-                        <p class='bold'>Câu 1: 1 + 1 = ?</p>
 
-                    </div>
-                    <div class="box-dapan">
-                        <div>
-                            <input type="checkbox" name="content-dapan" id="dapan" value="">
-                            <label for="dapan">2</label> <br>
+        <?php foreach ($list_trangthi as $value) :
+            extract($value);
+            // anh câu hỏi 
+            $img = "../uploads/" . $img_ch;
+            if (is_file($img)) {
+                $hinh = "<img src='" . $img . "' width='100px'>";
+            } else {
+                $hinh = " ";
+            }
+            // ảnh đáp án
+            $anh = "../uploads/" . $img_da;
+            if (is_file($anh)) {
+                $hinhanh = "<img src='" . $anh . "' width='100px'>";
+            } else {
+                $hinhanh = "";
+            }
+        ?>
+            <!-- <div class="box-title" align='center'>
+                <p class="bold"><?php echo $tende ?></p>
+            </div> -->
+            <div class="box-center">
+
+
+                <div class="box-content">
+                    <div class="box-cauhoi">
+                        <div class="content-cauhoi">
+                            <p class='bold'>Câu <?php echo $value['id_cauhoi'] ?>: <?php echo $content ?></p>
+                            <div class="img-cauhoi">
+                                <?php echo $hinh ?>
+                            </div>
                         </div>
-                        <div>
+                        <div class="box-dapan">
+                            <div>
+                                <?php foreach($value as $dapan){
+                                    echo ' <input type="checkbox" name="content-dapan" id="dapan" value="">
+                                    <label for="dapan"> '.$dapan.'</label> <br>' ;
+                                } ?>
+                                <!-- <input type="checkbox" name="content-dapan" id="dapan" value="">
+                                <label for="dapan"><?php echo $content_dapan ?></label> <br> -->
+                               <!-- <?php echo $hinhanh ?> -->
+                                <!-- <img src="../assets/img/banner0.webp" alt=""> -->
+                            </div>
+                            <!-- <div>
                             <input type="checkbox" name="content-dapan" id="dapan" value="">
                             <label for="dapan">3</label> <br>
                         </div>
@@ -116,11 +144,12 @@
                         <div>
                             <input type="checkbox" name="content-dapan" id="dapan" value="">
                             <label for="dapan">5</label> <br>
-                        </div>
-                    </div>
-                    
-                </div>
-                <div class="box-cauhoi">
+                        </div> -->
+                            <!-- </div>
+
+                    </div> -->
+
+                            <!-- <div class="box-cauhoi">
                     <div class="content-cauhoi">
                         <p  class='bold'>Câu 2: 2 + 1 = ?</p>
 
@@ -143,10 +172,10 @@
                             <label for="dapan">5</label> <br>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
-                <!--Câu hỏi mà có hình ảnh  -->
-                <div class="box-cauhoi">
+                            <!--Câu hỏi mà có hình ảnh  -->
+                            <!-- <div class="box-cauhoi">
                     <div class="content-cauhoi">
                         <p  class='bold'>Câu 3: 6 + 1 = ?</p>
                         <div class="img-cauhoi">
@@ -175,9 +204,15 @@
                             <img src="../assets/img/banner3.webp" alt="">
                         </div>
                     </div>
+                </div> -->
+
+
+
+                </div>
+                        <?php endforeach; ?>
+                       
+
+                    </div>
+
                 </div>
             </div>
-        </div>
-
-    </div>
-</div>
