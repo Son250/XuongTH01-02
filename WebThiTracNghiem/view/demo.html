@@ -27,16 +27,14 @@
             }
         }
 
-
-        function calculateTimeDifference() {
+        
+        function calculateTimeDifference(time) {
 
             // Lấy giá trị nhập vàoststartTime
-            let timeExam = setTimeExam(20);
-            var startTime = timeExam.startTime;
-            console.log(startTime)
+            let timeExam = setTimeExam(time);
+            var startTime = timeExam.start;
             var endTime = timeExam.end;
-            console.log(timeExam)
-
+        
 
             // Tính khoảng thời gian ở đơn vị giây
             var startTimeInSeconds = parseTimeToSeconds(startTime);
@@ -114,6 +112,11 @@
                 timeout = setTimeout(updateClock, 1000);
             }
         }
+
+
+        setTimeout(function() {
+            calculateTimeDifference(50)
+        }, 1000)
     </script>
 </head>
 <body>
