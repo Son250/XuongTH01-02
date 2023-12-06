@@ -2,8 +2,6 @@
 session_start();
 include "../model/pdo.php";
 include "../model/chuyende.php";
-
-
 include "../model/taikhoan.php";
 include "../model/lichthi.php";
 include "../model/ketqua.php";
@@ -31,13 +29,19 @@ include "menu.php";
                 break;
             case 'dscd':
                 $listchuyende = loadall_chuyende();
-
                 include "chuyende/list-chuyende.php";
                 break;
             case 'add-chuyende':
                 if (isset($_POST['themcd']) && ($_POST['themcd'])) {
                     $name = $_POST['tencd'];
-                    insert_chuyende($name);
+                    $image_cd = $_FILES['image_cd']['name'];
+                    $target_dir = "../uploads/";
+                    $target_file = $target_dir . basename($_FILES["image_cd"]["name"]);
+
+                    if (move_uploaded_file($_FILES["image_cd"]["tmp_name"], $target_file)) {
+                    }
+
+                    insert_chuyende($name, $image_cd);
                     header("location:?act=dscd");
                 }
                 include "chuyende/add-chuyende.php";
@@ -59,9 +63,15 @@ include "menu.php";
             case "updatecd":
                 if (isset($_POST['capnhat']) && ($_POST['capnhat'])) {
                     $name = $_POST['tencd'];
+                 
+                    $image_cd = $_FILES['image_cd']['name'];
                     $id_cd = $_POST['id_cd'];
-                    update_chuyende($id_cd, $name);
-                    $thongbao = "cap nhap thanh cong";
+                    $target_dir = "../uploads/";
+                    $target_file = $target_dir . basename($_FILES["image_cd"]["name"]);
+                    if (move_uploaded_file($_FILES["image_cd"]["tmp_name"], $target_file)) {
+                    }
+                    update_chuyende($id_cd, $name, $image_cd);
+                    header("Location:index.php?act=dscd");
                 }
                 $listchuyende = loadall_chuyende();
                 include "chuyende/list-chuyende.php";
@@ -127,7 +137,6 @@ include "menu.php";
 
                     if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
                     }
-
                     insert_cauhoi($content, $image, $idcd);
                     header("Location:index.php?act=dsch");
                 }
@@ -258,7 +267,13 @@ include "menu.php";
                     $time_end = $_POST['time_end'];
                     $time = $_POST['time'];
                     $so_de_thi = $_POST['so_de_thi'];
-                    add_lichthi($name, $time_start, $time_end, $time, $so_de_thi);
+                    $image_lt = $_FILES['image_lt']['name'];
+                    $target_dir = "../uploads/";
+                    $target_file = $target_dir . basename($_FILES["image_lt"]["name"]);
+
+                    if (move_uploaded_file($_FILES["image_lt"]["tmp_name"], $target_file)) {
+                    }
+                    add_lichthi($name,$image_lt, $time_start, $time_end, $time, $so_de_thi);
                     header("location: ?act=dslt");
                 }
                 include "lichthi/add-lichthi.php";
@@ -281,7 +296,13 @@ include "menu.php";
                     $time_end = $_POST['time_end'];
                     $time = $_POST['time'];
                     $so_de_thi = $_POST['so_de_thi'];
-                    update_lichthi($id, $name, $time_start, $time_end, $time, $so_de_thi);
+                    $image_lt = $_FILES['image_lt']['name'];
+                    $target_dir = "../uploads/";
+                    $target_file = $target_dir . basename($_FILES["image_lt"]["name"]);
+
+                    if (move_uploaded_file($_FILES["image_lt"]["tmp_name"], $target_file)) {
+                    }
+                    update_lichthi($id, $name,$image_lt, $time_start, $time_end, $time, $so_de_thi);
                     header("location: ?act=dslt");
                 }
                 include "lichthi/edit-lichthi.php";
@@ -332,7 +353,7 @@ include "menu.php";
                     $time = $_POST['time'];
                     $so_de_thi = $_POST['so_de_thi'];
 
-                    add_lichthi($name, $time_start, $time,$time_end, $so_de_thi);
+                    add_lichthi($name,$image_lt, $time_start, $time,$time_end, $so_de_thi);
                     header("location: ?act=dslt");
                 }
                 include "lichthi/add-lichthi.php";

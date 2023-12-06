@@ -59,6 +59,10 @@
                 <label for="user">Tên kì thi:</label><br>
                 <input type="text" name="name" id="name" required>
             </div>
+            <div class="mb-3">
+            <label for="formFile" class="form-label">Hình ảnh</label>
+            <input class="form-control" type="file" id="formFile" name="image_lt">
+        </div>
             <div>
                 <label for="time_start">Thời gian bắt đầu:</label><br>
                 <input type="datetime-local" id="start_datetime" name="time_start" required onchange="calculateEndTime()" />

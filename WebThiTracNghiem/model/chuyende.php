@@ -1,7 +1,7 @@
 <?php
-function insert_chuyende($name)
+function insert_chuyende($name, $image_cd)
 {
-    $sql = "insert into chuyende(name) values('$name')";
+    $sql = "INSERT INTO chuyende ( `name`, `image_cd`) VALUES ('$name', '$image_cd')";
     pdo_execute($sql);
 }
 
@@ -23,8 +23,8 @@ function loadone_chuyende($id_cd)
     return $a;
 }
 
-function update_chuyende($id_cd, $name)
+function update_chuyende($id_cd, $name, $image_cd)
 {
-    $sql = "update chuyende set name='" . $name . "'where id_cd=" . $id_cd;
+    $sql = "UPDATE  chuyende SET name='" . $name . "' , image_cd ='".$image_cd."' where id_cd=" . $id_cd;
     pdo_execute($sql);
 }

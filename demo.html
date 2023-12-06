@@ -11,11 +11,32 @@
         var minutes = null;
         var seconds = null;
         var timeout = null;
+        function setTimeExam(minutes){
+            var currentdate = new Date(); 
+            var newDateObj = new Date();
+            newDateObj.setTime(currentdate.getTime() + (minutes * 60 * 1000));
+
+            let mini = currentdate.getMinutes() < 10 ? "0" + currentdate.getMinutes() : currentdate.getMinutes()
+            let start = currentdate.getHours() + ":" + mini
+
+
+            let mini2 = newDateObj.getMinutes() < 10 ? "0" + newDateObj.getMinutes() : newDateObj.getMinutes()
+            let end = newDateObj.getHours() + ":" + mini2
+            return {
+                start, end
+            }
+        }
+
 
         function calculateTimeDifference() {
-            // Lấy giá trị nhập vào
-            var startTime = document.getElementById('start_time').value;
-            var endTime = document.getElementById('end_time').value;
+
+            // Lấy giá trị nhập vàoststartTime
+            let timeExam = setTimeExam(20);
+            var startTime = timeExam.startTime;
+            console.log(startTime)
+            var endTime = timeExam.end;
+            console.log(timeExam)
+
 
             // Tính khoảng thời gian ở đơn vị giây
             var startTimeInSeconds = parseTimeToSeconds(startTime);
@@ -96,13 +117,7 @@
     </script>
 </head>
 <body>
-    <div>
-        <strong>Nhập thông tin bắt đầu: <br/></strong>
-        Giờ: <input type="time" id="start_time" onchange="calculateTimeDifference()" /> <br/>
-
-        <strong>Nhập thông tin kết thúc: <br/></strong>
-        Giờ: <input type="time" id="end_time" onchange="calculateTimeDifference()" />
-    </div>
+   
 
     <div>
         <span id="total_time"></span>

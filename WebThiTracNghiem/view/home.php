@@ -95,8 +95,9 @@
             <h2>Chuyên đề</h2>
           </div>
           <?php foreach ($dscd as $dscd) : ?>
+            
             <div class="box25 mr15">
-              <img src="../assets/img/sach-giao-khoa-toan-lop-3.jpg" alt="" />
+              <img src="" alt="" />
               <span><a href="" class="tenchuyende"><?php echo $dscd['name'] ?></a></span>
             </div>
           <?php endforeach; ?>
@@ -109,7 +110,7 @@
           <?php foreach ($dslt as $key => $values) : ?>
             <div class="kithi">
               <div class="col62 imgchitiet">
-                <img src="../assets/img/dt-tieng-viet-3-kn-1683271244.png" alt="" />
+                <img src="" alt="" />
               </div>
               <div class="col62 textchitiet">
                 <h2><?php echo $values['name'] ?></h2>
