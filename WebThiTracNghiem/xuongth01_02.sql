@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 30, 2023 lúc 06:49 AM
--- Phiên bản máy phục vụ: 10.4.24-MariaDB
--- Phiên bản PHP: 8.1.6
+-- Máy chủ: localhost:3306
+-- Thời gian đã tạo: Th12 06, 2023 lúc 08:10 AM
+-- Phiên bản máy phục vụ: 8.0.30
+-- Phiên bản PHP: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,11 +28,11 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `cauhoi` (
-  `id_ch` int(11) NOT NULL,
-  `content` varchar(500) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Nội dung câu hỏi (Đề bài)',
-  `image` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `id_cd` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `id_ch` int NOT NULL,
+  `content` varchar(500) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL COMMENT 'Nội dung câu hỏi (Đề bài)',
+  `image` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `id_cd` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `cauhoi`
@@ -58,17 +58,20 @@ INSERT INTO `cauhoi` (`id_ch`, `content`, `image`, `id_cd`) VALUES
 --
 
 CREATE TABLE `chuyende` (
-  `id_cd` int(11) NOT NULL,
-  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Tên chuyên đề'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `id_cd` int NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL COMMENT 'Tên chuyên đề',
+  `image_cd` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `chuyende`
 --
 
-INSERT INTO `chuyende` (`id_cd`, `name`) VALUES
-(1, 'Chuyên đề thi kì 2 Toán lớp 3'),
-(9, 'Chuyên đề thi kì 1 Toán lớp 4');
+INSERT INTO `chuyende` (`id_cd`, `name`, `image_cd`) VALUES
+(1, 'Chuyên đề thi kì 2 Toán lớp 3', NULL),
+(9, 'Chuyên đề thi kì 1 Toán lớp 4', NULL),
+(21, '123', ''),
+(22, ' 890', 'Ảnh chụp màn hình 2023-05-18 162421.png');
 
 -- --------------------------------------------------------
 
@@ -77,12 +80,12 @@ INSERT INTO `chuyende` (`id_cd`, `name`) VALUES
 --
 
 CREATE TABLE `dapan` (
-  `id` int(11) NOT NULL,
-  `content_dapan` varchar(500) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Nội dung đáp án',
-  `image` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `right_answer` enum('1','2') COLLATE utf8_unicode_ci NOT NULL COMMENT '1 Đúng, 2 Sai',
-  `id_question` int(11) NOT NULL COMMENT 'Id câu hỏi'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `id` int NOT NULL,
+  `content_dapan` varchar(500) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL COMMENT 'Nội dung đáp án',
+  `image` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `right_answer` enum('1','2') CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL COMMENT '1 Đúng, 2 Sai',
+  `id_question` int NOT NULL COMMENT 'Id câu hỏi'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `dapan`
@@ -109,10 +112,10 @@ INSERT INTO `dapan` (`id`, `content_dapan`, `image`, `right_answer`, `id_questio
 --
 
 CREATE TABLE `dethi` (
-  `id` int(11) NOT NULL,
-  `ten_de` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `id_lichthi` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `id` int NOT NULL,
+  `ten_de` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `id_lichthi` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `dethi`
@@ -134,10 +137,10 @@ INSERT INTO `dethi` (`id`, `ten_de`, `id_lichthi`) VALUES
 --
 
 CREATE TABLE `dethi_cauhoi` (
-  `id` int(11) NOT NULL,
-  `id_dethi` int(11) NOT NULL,
-  `id_cauhoi` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `id` int NOT NULL,
+  `id_dethi` int NOT NULL,
+  `id_cauhoi` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `dethi_cauhoi`
@@ -168,12 +171,12 @@ INSERT INTO `dethi_cauhoi` (`id`, `id_dethi`, `id_cauhoi`) VALUES
 --
 
 CREATE TABLE `ketqua` (
-  `id` int(11) NOT NULL,
-  `bo_ket_qua` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Bộ kết quả',
-  `id_nguoi_dung` int(11) NOT NULL,
-  `id_de_thi` int(11) NOT NULL,
-  `diem` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `id` int NOT NULL,
+  `bo_ket_qua` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL COMMENT 'Bộ kết quả',
+  `id_nguoi_dung` int NOT NULL,
+  `id_de_thi` int NOT NULL,
+  `diem` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `ketqua`
@@ -189,23 +192,24 @@ INSERT INTO `ketqua` (`id`, `bo_ket_qua`, `id_nguoi_dung`, `id_de_thi`, `diem`) 
 --
 
 CREATE TABLE `lichthi` (
-  `id` int(11) NOT NULL,
-  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Tên lịch thi(tên kì thi)',
+  `id` int NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL COMMENT 'Tên lịch thi(tên kì thi)',
+  `image_lt` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci DEFAULT NULL,
   `time_start` datetime NOT NULL COMMENT 'TG bắt đầu làm bài',
   `time_end` datetime NOT NULL COMMENT 'TG kết thúc làm bài',
-  `time` int(11) NOT NULL COMMENT 'TG làm bài (vd: 45p)',
-  `so_de_thi` int(11) NOT NULL COMMENT 'Số lượng đề thi'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `time` int NOT NULL COMMENT 'TG làm bài (vd: 45p)',
+  `so_de_thi` int NOT NULL COMMENT 'Số lượng đề thi'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `lichthi`
 --
 
-INSERT INTO `lichthi` (`id`, `name`, `time_start`, `time_end`, `time`, `so_de_thi`) VALUES
-(1, 'Thi cuối kỳ 2 ', '2023-11-26 09:00:00', '0000-00-00 00:00:00', 90, 2),
-(4, 'Thi giữa kì 1', '2023-11-25 12:00:00', '0000-00-00 00:00:00', 30, 1),
-(5, 'Thi thử THPT Quốc Gia 2024', '2023-11-29 20:30:00', '0000-00-00 00:00:00', 60, 4),
-(6, 'Kỳ thi thử ', '2023-11-28 22:06:00', '0000-00-00 00:00:00', 60, 2);
+INSERT INTO `lichthi` (`id`, `name`, `image_lt`, `time_start`, `time_end`, `time`, `so_de_thi`) VALUES
+(1, 'Thi cuối kỳ 2 ', NULL, '2023-11-26 09:00:00', '0000-00-00 00:00:00', 90, 2),
+(4, 'Thi giữa kì 1', NULL, '2023-11-25 12:00:00', '0000-00-00 00:00:00', 30, 1),
+(5, 'Thi thử THPT Quốc Gia 2024', NULL, '2023-11-29 20:30:00', '0000-00-00 00:00:00', 60, 4),
+(13, 'Ga Tay', 'Ảnh chụp màn hình 2023-05-18 162421.png', '2023-12-06 16:43:00', '2023-12-06 16:55:00', 12, 1);
 
 -- --------------------------------------------------------
 
@@ -214,15 +218,15 @@ INSERT INTO `lichthi` (`id`, `name`, `time_start`, `time_end`, `time`, `so_de_th
 --
 
 CREATE TABLE `taikhoan` (
-  `id` int(11) NOT NULL,
-  `username` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `password` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `fullname` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
-  `image` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `email` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `address` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `role` enum('1','2') COLLATE utf8_unicode_ci NOT NULL COMMENT '1 Admin , 2 User'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `id` int NOT NULL,
+  `username` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `password` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `fullname` varchar(60) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `image` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `email` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `address` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `role` enum('1','2') CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL COMMENT '1 Admin , 2 User'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `taikhoan`
@@ -299,49 +303,49 @@ ALTER TABLE `taikhoan`
 -- AUTO_INCREMENT cho bảng `cauhoi`
 --
 ALTER TABLE `cauhoi`
-  MODIFY `id_ch` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id_ch` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT cho bảng `chuyende`
 --
 ALTER TABLE `chuyende`
-  MODIFY `id_cd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_cd` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT cho bảng `dapan`
 --
 ALTER TABLE `dapan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT cho bảng `dethi`
 --
 ALTER TABLE `dethi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT cho bảng `dethi_cauhoi`
 --
 ALTER TABLE `dethi_cauhoi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT cho bảng `ketqua`
 --
 ALTER TABLE `ketqua`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT cho bảng `lichthi`
 --
 ALTER TABLE `lichthi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT cho bảng `taikhoan`
 --
 ALTER TABLE `taikhoan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
