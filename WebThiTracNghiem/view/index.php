@@ -7,13 +7,13 @@ include "../model/lichthi.php";
 include "../model/dethi.php";
 include "_header.php";
 include "_menu.php";
+include "../model/dethi_cauhoi.php" ;
 ?>
 
 <div>
     <?php
     $dslt = loadall_lichthi();
     $dscd = loadall_chuyende();
-
     //Controller
     if (isset($_GET['act']) && $_GET['act'] != "") {
         $act = $_GET['act'];
@@ -75,6 +75,10 @@ include "_menu.php";
                     // Xử lý trường hợp không có id_lichthi được cung cấp
                     echo "Vui lòng cung cấp id_lichthi.";
                 }
+               
+                $list_trangthi = load_trangthi(8);
+               
+                
                 include 'trang_thi.php';
                 break;
             default:
