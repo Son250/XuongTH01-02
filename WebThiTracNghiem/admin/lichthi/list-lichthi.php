@@ -14,6 +14,7 @@
                 <tr>
                     <td>Id</td>
                     <td>Tên kì thi</td>
+                    <td>Hình ảnh</td>
                     <td>Thời gian bắt đầu</td>
                     <td>Thời gian kết thúc</td>
                     <td>Thời gian làm bài </td>
@@ -24,9 +25,16 @@
 
             <tbody>
                 <?php foreach ($dslt as $key => $value) : extract($value) ?>
+                <?php   $hinhpath = "../uploads/" . $image_lt;
+                    if (is_file($hinhpath)) {
+                         $hinh_lt = "<img src='" . $hinhpath . "' width='100px'>";
+                    } else {
+                         $hinh_lt = "";
+                    } ?>
                     <tr>
                         <td><?php echo $id ?></td>
                         <td><?php echo $name ?></td>
+                        <td><?php echo $hinh_lt ?></td>
                         <td><?php echo $time_start ?></td>
                         <td><?php echo $time_end ?></td>
                         <td><?php echo $time ?>p</td>

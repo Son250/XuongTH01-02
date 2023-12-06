@@ -1,3 +1,92 @@
+<script language="javascript">
+    var hours = null;
+    var minutes = null;
+    var seconds = null;
+    var timeout = null;
+
+    function calculateTimeDifference() {
+        // Lấy giá trị nhập vào
+        var startTime = document.getElementById('start_time').value;
+        var endTime = document.getElementById('end_time').value;
+
+        // Tính khoảng thời gian ở đơn vị giây
+        var startTimeInSeconds = parseTimeToSeconds(startTime);
+        var endTimeInSeconds = parseTimeToSeconds(endTime);
+
+        var timeDifferenceInSeconds = endTimeInSeconds - startTimeInSeconds;
+
+        // Chuyển đổi khoảng thời gian sang giờ, phút và giây
+        var timeParts = splitTime(timeDifferenceInSeconds);
+
+        hours = timeParts.hours;
+        minutes = timeParts.minutes;
+        seconds = timeParts.seconds;
+
+        // Hiển thị kết quả và cập nhật giá trị cho đếm ngược
+        updateResult();
+
+        // Bắt đầu đếm ngược
+        updateClock();
+    }
+
+    function parseTimeToSeconds(timeString) {
+        var timeArray = timeString.split(":");
+        return parseInt(timeArray[0]) * 3600 + parseInt(timeArray[1]) * 60;
+    }
+
+    function splitTime(totalSeconds) {
+        var hours = Math.floor(totalSeconds / 3600);
+        var remainingSeconds = totalSeconds % 3600;
+        var minutes = Math.floor(remainingSeconds / 60);
+        var seconds = remainingSeconds % 60;
+
+        return {
+            hours: hours,
+            minutes: minutes,
+            seconds: seconds
+        };
+    }
+
+    function formatTimeUnit(unit) {
+        return unit < 10 ? '0' + unit : unit;
+    }
+
+    function updateResult() {
+        // Display the initial time
+        document.getElementById('total_time').innerText = formatTimeUnit(hours) + ':' + formatTimeUnit(minutes) + ':' + formatTimeUnit(seconds);
+    }
+
+    function updateClock() {
+        // Kiểm tra xem đếm ngược đã đạt đến không
+        if (hours === 0 && minutes === 0 && seconds === 0) {
+            clearTimeout(timeout);
+            alert('Hết giờ');
+        } else {
+            // Cập nhật giá trị đếm ngược
+            if (seconds > 0) {
+                seconds--;
+            } else {
+                if (minutes > 0) {
+                    minutes--;
+                    seconds = 59;
+                } else {
+                    if (hours > 0) {
+                        hours--;
+                        minutes = 59;
+                        seconds = 59;
+                    }
+                }
+            }
+
+            // Hiển thị giờ, phút, giây còn lại
+            document.getElementById('total_time').innerText = formatTimeUnit(hours) + ':' + formatTimeUnit(minutes) + ':' + formatTimeUnit(seconds);
+
+            // Tiếp tục đếm ngược
+            timeout = setTimeout(updateClock, 1000);
+        }
+    }
+</script>
+
 <div class="container-thi">
     <div class='title'>
         <div class="title-thi">
@@ -5,11 +94,8 @@
         </div>
         <div class="thoi-gian">
             <p>Thời gian còn lại: <span>29:59</span> </p>
-
         </div>
     </div>
-
-
     <div class="content-thi">
         <div class="box-left">
             <div class="box-title">
