@@ -198,48 +198,25 @@
                     </div>
                     <div class="box-dapan">
                         <div>
-                            <input type="checkbox" name="content-dapan" id="dapan" value="">
+                            <input type="radio" name="content-dapan" id="dapan" value="">
                             <label for="dapan">2</label> <br>
                         </div>
                         <div>
-                            <input type="checkbox" name="content-dapan" id="dapan" value="">
+                            <input type="radio" name="content-dapan" id="dapan" value="">
                             <label for="dapan">3</label> <br>
                         </div>
                         <div>
-                            <input type="checkbox" name="content-dapan" id="dapan" value="">
+                            <input type="radio" name="content-dapan" id="dapan" value="">
                             <label for="dapan">7</label> <br>
                         </div>
                         <div>
-                            <input type="checkbox" name="content-dapan" id="dapan" value="">
+                            <input type="radio" name="content-dapan" id="dapan" value="">
                             <label for="dapan">5</label> <br>
                         </div>
                     </div>
 
                 </div>
-                <div class="box-cauhoi">
-                    <div class="content-cauhoi">
-                        <p class='bold'>Câu 2: 2 + 1 = ?</p>
-
-                    </div>
-                    <div class="box-dapan">
-                        <div>
-                            <input type="checkbox" name="content-dapan" id="dapan" value="">
-                            <label for="dapan">2</label> <br>
-                        </div>
-                        <div>
-                            <input type="checkbox" name="content-dapan" id="dapan" value="">
-                            <label for="dapan">3</label> <br>
-                        </div>
-                        <div>
-                            <input type="checkbox" name="content-dapan" id="dapan" value="">
-                            <label for="dapan">7</label> <br>
-                        </div>
-                        <div>
-                            <input type="checkbox" name="content-dapan" id="dapan" value="">
-                            <label for="dapan">5</label> <br>
-                        </div>
-                    </div>
-                </div>
+            
 
                 <!--Câu hỏi mà có hình ảnh  -->
                 <div class="box-cauhoi">
@@ -251,22 +228,22 @@
                     </div>
                     <div class="box-dapan">
                         <div>
-                            <input type="checkbox" name="content-dapan" id="dapan" value="">
+                            <input type="radio" name="content-dapan" id="dapan" value="">
                             <label for="dapan">2</label> <br>
                             <img src="../assets/img/banner0.webp" alt="">
                         </div>
                         <div>
-                            <input type="checkbox" name="content-dapan" id="dapan" value="">
+                            <input type="radio" name="content-dapan" id="dapan" value="">
                             <label for="dapan">3</label> <br>
                             <img src="../assets/img/banner1.webp" alt="">
                         </div>
                         <div>
-                            <input type="checkbox" name="content-dapan" id="dapan" value="">
+                            <input type="radio" name="content-dapan" id="dapan" value="">
                             <label for="dapan">7</label> <br>
                             <img src="../assets/img/banner2.webp" alt="">
                         </div>
                         <div>
-                            <input type="checkbox" name="content-dapan" id="dapan" value="">
+                            <input type="radio" name="content-dapan" id="dapan" value="">
                             <label for="dapan">5</label> <br>
                             <img src="../assets/img/banner3.webp" alt="">
                         </div>
