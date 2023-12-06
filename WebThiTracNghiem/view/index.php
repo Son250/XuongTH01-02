@@ -68,16 +68,16 @@ include "../model/dethi_cauhoi.php" ;
                 if (isset($_GET['id_lichthi'])) {
                     $id_lichthi = $_GET['id_lichthi'];
                     // Tải dữ liệu đề thi
-                    $ds_dt = loadAll_dethi($id_lichthi);
+                    $list_trangthi = loadAll_dethi($id_lichthi);
                     // Hiển thị nội dung trang_thi.php, chẳng hạn
-                    echo "Nội dung trang thi ở đây.";
+                    //echo "Nội dung trang thi ở đây.";
                 } else {
                     // Xử lý trường hợp không có id_lichthi được cung cấp
-                    echo "Vui lòng cung cấp id_lichthi.";
+                    //echo "Vui lòng cung cấp id_lichthi.";
                 }
                
-                $list_trangthi = load_trangthi(8);
-               
+                $list_cauhoi = load_cauoi($list_trangthi['id']);
+                
                 
                 include 'trang_thi.php';
                 break;

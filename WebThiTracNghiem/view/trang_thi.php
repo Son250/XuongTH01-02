@@ -176,79 +176,61 @@
                 </form>
             </div>
         </div>
-        <?php
-        $ds_dt = loadAll_dethi($id_lichthi);
-        if ($ds_dt) {
-            // Lấy một ID đề thi ngẫu nhiên từ danh sách
-            $random_id = $ds_dt[array_rand($ds_dt)];
-            // Tiếp tục xử lý hoặc hiển thị trang với $random_id
-        } else {
-            echo "Không tìm thấy đề thi nào.";
-        }
-        ?>
+        
         <div class="box-center">
             <div class="box-title" align='center'>
-                <p class="bold"><?= $random_id['ten_de'] ?></p>
+                <p class="bold"><?= $list_trangthi['ten_de'] ?></p>
             </div>
             <div class="box-content">
-                <div class="box-cauhoi">
-                    <div class="content-cauhoi">
-                        <p class='bold'>Câu 1: 1 + 1 = ?</p>
-
-                    </div>
-                    <div class="box-dapan">
-                        <div>
-                            <input type="radio" name="content-dapan" id="dapan" value="">
-                            <label for="dapan">2</label> <br>
-                        </div>
-                        <div>
-                            <input type="radio" name="content-dapan" id="dapan" value="">
-                            <label for="dapan">3</label> <br>
-                        </div>
-                        <div>
-                            <input type="radio" name="content-dapan" id="dapan" value="">
-                            <label for="dapan">7</label> <br>
-                        </div>
-                        <div>
-                            <input type="radio" name="content-dapan" id="dapan" value="">
-                            <label for="dapan">5</label> <br>
-                        </div>
-                    </div>
-
-                </div>
+                
             
 
                 <!--Câu hỏi mà có hình ảnh  -->
+                <?php foreach($list_cauhoi as $key => $listch) : 
+                    $hinhanh = "../uploads/".$listch['image'];
+                    if(is_file($hinhanh)){
+                        $img_path = "<img src='".$hinhanh."' width='80px'>";
+                    }else{
+                        $img_path = "" ;
+                    }
+                    ?>
                 <div class="box-cauhoi">
                     <div class="content-cauhoi">
-                        <p class='bold'>Câu 3: 6 + 1 = ?</p>
+                        <p class='bold'>Câu <?=$key+1 ?>: <?= $listch['content']?></p>
                         <div class="img-cauhoi">
-                            <img src="../assets/img/banner0.webp" alt="">
+                            <!-- <img src="../assets/img/banner0.webp" alt=""> -->
+                            <?= $img_path?>
                         </div>
                     </div>
+
                     <div class="box-dapan">
-                        <div>
-                            <input type="radio" name="content-dapan" id="dapan" value="">
-                            <label for="dapan">2</label> <br>
-                            <img src="../assets/img/banner0.webp" alt="">
-                        </div>
-                        <div>
-                            <input type="radio" name="content-dapan" id="dapan" value="">
-                            <label for="dapan">3</label> <br>
-                            <img src="../assets/img/banner1.webp" alt="">
-                        </div>
-                        <div>
-                            <input type="radio" name="content-dapan" id="dapan" value="">
-                            <label for="dapan">7</label> <br>
-                            <img src="../assets/img/banner2.webp" alt="">
-                        </div>
-                        <div>
-                            <input type="radio" name="content-dapan" id="dapan" value="">
-                            <label for="dapan">5</label> <br>
-                            <img src="../assets/img/banner3.webp" alt="">
-                        </div>
+                        <?php 
+                            $list_dapan = load_dapan($listch['id_cauhoi']);
+                            foreach($list_dapan as $dapan): 
+                            $hinh = "../uploads/".$dapan['image'];
+                            if(is_file($hinh)){
+                                $img = "<img src='".$hinh."' width='100px'>";
+                            }else{
+                                $img = "" ;
+                            }
+                        ?>
+
+                            <div>
+                                <input type="radio" name="content-dapan" id="dapan" value="">
+                                <label for="dapan"><?php echo $dapan['content_dapan'] ?></label> <br>
+                                <!-- <img src="../assets/img/banner0.webp" alt=""> -->
+                                <?= $img ?>
+                            </div>
+                        <?php endforeach; ?>
                     </div>
+                   
                 </div>
+                <?php endforeach; ?>
+
+
+
+
+
             </div>
         </div>
 
