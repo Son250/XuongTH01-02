@@ -242,7 +242,11 @@ input[type=submit]:hover {
     background-color: #7d7d7d;
     color: white;
 }
-
+.container-thi .box-content div a.done {
+    background-color: gray; /* Màu xám cho câu đã làm */
+    font-weight: bold; /* In đậm */
+    color: white;
+}
 .container-thi .content-thi .box-content .row-cauhoi {
     display: flex;
 }
@@ -276,6 +280,7 @@ button[name="btnNopbai"] {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 15px;
+    margin-top: 10px;
 
 }
 

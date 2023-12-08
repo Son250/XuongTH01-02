@@ -74,7 +74,14 @@
         + So sánh thời gian để hiện chữ "Vào thi", khi click vào thi sẽ 
         Random đề và lưu biến id đề đó: Hoàng
         + Sau khi có id đề vừa random, load toàn bộ câu hỏi ở đề ý lên: Trang
-
+        
+3.5. Chia việc ngày 06/12/2023
+        + Nhập 30 câu hỏi vào database (có cả đáp án): Trang
+        + Cho thời gian chạy ngược vào đề thi: Thanh
+        + Sửa lại giao diện fixed câu hỏi và thời gian: Sơn
+        + Random ra đề rồi thì lưu lại khi load lại ko random nữa: Hoàng
+        + Sửa lại giao diện Trang chủ người dùng cho thật đẹp,sửa ảnh, sửa css 
+        (tham khảo các trang khác như: tracnghiem.net): Thắm
 
 ## Cơ sở dữ liệu
     tai_khoan:

@@ -104,13 +104,13 @@
             <div class="box-content">
                 <div class="row-cauhoi">
                     <div>
-                        <a href="#">1</a>
+                        <a href="#" data-question-id="question1">1</a>
                     </div>
                     <div>
-                        <a href="#">2</a>
+                        <a href="#" data-question-id="question2">2</a>
                     </div>
                     <div>
-                        <a href="#">3</a>
+                        <a href="#" data-question-id="question3">3</a>
                     </div>
                     <div>
                         <a href="#">4</a>
@@ -119,7 +119,7 @@
                         <a href="#">5</a>
                     </div>
                 </div>
-                <div class="row-cauhoi">
+                <!-- <div class="row-cauhoi">
                     <div>
                         <a href="#">6</a>
                     </div>
@@ -135,41 +135,7 @@
                     <div>
                         <a href="#">10</a>
                     </div>
-                </div>
-                <div class="row-cauhoi">
-                    <div>
-                        <a href="#">1</a>
-                    </div>
-                    <div>
-                        <a href="#">2</a>
-                    </div>
-                    <div>
-                        <a href="#">3</a>
-                    </div>
-                    <div>
-                        <a href="#">4</a>
-                    </div>
-                    <div>
-                        <a href="#">5</a>
-                    </div>
-                </div>
-                <div class="row-cauhoi">
-                    <div>
-                        <a href="#">6</a>
-                    </div>
-                    <div>
-                        <a href="#">7</a>
-                    </div>
-                    <div>
-                        <a href="#">8</a>
-                    </div>
-                    <div>
-                        <a href="#">9</a>
-                    </div>
-                    <div>
-                        <a href="#">10</a>
-                    </div>
-                </div>
+                </div> -->
 
                 <form action="">
                     <button type='submit' name="btnNopbai">Nộp bài</button>
@@ -191,32 +157,74 @@
                 <p class="bold"><?= $random_id['ten_de'] ?></p>
             </div>
             <div class="box-content">
-                <div class="box-cauhoi">
+                <div class="box-cauhoi" id="question1">
                     <div class="content-cauhoi">
                         <p class='bold'>Câu 1: 1 + 1 = ?</p>
-
                     </div>
                     <div class="box-dapan">
                         <div>
-                            <input type="radio" name="content-dapan" id="dapan" value="">
-                            <label for="dapan">2</label> <br>
+                            <input type="radio" name="content-dapan-1" id="dapan1_1" value="">
+                            <label for="dapan1_1" data-question-id="question1">2</label> <br>
                         </div>
                         <div>
-                            <input type="radio" name="content-dapan" id="dapan" value="">
-                            <label for="dapan">3</label> <br>
+                            <input type="radio" name="content-dapan-1" id="dapan1_2" value="">
+                            <label for="dapan1_2" data-question-id="question1">3</label> <br>
                         </div>
                         <div>
-                            <input type="radio" name="content-dapan" id="dapan" value="">
-                            <label for="dapan">7</label> <br>
+                            <input type="radio" name="content-dapan-1" id="dapan1_3" value="">
+                            <label for="dapan1_3" data-question-id="question1">4</label> <br>
                         </div>
                         <div>
-                            <input type="radio" name="content-dapan" id="dapan" value="">
-                            <label for="dapan">5</label> <br>
+                            <input type="radio" name="content-dapan-1" id="dapan1_4" value="">
+                            <label for="dapan1_4" data-question-id="question1">6</label> <br>
                         </div>
                     </div>
-
                 </div>
-            
+
+                <div class="box-cauhoi" id="question2">
+                    <div class="content-cauhoi">
+                        <p class='bold'>Câu 2: 1 x 1 = ?</p>
+                    </div>
+                    <div class="box-dapan">
+                        <div>
+                            <input type="radio" name="content-dapan-1" id="dapan2_1" value="">
+                            <label for="dapan2_1" data-question-id="question2">2</label> <br>
+                        </div>
+                        <div>
+                            <input type="radio" name="content-dapan-1" id="dapan2_2" value="">
+                            <label for="dapan2_2" data-question-id="question2">1</label> <br>
+                        </div>
+                        <div>
+                            <input type="radio" name="content-dapan-1" id="dapan2_3" value="">
+                            <label for="dapan2_3" data-question-id="question2">4</label> <br>
+                        </div>
+                        <div>
+                            <input type="radio" name="content-dapan-1" id="dapan2_4" value="">
+                            <label for="dapan2_4" data-question-id="question2">6</label> <br>
+                        </div>
+
+                    </div>
+                </div>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        var labels = document.querySelectorAll('label[data-question-id]');
+
+                        labels.forEach(function(label) {
+                            label.addEventListener('click', function() {
+                                var questionId = this.getAttribute('data-question-id');
+                                var questionNumber = questionId.replace('question', '');
+                                // var correspondingQuestion = document.querySelector('.box-left .row-cauhoi:nth-child(' + questionNumber + ') a');
+                                var correspondingQuestion = document.querySelector('.box-left [data-question-id="' + questionId + '"]');
+
+
+                                // Thêm class 'done' vào câu hỏi tương ứng
+                                correspondingQuestion.classList.add('done');
+                            });
+                        });
+                    });
+                </script>
+
+
 
                 <!--Câu hỏi mà có hình ảnh  -->
                 <div class="box-cauhoi">
