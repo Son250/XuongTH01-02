@@ -31,7 +31,10 @@
 .boxleft img,
 .boxright img,
 .boxnews {
-    width: 100%;
+    width: auto;
+    height: auto;
+    max-width: 220px;
+    max-height: 265px;
 }
 
 .container {
@@ -56,6 +59,7 @@
     width: 50%;
     width: calc(50% - 30px);
     position: relative;
+    margin-bottom: 15px;
 }
 
 .kithi .btn {
@@ -194,13 +198,12 @@ input[type=submit]:hover {
     margin: 0px auto;
     padding: 0px;
     max-width: 1200px;
-
+    margin-top: 25px;
 }
 
-.container-thi .title {
+/* .container-thi .title {
     margin-top: 100px;
-}
-
+} */
 .container-thi .title {
     display: flex;
     justify-content: space-between;
@@ -221,10 +224,34 @@ input[type=submit]:hover {
 
 .container-thi .box-left {
     flex-basis: 25%;
+    transition:  all 0.5s;
+}
+#fixedBoxLeft {
+    /* position: relative; */
+    top: 20px;
+    transition: top 0.3s ease; 
 }
 
+.fixed {
+    position: fixed;
+    top: 20px;
+    width: 300px;
+    transition: top 0.3s ease; 
+   
+}
+.fixedTg {
+    position: fixed;
+    top: 20px;
+    right: -56px;
+    width: 300px;
+    transition: top 0.3s ease; 
+}
+.ml-270 {
+    margin-left: 300px;
+}
 .container-thi .box-center {
     flex-basis: 75%;
+    /* margin-left: 270px;  */
 }
 
 .container-thi .box-content div a {
@@ -239,12 +266,21 @@ input[type=submit]:hover {
 }
 
 .container-thi .box-content div a:hover {
-    background-color: #7d7d7d;
+    background-color: #cbf16c;
+    color: white;
+}
+
+.container-thi .box-content div a.done {
+    background-color: gray;
+    /* Màu xám cho câu đã làm */
+    font-weight: bold;
+    /* In đậm */
     color: white;
 }
 
 .container-thi .content-thi .box-content .row-cauhoi {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .container-thi .content-thi .box-content .row-cauhoi div {
@@ -276,6 +312,7 @@ button[name="btnNopbai"] {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 15px;
+    margin-top: 10px;
 
 }
 
@@ -293,7 +330,7 @@ input#dapan {
     width: 18px;
     border-radius: 50%;
     height: 18px;
-    
+
 }
 
 .box-cauhoi {
