@@ -25,10 +25,15 @@ function getold_lichthi($id)
     return $result;
 }
 
+
 function update_lichthi($id, $name,$image_lt, $time_start, $time_end, $time, $so_de_thi)
 {
-
+    if ($image_lt != "") {
     $sql = "UPDATE `lichthi` SET `name`='$name',`image_lt`='$image_lt',`time_start`='$time_start',`time_end`='$time_end',`time`='$time' ,`so_de_thi`='$so_de_thi' WHERE id= $id";
+    }else{
+        $sql = "UPDATE `lichthi` SET `name`='$name',`time_start`='$time_start',`time_end`='$time_end',`time`='$time' ,`so_de_thi`='$so_de_thi' WHERE id= $id";
+
+    }
     pdo_execute($sql);
 }
 // function load_choncauhoi($idlt){
