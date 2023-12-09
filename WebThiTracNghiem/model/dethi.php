@@ -34,7 +34,7 @@ function add_dethi($ten_de, $id_lichthi)
 }
 function loadAll_dethi($id_lichthi)
 {
-    $sql = "SELECT * FROM `dethi` WHERE id_lichthi = $id_lichthi";
-    $dethi = pdo_query($sql);
+    $sql = "SELECT * FROM `dethi` WHERE id_lichthi = '$id_lichthi' ORDER BY RAND() LIMIT 1";
+    $dethi = pdo_query_one($sql);
     return $dethi;
 }
