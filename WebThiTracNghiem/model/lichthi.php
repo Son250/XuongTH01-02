@@ -25,6 +25,12 @@ function getold_lichthi($id)
     return $result;
 }
 
+function getOne_lichthi($id)
+{
+    $sql = "select * from lichthi where id = $id";
+    $result = pdo_query_one($sql);
+    return $result;
+}
 
 function update_lichthi($id, $name,$image_lt, $time_start, $time_end, $time, $so_de_thi)
 {
