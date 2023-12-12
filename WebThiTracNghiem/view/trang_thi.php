@@ -90,8 +90,10 @@
 <div class="container-thi">
     <div class='title'>
         <div class="title-thi">
-            <h2>Thi thử THPT Quốc Gia 2024</h2>
-        </div>
+            <!-- <h2>Thi thử THPT Quốc Gia 2024</h2> -->
+            <?php $tenkithi = loadone_lichthi($id_lichthi) ?>
+            <h2><?php echo $tenkithi['name'] ?></h2>
+        </div> 
         <div class="thoi-gian" id="thoiGian">
             <p>Thời gian còn lại: <span>29:59</span> </p>
         </div>
