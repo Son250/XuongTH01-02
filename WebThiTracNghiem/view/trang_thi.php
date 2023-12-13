@@ -113,7 +113,6 @@
                     </div> -->
 
                 </div>
-
                 <form action="">
                     <button type='submit' name="btnNopbai">Nộp bài</button>
                 </form>
@@ -125,8 +124,7 @@
                 <p class="bold"><?= $list_trangthi['ten_de'] ?></p>
             </div>
             <div class="box-content">
-                
-
+            
                 <!--Câu hỏi mà có hình ảnh  -->
                 <?php foreach ($list_cauhoi as $keych => $listch) :
                     $hinhanh = "../uploads/" . $listch['image'];

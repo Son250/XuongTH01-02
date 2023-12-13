@@ -60,6 +60,7 @@
     width: calc(50% - 30px);
     position: relative;
     margin-bottom: 15px;
+    height: 290px;
 }
 
 .kithi .btn {
@@ -116,7 +117,7 @@ h2 {
 .tenchuyende {
     text-align: center;
     color: white;
-    font-size: 20pt;
+    font-size: 20px;
     font-weight: bold;
     float: left;
     width: 100%;
