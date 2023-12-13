@@ -67,6 +67,7 @@ include "../model/dethi_cauhoi.php" ;
             case "trangthi":
                 if (isset($_GET['id_lichthi'])) {
                     $id_lichthi = $_GET['id_lichthi'];
+                    $lichthi = getOne_lichthi($id_lichthi);
                     // Tải dữ liệu đề thi
                     $list_trangthi = loadAll_dethi($id_lichthi);
                     // Hiển thị nội dung trang_thi.php, chẳng hạn
