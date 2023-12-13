@@ -36,6 +36,12 @@ function update_lichthi($id, $name,$image_lt, $time_start, $time_end, $time, $so
     }
     pdo_execute($sql);
 }
+
+function loadone_lichthi($id){
+    $sql="SELECT * FROM `lichthi` WHERE `id`= $id LIMIT 1";
+    $res = pdo_query_one($sql);
+    return $res;
+}
 // function load_choncauhoi($idlt){
 //     $sql = "SELECT 
 //     chuyende.
