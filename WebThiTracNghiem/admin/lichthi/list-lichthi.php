@@ -1,4 +1,4 @@
-<div class="content-boder-user">
+<div class="container content-boder-user">
     <div class="title-boder-top-user">
         <p>QUẢN LÝ LỊCH THI</p>
     </div>
@@ -25,11 +25,11 @@
 
             <tbody>
                 <?php foreach ($dslt as $key => $value) : extract($value) ?>
-                <?php   $hinhpath = "../uploads/" . $image_lt;
+                    <?php $hinhpath = "../uploads/" . $image_lt;
                     if (is_file($hinhpath)) {
-                         $hinh_lt = "<img src='" . $hinhpath . "' width='100px'>";
+                        $hinh_lt = "<img src='" . $hinhpath . "' width='100px'>";
                     } else {
-                         $hinh_lt = "";
+                        $hinh_lt = "";
                     } ?>
                     <tr>
                         <td><?php echo $id ?></td>
@@ -38,7 +38,7 @@
                         <td><?php echo $time_start ?></td>
                         <td><?php echo $time_end ?></td>
                         <td><?php echo $time ?>p</td>
-                     
+
                         <td><?php echo $so_de_thi ?></td>
                         <td><a href="?act=chon_cauhoi&idlt=<?php echo $id ?>">Chọn câu hỏi</a>
                             <a href="?act=editlt&idlt=<?php echo $id ?>">Sửa</a>

@@ -1,5 +1,5 @@
 <body>
-    <div class="container">
+    <div class="container_admin">
 
         <div class="menu">
             <ul class="main-menu">

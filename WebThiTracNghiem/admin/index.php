@@ -323,7 +323,7 @@ include "menu.php";
                         $key = 'selected_ch_de' . $i;
                         if (isset($_POST[$key])) {
                             // Lấy danh sách các câu hỏi đã được chọn từ checkbox đề 1
-                            // $id_dethi = $_POST['id_dethi'];
+                         
                             $selectedQuestions = $_POST[$key];
 
                             foreach ($selectedQuestions as $key => $value) {

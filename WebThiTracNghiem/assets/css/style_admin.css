@@ -1,6 +1,7 @@
 .container {
     margin: 0px auto;
     padding: 0px;
+    min-height: 450px;
     /* max-width: 1200px; */
 }
 
@@ -73,7 +74,7 @@
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    max-width: 960px;
+    max-width: 1200px;
     margin: 0px auto;
     align-items: center;
     position: relative;
@@ -91,18 +92,18 @@
     text-decoration: none;
 }
 
-.menu ul.main-menu li:hover:not(li.logo-cong-ty, .login) {
+/* .menu ul.main-menu li:hover:not(li.logo-cong-ty, .login) {
     background-color: green;
-}
+} */
 
 .menu ul.main-menu li:hover:not(.login) a {
-    color: white;
+    color: red;
 }
 
 .menu ul.main-menu li.login {
     position: absolute;
-    right: 0px;
-    top: 15px;
+    right: 5px;
+    top: 17px;
     z-index: 3;
 }
 
@@ -313,10 +314,11 @@ h3 {
 
 .footer-trangchu {
     margin-top: 150px;
-    padding: 10px;
+    padding: 12px 0px 2px 0px;
     background-color: blanchedalmond;
+    text-align: center;
+    margin-bottom: 5px;
 }
-
 
 /* CSS Quản lý tài khoản  */
 
@@ -524,4 +526,16 @@ table.table.table_dsch {
     width: 22px;
     height: 22px;
     margin-top: 18px;
+}
+
+/* CSS Danh sách đề thi  */
+select.loc_dethi {
+    height: 32px;
+    border-radius: 5px;
+    width: 300px;
+    text-indent: 10px;
+}
+
+.add-user button.btn {
+    margin-top: 0px;
 }

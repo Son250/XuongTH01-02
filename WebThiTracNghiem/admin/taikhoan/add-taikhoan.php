@@ -1,4 +1,4 @@
-<div class="content-boder-user">
+<div class="container content-boder-user">
     <div class="title-boder-top-user ">
         <p>Tài khoản</p>
     </div>

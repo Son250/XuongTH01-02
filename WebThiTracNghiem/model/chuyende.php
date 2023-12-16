@@ -25,6 +25,11 @@ function loadone_chuyende($id_cd)
 
 function update_chuyende($id_cd, $name, $image_cd)
 {
-    $sql = "UPDATE  chuyende SET name='" . $name . "' , image_cd ='".$image_cd."' where id_cd=" . $id_cd;
+    if($image_cd != ""){
+        $sql = "UPDATE  chuyende SET name='" . $name . "' , image_cd ='".$image_cd."' where id_cd=" . $id_cd;
+    }else {
+        $sql = "UPDATE  chuyende SET name='" . $name . "' where id_cd=" . $id_cd;
+    }
+  
     pdo_execute($sql);
 }

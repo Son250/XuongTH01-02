@@ -8,15 +8,16 @@
     <div>
         <div>
             <form action="?act=dsdt" method="post">
-                <select name="id_lichthi" id="">
+                <select name="id_lichthi" id="" class='loc_dethi'>
                     <option value="" hidden>--Chọn kỳ thi --</option>
                     <?php foreach ($ds_lichthi as $key => $value) : ?>
                         <option value="<?= $value['id'] ?>"><?= $value['name'] ?></option>
                     <?php endforeach; ?>
                 </select>
-                <button type="submit" name="btnTimkiem">Tìm kiếm</button>
+                <button class="btn" type="submit" name="btnTimkiem">Tìm kiếm</button>
             </form>
         </div>
+        <br>
         <table class="table table_dsch">
             <tr>
                 <th>Tên kỳ thi</th>
@@ -45,7 +46,7 @@
                     <td><?= $key + 1 ?></td>
                     <td><?= $ten_cauhoi . "</br>" ?></td>
                     <td>
-                        <a class="btn" href="">Sửa</a>
+                        <!-- <a class="btn" href="">Sửa</a> -->
                         <a class="btn" href="">Xóa</a>
                     </td>
                 </tr>

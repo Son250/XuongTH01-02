@@ -1805,9 +1805,11 @@ section {
 }
 
 #footer .footer-bottom {
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding-top: 22px;
+  padding-bottom: 15px;
   color: #fff;
+  max-width: 1200px;
+  margin: 0px auto;
 }
 
 #footer .copyright {

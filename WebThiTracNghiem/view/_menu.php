@@ -1,6 +1,6 @@
 <!-- ======= Menu ======= -->
 <header id="header" class="">
-  <div class="container d-flex align-items-center">
+  <div class="container-header d-flex align-items-center">
 
     <h1 class="logo me-auto"><a href="?act=trangchu">Arsha</a></h1>
     <!-- Uncomment below if you prefer to use an image logo -->

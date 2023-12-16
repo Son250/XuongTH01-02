@@ -9,7 +9,7 @@ if (is_file($hinhpath)) {
     $hinh = "";
 }
 ?>
-<div class="content-boder-user">
+<div class="container content-boder-user">
     <div class="title-boder-top-user">
         <p>THÊM MỚI ĐÁP ÁN</p>
     </div>

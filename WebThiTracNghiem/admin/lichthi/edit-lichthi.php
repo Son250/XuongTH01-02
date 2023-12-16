@@ -1,72 +1,72 @@
 <script language="javascript">
-        var timeout = null;
+    var timeout = null;
 
-        function calculateEndTime() {
-            // Lấy giá trị nhập vào
-            var startDateTime = document.getElementById('start_datetime').value;
-            var durationMinutes = parseInt(document.getElementById('duration').value);
+    function calculateEndTime() {
+        // Lấy giá trị nhập vào
+        var startDateTime = document.getElementById('start_datetime').value;
+        var durationMinutes = parseInt(document.getElementById('duration').value);
 
-            // Tính thời gian kết thúc
-            var endTime = calculateEndTimeFromDuration(startDateTime, durationMinutes);
+        // Tính thời gian kết thúc
+        var endTime = calculateEndTimeFromDuration(startDateTime, durationMinutes);
 
-            // Hiển thị kết quả và bắt đầu đếm ngược
-            updateResult(endTime);
+        // Hiển thị kết quả và bắt đầu đếm ngược
+        updateResult(endTime);
 
-            // Bắt đầu đếm ngược
-            updateCountdown(endTime);
-        }
+        // Bắt đầu đếm ngược
+        updateCountdown(endTime);
+    }
 
-        function calculateEndTimeFromDuration(startDateTime, durationMinutes) {
-            var startDateTimeObj = new Date(startDateTime);
-            var endDateTime = new Date(startDateTimeObj.getTime() + durationMinutes * 60000); // Convert minutes to milliseconds
-            return endDateTime;
-        }
+    function calculateEndTimeFromDuration(startDateTime, durationMinutes) {
+        var startDateTimeObj = new Date(startDateTime);
+        var endDateTime = new Date(startDateTimeObj.getTime() + durationMinutes * 60000); // Convert minutes to milliseconds
+        return endDateTime;
+    }
 
-        function formatDateTime(dateTime) {
-            var year = dateTime.getFullYear();
-            var month = dateTime.getMonth() + 1; // Month is zero-based
-            var day = dateTime.getDate();
-            var hours = dateTime.getHours();
-            var minutes = dateTime.getMinutes();
+    function formatDateTime(dateTime) {
+        var year = dateTime.getFullYear();
+        var month = dateTime.getMonth() + 1; // Month is zero-based
+        var day = dateTime.getDate();
+        var hours = dateTime.getHours();
+        var minutes = dateTime.getMinutes();
 
-            return year + '-' + formatTimeUnit(month) + '-' + formatTimeUnit(day) + ' ' + formatTimeUnit(hours) + ':' + formatTimeUnit(minutes);
-        }
+        return year + '-' + formatTimeUnit(month) + '-' + formatTimeUnit(day) + ' ' + formatTimeUnit(hours) + ':' + formatTimeUnit(minutes);
+    }
 
-        function formatTimeUnit(unit) {
-            return unit < 10 ? '0' + unit : unit;
-        }
+    function formatTimeUnit(unit) {
+        return unit < 10 ? '0' + unit : unit;
+    }
 
-        function updateResult(endTime) {
-            // Display the calculated end date and time
-            document.getElementById('end_time_input').value = formatDateTime(endTime);
-            document.getElementById('end_time_span').innerText = formatDateTime(endTime);
-        }
+    function updateResult(endTime) {
+        // Display the calculated end date and time
+        document.getElementById('end_time_input').value = formatDateTime(endTime);
+        document.getElementById('end_time_span').innerText = formatDateTime(endTime);
+    }
 
-        function updateCountdown(endTime) {
-            // Update countdown every second
-            timeout = setInterval(function() {
-                var currentTime = new Date();
-                var timeDifference = endTime - currentTime;
+    function updateCountdown(endTime) {
+        // Update countdown every second
+        timeout = setInterval(function() {
+            var currentTime = new Date();
+            var timeDifference = endTime - currentTime;
 
-                // Check if the countdown has reached zero
-                if (timeDifference <= 0) {
-                    clearInterval(timeout);
-                    document.getElementById('end_time_input').value = 'Hết giờ';
-                    document.getElementById('end_time_span').innerText = 'Hết giờ';
-                } else {
-                    // Calculate hours, minutes, and seconds
-                    var hours = Math.floor(timeDifference / 3600000);
-                    var minutes = Math.floor((timeDifference % 3600000) / 60000);
-                    var seconds = Math.floor((timeDifference % 60000) / 1000);
+            // Check if the countdown has reached zero
+            if (timeDifference <= 0) {
+                clearInterval(timeout);
+                document.getElementById('end_time_input').value = 'Hết giờ';
+                document.getElementById('end_time_span').innerText = 'Hết giờ';
+            } else {
+                // Calculate hours, minutes, and seconds
+                var hours = Math.floor(timeDifference / 3600000);
+                var minutes = Math.floor((timeDifference % 3600000) / 60000);
+                var seconds = Math.floor((timeDifference % 60000) / 1000);
 
-                    // Display the countdown
-                    document.getElementById('end_time_input').value = formatTimeUnit(hours) + ':' + formatTimeUnit(minutes) + ':' + formatTimeUnit(seconds);
-                    document.getElementById('end_time_span').innerText = formatTimeUnit(hours) + ':' + formatTimeUnit(minutes) + ':' + formatTimeUnit(seconds);
-                }
-            }, 1000);
-        }
-    </script>
-<div class="content-boder-user">
+                // Display the countdown
+                document.getElementById('end_time_input').value = formatTimeUnit(hours) + ':' + formatTimeUnit(minutes) + ':' + formatTimeUnit(seconds);
+                document.getElementById('end_time_span').innerText = formatTimeUnit(hours) + ':' + formatTimeUnit(minutes) + ':' + formatTimeUnit(seconds);
+            }
+        }, 1000);
+    }
+</script>
+<div class="container content-boder-user">
     <div class="title-boder-top-user">
         <p>
             Cập Nhật Lịch thi
@@ -82,11 +82,11 @@
         <div class="mb-3">
             <label class="form-label">Hình ảnh</label> <br>
             <?php
-                    if ($olddata['image_lt'] != "" && $olddata['image_lt'] != null) {
-                        echo "<img width='150' src='../uploads/{$olddata['image_lt']}'>";
-                    }
+            if ($olddata['image_lt'] != "" && $olddata['image_lt'] != null) {
+                echo "<img width='150' src='../uploads/{$olddata['image_lt']}'>";
+            }
 
-                    ?>
+            ?>
             <input class="form-control" type="file" name="image_lt">
         </div>
         <div>

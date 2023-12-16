@@ -4,7 +4,7 @@
   <footer id="footer">
 
     <div class="footer-newsletter">
-      <div class="container">
+      <div class="">
         <div class="row justify-content-center">
           <div class="col-lg-6">
             <h4>Join Our Newsletter</h4>
@@ -70,7 +70,7 @@
       </div>
     </div>
 
-    <div class="container footer-bottom clearfix">
+    <div class=" footer-bottom clearfix">
       <div class="copyright">
         &copy; Copyright <strong><span>Arsha</span></strong>. All Rights Reserved
       </div>

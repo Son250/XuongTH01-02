@@ -14,7 +14,7 @@
                         <p>Chuyên đề</p>
                     </div>
                     <div class='xem-chi-tiet'>
-                        <a href="?act=dscd">Xem chi tiết >></a>
+                        <a href="?act=dscd">Xem chi tiết</a>
                     </div>
                 </div>
                 <div class="box bg-yellow">
@@ -26,7 +26,7 @@
                         <p>Câu hỏi</p>
                     </div>
                     <div class='xem-chi-tiet'>
-                        <a href="?act=dsch">Xem chi tiết >></a>
+                        <a href="?act=dsch">Xem chi tiết</a>
                     </div>
                 </div>
                 <div class="box bg-green">
@@ -38,7 +38,7 @@
                         <p>Kỳ thi</p>
                     </div>
                     <div class='xem-chi-tiet'>
-                        <a href="?act=dskt">Xem chi tiết >></a>
+                        <a href="?act=dskt">Xem chi tiết</a>
                     </div>
                 </div>
                 <div class="box bg-red">
@@ -50,7 +50,7 @@
                         <p>Bảng biểu</p>
                     </div>
                     <div class='xem-chi-tiet'>
-                        <a href="?act=dsbb">Xem chi tiết >></a>
+                        <a href="?act=dsbb">Xem chi tiết</a>
                     </div>
                 </div>
             </div>

@@ -1,4 +1,4 @@
-<div class="content-boder-user">
+<div class="container content-boder-user">
     <div class="title-boder-top-user">
         <p>DANH SÁCH ĐÁP ÁN</p>
     </div>

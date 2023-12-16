@@ -1,3 +1,7 @@
+.container-header {
+    max-width: 1134px;
+    margin: 0px auto;
+}
 /* trang thi */
 
 .khung {
@@ -301,7 +305,7 @@ button[name="btnNopbai"] {
 
 .content-cauhoi p {
     margin-bottom: 0px;
-    font-size: 17px;
+    font-size: 19px;
 }
 
 .content-cauhoi .img-cauhoi img {
@@ -317,9 +321,15 @@ button[name="btnNopbai"] {
 
 }
 
+
 .box-dapan label {
     padding: 0px;
     margin: 0px;
+    font-size: 17px;
+}
+.box-dapan input {
+    width: 19px;
+    height: 19px;
 }
 
 .box-dapan img {
@@ -337,3 +347,4 @@ input#dapan {
 .box-cauhoi {
     margin-bottom: 10px;
 }
+
