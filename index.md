@@ -84,13 +84,15 @@
         (tham khảo các trang khác như: tracnghiem.net): Thắm
 
 3.6. Chia việc ngày 19/12/2023
-        + Ở trang thêm Đáp án, nếu ko chọn đáp án Đúng thì sẽ ko cho submit 
-        + Sửa nhiều đáp án đúng/ 1 đáp án đúng
-        + Lưu đáp án (cùng vs id_ch) ng dùng chọn vào mảng để lặp r tính điểm
+        + Ở trang Thêm Đáp án, vd nếu nhập 4 đáp án mà ko có 1 đáp án Đúng thì sẽ ko cho submit: Hoàng
+        + Sửa 1 đáp án đúng thôi, nếu admin nhập thừa hay thiếu đáp án đúng
+         thì thông báo alert và ko cho submit: Thắm
+        + Lưu đáp án (lưu id_da và id_ch)(ng dùng thi) vào mảng: Thanh
         + Tính điểm: vòng lặp $tongdiem = 0; 10đ:40 (40 là tổng số câu hỏi) = 0,25 ;
         Nếu có 1 câu đúng thì $tongdiem + 0,25;
-        Ví dụ 20 câu đúng => 20 x 0,25 = 5điểm 
-        + Cắt giao diện trang chủ
+        Ví dụ 20 câu đúng => 20 x 0,25 = 5điểm : Cả nhóm
+        + Cắt giao diện tất cả : Sơn
+        + Trang Đăng ký tài khoản và Thông tin tài khoản (code html,css và php): Trang
 
 ## Cơ sở dữ liệu
     tai_khoan:
