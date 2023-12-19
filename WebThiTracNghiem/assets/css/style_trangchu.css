@@ -216,6 +216,7 @@ input[type=submit]:hover {
 
 .container-thi .thoi-gian {
     color: black;
+    font-style: italic;
 }
 
 
@@ -305,7 +306,7 @@ button[name="btnNopbai"] {
 
 .content-cauhoi p {
     margin-bottom: 0px;
-    font-size: 19px;
+    font-size: 16px;
 }
 
 .content-cauhoi .img-cauhoi img {
@@ -321,11 +322,10 @@ button[name="btnNopbai"] {
 
 }
 
-
 .box-dapan label {
     padding: 0px;
     margin: 0px;
-    font-size: 17px;
+    font-size: 16px;
 }
 .box-dapan input {
     width: 19px;

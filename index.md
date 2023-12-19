@@ -83,6 +83,15 @@
         + Sửa lại giao diện Trang chủ người dùng cho thật đẹp,sửa ảnh, sửa css 
         (tham khảo các trang khác như: tracnghiem.net): Thắm
 
+3.6. Chia việc ngày 19/12/2023
+        + Ở trang thêm Đáp án, nếu ko chọn đáp án Đúng thì sẽ ko cho submit 
+        + Sửa nhiều đáp án đúng/ 1 đáp án đúng
+        + Lưu đáp án (cùng vs id_ch) ng dùng chọn vào mảng để lặp r tính điểm
+        + Tính điểm: vòng lặp $tongdiem = 0; 10đ:40 (40 là tổng số câu hỏi) = 0,25 ;
+        Nếu có 1 câu đúng thì $tongdiem + 0,25;
+        Ví dụ 20 câu đúng => 20 x 0,25 = 5điểm 
+        + Cắt giao diện trang chủ
+
 ## Cơ sở dữ liệu
     tai_khoan:
         + id: PK
