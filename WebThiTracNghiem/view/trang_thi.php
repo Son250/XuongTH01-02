@@ -182,7 +182,7 @@
                             ?>
 
                                 <div>
-                                    <input type="radio" name="content-dapan-<?php echo $keych + 1  ?>" id="dapan<?= $keych + 1 ?>_<?= $keyda + 1 ?>" value="" data-question-id="question<?= $keych + 1 ?>">
+                                    <input type="radio" name="content-dapan-<?php echo $keych + 1  ?>" id="dapan<?= $keych + 1 ?>_<?= $keyda + 1 ?>" value="<?php echo $dapan['content_dapan'] ?>" data-question-id="question<?= $keych + 1 ?>">
                                     <label for="dapan<?= $keych + 1 ?>_<?= $keyda + 1 ?>" data-question-id="question<?= $keych + 1 ?>"><?php echo $dapan['content_dapan'] ?></label> <br>
                                     <!-- <img src="../assets/img/banner0.webp" alt=""> -->
                                     <?= $img ?>

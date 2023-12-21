@@ -87,6 +87,9 @@ include "../model/dethi_cauhoi.php";
 
                 include 'trang_thi.php';
                 break;
+            case 'baithi':
+                
+                break;
             default:
 
                 include "home.php";
